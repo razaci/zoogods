@@ -1,67 +1,771 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>ZOO GODS: Wildlife Command</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ZOO GODS // Phase 1 Step 10</title>
 <style>
-*{box-sizing:border-box}:root{--bg:#07110d;--panel:#0d1b16;--line:#2f6b4d;--text:#e9fff1;--muted:#9fc7ad;--good:#7ef29b;--warn:#ffd166;--bad:#ff7b7b}
-body{margin:0;background:radial-gradient(circle at 50% -10%,#1d4631 0,#07110d 40%,#030806 100%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
-button{font:inherit;color:inherit}header{position:sticky;top:0;z-index:20;background:#07110df2;border-bottom:1px solid #315c46;padding:10px 12px;backdrop-filter:blur(10px)}
-.head{max-width:1200px;margin:auto;display:flex;align-items:center;gap:10px}h1{font-size:clamp(18px,5vw,28px);margin:0;letter-spacing:.08em}.tag{color:#a9dabb;font-size:11px}.money{margin-left:auto;border:1px solid #4c8;padding:7px 10px;border-radius:12px;background:#0d2519;white-space:nowrap}
-nav{max-width:1200px;margin:8px auto 0;display:flex;gap:6px;overflow:auto;padding-bottom:2px}nav button,.btn{border:1px solid #3d7456;background:linear-gradient(#173526,#0c2117);border-radius:10px;padding:8px 11px;cursor:pointer;white-space:nowrap}
-nav button.active,.btn:hover{outline:1px solid #8ee5a9;background:#1c4930}main{max-width:1200px;margin:auto;padding:12px}.screen{display:none}.screen.active{display:block}
-.hero{min-height:260px;border:1px solid #396b50;border-radius:22px;overflow:hidden;position:relative;background:linear-gradient(#6ea5a3 0 36%,#4e783f 36% 70%,#29482f 70%);box-shadow:0 15px 50px #0008 inset}
-.sun{position:absolute;width:80px;height:80px;border-radius:50%;background:#fff2b0;right:9%;top:25px;box-shadow:0 0 40px #fff6}.grass{position:absolute;inset:auto 0 0;height:45%;background:repeating-linear-gradient(75deg,#244b2e 0 5px,#315f38 6px 10px);opacity:.75}
-.heroTitle{position:absolute;left:18px;top:18px;padding:10px 14px;border-radius:14px;background:#04100dcf;border:1px solid #77a98b}.herd{position:absolute;inset:80px 15px 10px;display:flex;align-items:end;justify-content:space-around;font-size:clamp(40px,10vw,92px);filter:drop-shadow(0 12px 6px #0007)}.herd span:nth-child(2n){transform:translateY(-20px) scale(.8)}.herd span:nth-child(3n){transform:translateY(-5px) scale(1.15)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:12px}.card{background:linear-gradient(145deg,#10271c,#091610);border:1px solid #315e47;border-radius:16px;padding:12px;box-shadow:0 7px 22px #0005}.card h3{margin:3px 0 6px}.big{font-size:50px}.muted{color:var(--muted);font-size:13px}.bar{height:8px;background:#06100b;border-radius:10px;overflow:hidden;margin:4px 0 8px}.bar i{display:block;height:100%;background:linear-gradient(90deg,#d8bb55,#74e99a);border-radius:10px}
-.zone{min-height:130px;cursor:pointer;position:relative;overflow:hidden}.zone .emoji{position:absolute;right:8px;bottom:-5px;font-size:70px;opacity:.9}.badge{display:inline-block;border:1px solid #46785c;border-radius:999px;padding:3px 7px;font-size:11px;margin:2px;background:#10271b}
-.toolbar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}select,input{background:#091a12;color:#fff;border:1px solid #3b6b51;border-radius:9px;padding:9px}.animal{cursor:pointer}.animal:hover{border-color:#7ee69f;transform:translateY(-1px)}.animalTop{display:flex;gap:10px;align-items:center}.animalIcon{font-size:44px;width:58px;height:58px;display:grid;place-items:center;background:#173526;border-radius:50%}
-.modal{position:fixed;z-index:40;inset:0;background:#000b;display:none;padding:12px;overflow:auto}.modal.open{display:block}.sheet{max-width:720px;margin:4vh auto;background:#0a1811;border:1px solid #57906b;border-radius:22px;padding:16px;box-shadow:0 20px 80px #000}.portrait{height:190px;border-radius:18px;display:grid;place-items:center;font-size:120px;background:radial-gradient(circle,#4b7650,#1c3e2b 55%,#0b1b13);position:relative;overflow:hidden}.portrait:after{content:"";position:absolute;bottom:0;width:100%;height:35%;background:repeating-linear-gradient(80deg,#183c23 0 5px,#2e6137 6px 10px);z-index:0}.portrait span{z-index:1;filter:drop-shadow(0 15px 8px #0007)}.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}.actions{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:12px}.actions button{min-height:48px}.alert{border-color:#8d6634}.log{max-height:250px;overflow:auto;font-size:13px}.log div{padding:7px;border-bottom:1px solid #21412f}.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:10px 0}.kpi .card{text-align:center;padding:8px}.kpi b{display:block;font-size:20px}@media(max-width:560px){.kpi{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr 1fr}.animal{grid-column:span 1;padding:9px}.animal .muted{font-size:11px}.big{font-size:40px}}@media(max-width:390px){.grid{grid-template-columns:1fr}}
-.toast{position:fixed;z-index:60;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:#dfffe8;color:#082010;padding:10px 16px;border-radius:12px;transition:.25s;box-shadow:0 8px 30px #0009}.toast.show{transform:translateX(-50%) translateY(0)}
-</style></head><body>
-<header><div class="head"><div><h1>ZOO GODS</h1><div class="tag">WILDLIFE COMMAND · LIVING ZOO SIMULATION</div></div><div class="money">💰 <b id="funds">$12,500</b></div></div>
-<nav><button data-screen="command" class="active">Command</button><button data-screen="map">Zoo Map</button><button data-screen="animals">Animals</button><button data-screen="rounds">Keeper Rounds</button><button data-screen="hospital">Hospital</button><button data-screen="commissary">Food Prep</button><button data-screen="records">Records</button></nav></header>
-<main>
-<section id="command" class="screen active">
-<div class="hero"><div class="sun"></div><div class="grass"></div><div class="heroTitle"><b>Wildlife Park · Morning Shift</b><br><span class="muted">Your animals are waiting for keeper rounds.</span></div><div class="herd"><span>🦒</span><span>🦓</span><span>🐘</span><span>🦏</span><span>🦁</span></div></div>
-<div class="kpi"><div class="card"><b id="animalCount">0</b><span class="muted">Animals</span></div><div class="card"><b id="zoneCount">0</b><span class="muted">Habitats</span></div><div class="card"><b id="needsCount">0</b><span class="muted">Needs Attention</span></div><div class="card"><b id="welfare">0%</b><span class="muted">Zoo Welfare</span></div></div>
-<div class="grid"><div class="card"><h3>🧑‍🌾 Keeper Shift</h3><p>Inspect habitats, prepare diets, clean spaces, provide enrichment and build trust with individual animals.</p><button class="btn" onclick="go('rounds')">Begin Morning Rounds</button></div><div class="card"><h3>🩺 Veterinary Hospital</h3><p id="medAlert">No critical cases.</p><button class="btn" onclick="go('hospital')">Open Hospital</button></div><div class="card"><h3>🥬 Commissary</h3><p>Prepare diet batches before feeding rounds. Species have different diet groups.</p><button class="btn" onclick="go('commissary')">Prepare Food</button></div><div class="card"><h3>📋 Daily Goal</h3><p>Bring every resident above 65% hunger, hydration, cleanliness and enrichment.</p><span class="badge" id="goalState">IN PROGRESS</span></div></div>
-</section>
-<section id="map" class="screen"><h2>Zoo Map</h2><p class="muted">Choose a habitat district to inspect its residents.</p><div id="zones" class="grid"></div></section>
-<section id="animals" class="screen"><h2>Animal Collection</h2><div class="toolbar"><input id="search" placeholder="Search animal/species…" oninput="renderAnimals()"><select id="filter" onchange="renderAnimals()"><option value="">All habitats</option></select></div><div id="animalGrid" class="grid"></div></section>
-<section id="rounds" class="screen"><h2>Keeper Rounds</h2><p class="muted">Priority residents are sorted by their lowest care score. Open each animal and perform the care it actually needs.</p><div id="roundGrid" class="grid"></div></section>
-<section id="hospital" class="screen"><h2>Wildlife Hospital</h2><div class="card"><h3>🩺 Triage Board</h3><p>This is a fictional care simulation. Animals below 72 health are automatically placed on the board.</p></div><div id="hospitalGrid" class="grid"></div></section>
-<section id="commissary" class="screen"><h2>Commissary & Food Prep</h2><p class="muted">Prepare diet stores, then feeding an animal consumes one matching ration.</p><div id="foodGrid" class="grid"></div></section>
-<section id="records" class="screen"><h2>Zoo Records</h2><div class="card"><h3>Shift Log</h3><div id="log" class="log"></div></div><button class="btn" onclick="resetGame()">Reset Zoo Save</button></section>
-</main>
-<div id="modal" class="modal" onclick="if(event.target===this)closeAnimal()"><div class="sheet"><button class="btn" style="float:right" onclick="closeAnimal()">✕ Close</button><div id="animalSheet"></div></div></div><div id="toast" class="toast"></div>
+:root{--bg:#03090d;--panel:#07131a;--panel2:#0a1d25;--line:#1f6170;--hot:#80f7e2;--text:#c8e8e7;--muted:#6f9ca2;--warn:#ffcf6a;--bad:#ff7676}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#000;color:var(--text);font:14px/1.35 ui-monospace,SFMono-Regular,Consolas,monospace}
+button,input,textarea{font:inherit}button{color:var(--text)}
+#boot{position:fixed;inset:0;z-index:9999;background:#010304;padding:6vh 7vw;color:#9ce9d9;white-space:pre-wrap}
+#boot .logo{font-size:clamp(22px,4vw,48px);letter-spacing:.18em;color:#e7fffb;margin-bottom:28px}
+#bootlog{max-width:900px;color:#78b7ae}.blink{animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}
+#desktop{position:fixed;inset:0;background:
+radial-gradient(circle at 78% 18%,#0a2c34 0,transparent 30%),
+linear-gradient(145deg,#02080c,#06141b 50%,#020609);display:none;overflow:hidden}
+#desktop:after{content:"";pointer-events:none;position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(125,255,235,.025) 4px)}
+.topbar{height:34px;position:absolute;left:0;right:0;top:0;z-index:1000;background:rgba(3,12,16,.93);border-bottom:1px solid #17424b;display:flex;align-items:center;gap:12px;padding:0 10px}
+.brand{color:#bafff3;letter-spacing:.15em;font-weight:800}.status{margin-left:auto;display:flex;gap:13px;color:#78acae;font-size:12px}.led{display:inline-block;width:7px;height:7px;border-radius:50%;background:#71f5c6;box-shadow:0 0 9px #71f5c6;margin-right:5px}
+#icons{position:absolute;top:50px;left:14px;display:grid;grid-template-columns:repeat(2,88px);gap:13px}
+.icon{height:80px;border:1px solid transparent;background:transparent;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer}
+.icon:hover{background:#0b263080;border-color:#28606b}.glyph{font-size:28px;color:#8ff8e4;text-shadow:0 0 12px #3ee0c3}.icon small{font-size:11px}
+#hud{position:absolute;right:16px;top:55px;width:min(340px,42vw);background:#061118c9;border:1px solid #194650;padding:12px;box-shadow:0 14px 40px #0008}
+.hudTitle{letter-spacing:.18em;color:#8ce6db;font-size:11px;margin-bottom:10px}.meter{height:8px;background:#031015;border:1px solid #16434c;margin:5px 0 10px}.fill{height:100%;background:linear-gradient(90deg,#297f80,#8ff1d9);width:30%;transition:.4s}.tiny{font-size:10px;color:#6f9ca2}
+.window{position:absolute;display:none;width:min(760px,86vw);height:min(520px,72vh);left:14vw;top:12vh;background:#06131aee;border:1px solid #28626c;box-shadow:0 20px 70px #000b,0 0 25px #2c8b8722;z-index:20;min-width:280px;min-height:180px;resize:both;overflow:hidden}
+.titlebar{height:34px;background:#0a2028;display:flex;align-items:center;padding:0 9px;border-bottom:1px solid #24505b;cursor:move;user-select:none}
+.titlebar b{letter-spacing:.1em}.winBtns{margin-left:auto;display:flex;gap:6px}.winBtns button{width:27px;height:23px;border:1px solid #2b5b64;background:#07161c;cursor:pointer}
+.content{height:calc(100% - 34px);overflow:auto;padding:12px}
+.toolbar{display:flex;gap:7px;margin-bottom:10px;flex-wrap:wrap}.toolbar button,.action{background:#0a252d;border:1px solid #2a6972;padding:7px 10px;cursor:pointer}.toolbar button:hover,.action:hover{background:#123842}
+input,textarea{background:#020a0e;color:#c9fff4;border:1px solid #24535c;padding:8px;outline:none}input:focus,textarea:focus{border-color:#77e5d3}
+.netbar{display:flex;gap:7px}.netbar input{flex:1}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px;margin-top:12px}.card{border:1px solid #18434c;background:#081b22;padding:12px;cursor:pointer}.card:hover{border-color:#66cbbb}.card b{color:#aaf6e8}
+#terminalOut{height:calc(100% - 45px);overflow:auto;white-space:pre-wrap;color:#a8e5da}.promptrow{display:flex;align-items:center;gap:6px}.promptrow input{flex:1;border:0;border-top:1px solid #1c4850;background:#02090c}
+.filegrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}.file{padding:12px;border:1px solid #19454e;background:#07191f;cursor:pointer}.file:hover{background:#0d2931}.file .ft{font-size:24px}
+.sysgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.module{border:1px solid #1c4d57;padding:12px;background:#071920}.big{font-size:24px;color:#9df3e3}
+#notesArea{width:100%;height:75%;resize:none}.saveMsg{color:#7df0c7;margin-left:8px}
+.taskbar{position:absolute;z-index:1001;left:0;right:0;bottom:0;height:42px;background:#041015ed;border-top:1px solid #17434b;display:flex;align-items:center;padding:5px 8px;gap:7px}
+.start{height:31px;background:#0b2932;border:1px solid #2d6972;padding:0 12px;cursor:pointer}.tasks{display:flex;gap:5px;overflow:auto}.task{height:30px;background:#071a21;border:1px solid #1d4c55;padding:0 10px;cursor:pointer}
+#startMenu{display:none;position:absolute;left:8px;bottom:46px;width:250px;background:#06161dcc;border:1px solid #2a5e68;z-index:1100;padding:10px;box-shadow:0 18px 50px #000b}.menuitem{padding:9px;border-bottom:1px solid #12343b;cursor:pointer}.menuitem:hover{background:#0c2c34}
+#toast{position:absolute;right:12px;bottom:55px;z-index:1200;max-width:320px;background:#081c22;border:1px solid #37717a;padding:12px;display:none}
+@media(max-width:650px){#hud{display:none}#icons{grid-template-columns:88px}.window{left:4vw!important;top:7vh!important;width:92vw!important;height:78vh!important;resize:none}.status .hideMob{display:none}.sysgrid{grid-template-columns:1fr}}
+
+#networkCanvas{width:100%;height:300px;border:1px solid #1c4d57;background:#02090d;display:block}
+.logline{padding:7px 8px;border-bottom:1px solid #12343b}.logline:hover{background:#0a252d}
+.badge{display:inline-block;border:1px solid #2d6972;padding:2px 6px;margin:2px;font-size:10px;color:#8ff1d9}
+.deviceBox{border:1px solid #6e5d2b;background:#1c1708;padding:12px;margin-top:10px}
+.deviceBox b{color:#ffcf6a}
+.signal{height:50px;display:flex;align-items:end;gap:3px;margin-top:8px}
+.signal i{display:block;width:5px;background:#6fe3d1;animation:sig 1.2s ease-in-out infinite alternate}
+.signal i:nth-child(2n){animation-delay:.25s}.signal i:nth-child(3n){animation-delay:.55s}
+@keyframes sig{from{height:8px;opacity:.35}to{height:45px;opacity:1}}
+
+.toolgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:9px}
+.toolcard{border:1px solid #1b4a54;background:#071a21;padding:12px}.toolcard h4{margin:0 0 8px;color:#a9f6e7}
+.calcrow{display:flex;gap:5px;flex-wrap:wrap}.calcrow button{min-width:42px}
+#calcDisplay{width:100%;font-size:20px;text-align:right;margin-bottom:7px}
+.hexout{white-space:pre-wrap;word-break:break-all;color:#8fdcca}
+.mountslot{border:1px dashed #7e692d;padding:16px;background:#171307;text-align:center;margin:12px 0}
+.progress{height:12px;border:1px solid #295761;background:#02090d}.progress>i{display:block;height:100%;width:0;background:#79e7d3;transition:width .35s}
+
+.browserFrame{border:1px solid #1b4a54;background:#031015;min-height:300px;padding:14px}
+.browserHead{display:flex;gap:6px;margin-bottom:10px}.browserHead input{flex:1}
+.bookmarks{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}.bookmarks button{font-size:11px}
+.proc{display:grid;grid-template-columns:1.5fr .7fr .7fr .7fr;gap:8px;padding:8px;border-bottom:1px solid #12343b}
+.proc:nth-child(even){background:#071a21}.procHead{color:#70cfc2;font-size:10px}
+.notif{border-left:3px solid #65d9c8;background:#071b21;padding:9px;margin:7px 0}
+
+.animalgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:9px}
+.animalcard{border:1px solid #20505a;background:#071a21;padding:11px;cursor:pointer;min-height:125px}
+.animalcard:hover{border-color:#7be5d3;background:#0b252c}.animalicon{font-size:32px}
+.statline{display:flex;justify-content:space-between;border-bottom:1px dotted #21424a;padding:5px 0}
+.habitatMap{position:relative;min-height:310px;border:1px solid #1d4e57;background:radial-gradient(circle at 50% 50%,#0c2830,#02090d 68%);overflow:hidden}
+.zone{position:absolute;border:1px solid #37717a;background:#092029cc;padding:10px;width:145px;text-align:center;cursor:pointer}
+.zone:hover{box-shadow:0 0 22px #64d7c555}.z1{left:6%;top:12%}.z2{right:7%;top:14%}.z3{left:18%;bottom:12%}.z4{right:19%;bottom:10%}.z5{left:42%;top:39%}
+
+.careLayout{display:grid;grid-template-columns:minmax(180px,.8fr) minmax(260px,1.4fr);gap:10px}
+.patientList button{display:block;width:100%;text-align:left;margin-bottom:6px}
+.gaugeRow{display:grid;grid-template-columns:110px 1fr 55px;gap:8px;align-items:center;margin:8px 0}
+.gaugeTrack{height:10px;border:1px solid #24535c;background:#02090d}.gaugeTrack i{display:block;height:100%;background:#78dfcf}
+.feedgrid{display:grid;grid-template-columns:repeat(2,minmax(190px,1fr));gap:9px}
+.feed{height:165px;border:1px solid #23525b;background:radial-gradient(circle at 50% 45%,#0c3034,#02080b 65%);position:relative;overflow:hidden;padding:9px}
+.feed:after{content:"LIVE SIM";position:absolute;right:7px;top:7px;color:#ffcf6a;font-size:9px}
+.feedAnimal{position:absolute;font-size:44px;animation:wander 8s ease-in-out infinite alternate;left:18%;top:42%}
+.feed:nth-child(2) .feedAnimal{animation-duration:11s}.feed:nth-child(3) .feedAnimal{animation-duration:14s}.feed:nth-child(4) .feedAnimal{animation-duration:9s}
+@keyframes wander{0%{transform:translateX(0) scaleX(1)}48%{transform:translateX(120px) scaleX(1)}52%{transform:translateX(120px) scaleX(-1)}100%{transform:translateX(10px) scaleX(-1)}}
+@media(max-width:650px){.careLayout{grid-template-columns:1fr}.feedgrid{grid-template-columns:1fr}}
+
+.lesson{border:1px solid #1d4d57;background:#071a21;padding:11px;margin:8px 0}.lesson h4{margin:0 0 6px;color:#aaf6e8}
+.cmdexample{background:#02090d;border-left:3px solid #4e9d91;padding:8px;white-space:pre-wrap;margin:7px 0}
+.researchgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:9px}.researchcard{border:1px solid #1c4d57;background:#071920;padding:12px;cursor:pointer}.researchcard:hover{border-color:#77e5d3}
+
+.mission{border:1px solid #1d4d57;background:#071a21;padding:11px;margin:8px 0}.mission.done{opacity:.65}.mission h4{margin:0 0 5px;color:#aaf6e8}
+.commScreen{min-height:190px;border:1px solid #20515a;background:radial-gradient(circle,#0b2930,#02080b 70%);padding:12px;white-space:pre-wrap}
+.wave{height:55px;display:flex;align-items:center;gap:2px;overflow:hidden}.wave i{width:3px;background:#75ddce;display:block;animation:wave 1s ease-in-out infinite alternate}
+@keyframes wave{from{height:4px}to{height:48px}}
+.lockrow{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;border-bottom:1px solid #143840;padding:8px 0}
+
+.auxgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:9px}.auxnode{border:1px solid #5c5128;background:#151207;padding:12px;min-height:115px}.auxnode b{color:#ffcf6a}
+.supplygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}.supply{border:1px solid #1d4d57;background:#071a21;padding:11px}.supply .price{font-size:22px;color:#aaf6e8}
+</style>
+</head>
+<body>
+<div id="boot"><div class="logo">ZOO GODS</div><div id="bootlog"></div></div>
+
+<div id="desktop">
+ <div class="topbar">
+   <div class="brand">ZOO GODS // WORKSTATION</div><div class="tiny">PHASE 01.10</div>
+   <div class="status"><span><i class="led"></i>NET READY</span><span class="hideMob" id="loadTop">CPU 12%</span><span id="clock"></span></div>
+ </div>
+
+ <div id="icons">
+   <button class="icon" data-app="net"><span class="glyph">◎</span><small>NET ACCESS</small></button>
+   <button class="icon" data-app="files"><span class="glyph">▤</span><small>FILES</small></button>
+   <button class="icon" data-app="terminal"><span class="glyph">&gt;_</span><small>TERMINAL</small></button>
+   <button class="icon" data-app="system"><span class="glyph">⌁</span><small>SYSTEM</small></button>
+   <button class="icon" data-app="notes"><span class="glyph">✎</span><small>NOTES</small></button>
+   <button class="icon" data-app="settings"><span class="glyph">⚙</span><small>SETTINGS</small></button>
+   <button class="icon" data-app="monitor"><span class="glyph">⌬</span><small>NETWORK MAP</small></button>
+   <button class="icon" data-app="archive"><span class="glyph">◫</span><small>RECOVERED</small></button>
+   <button class="icon" data-app="tools"><span class="glyph">⊞</span><small>TOOLS</small></button>
+   <button class="icon" data-app="console"><span class="glyph">▦</span><small>DEVICE 07</small></button>
+   <button class="icon" data-app="browser"><span class="glyph">◉</span><small>BROWSER</small></button>
+   <button class="icon" data-app="processes"><span class="glyph">≋</span><small>PROCESSES</small></button>
+   <button class="icon" data-app="zoo"><span class="glyph">◈</span><small>ZOO INDEX</small></button>
+   <button class="icon" data-app="habitat"><span class="glyph">⌂</span><small>HABITATS</small></button>
+   <button class="icon" data-app="care"><span class="glyph">✚</span><small>CARE CORE</small></button>
+   <button class="icon" data-app="feeds"><span class="glyph">⌁</span><small>LIVE FEEDS</small></button>
+   <button class="icon" data-app="learn"><span class="glyph">⌘</span><small>LEARN LAB</small></button>
+   <button class="icon" data-app="research"><span class="glyph">◇</span><small>RESEARCH</small></button>
+   <button class="icon" data-app="missions"><span class="glyph">✦</span><small>MISSIONS</small></button>
+   <button class="icon" data-app="comms"><span class="glyph">◌</span><small>COMMS</small></button>
+   <button class="icon" data-app="aux"><span class="glyph">⬡</span><small>AUX LAYER</small></button>
+   <button class="icon" data-app="market"><span class="glyph">▣</span><small>SUPPLY NET</small></button>
+ </div>
+
+ <aside id="hud">
+   <div class="hudTitle">LIVE HARDWARE TELEMETRY</div>
+   CPU LOAD <span id="cpuVal">12%</span><div class="meter"><div class="fill" id="cpuBar"></div></div>
+   MEMORY <span id="memVal">31%</span><div class="meter"><div class="fill" id="memBar"></div></div>
+   NETWORK ACTIVITY <span id="netVal">IDLE</span><div class="meter"><div class="fill" id="netBar"></div></div>
+   <div class="tiny">NODE NX-071 // LOCAL INTERFACE<br>UPTIME <span id="uptime">00:00:00</span><br>UNREGISTERED DEVICE COUNT: <b style="color:var(--warn)">1</b></div>
+ </aside>
+
+ <div class="window" id="win-net">
+  <div class="titlebar"><b>◎ NET ACCESS</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="netbar"><input id="netQuery" placeholder="Search the web or enter a website address"><button class="action" id="goNet">CONNECT</button></div>
+   <div class="tiny" style="margin-top:7px">External destinations open through your real browser. Browser security remains in control.</div>
+   <div class="cards">
+    <div class="card" data-search="web"><b>WEB SEARCH</b><br><span class="tiny">General network query</span></div>
+    <div class="card" data-search="wikipedia"><b>WIKIPEDIA</b><br><span class="tiny">Reference archive</span></div>
+    <div class="card" data-search="amazon"><b>AMAZON</b><br><span class="tiny">Product search</span></div>
+    <div class="card" data-search="github"><b>GITHUB</b><br><span class="tiny">Code repositories</span></div>
+    <div class="card" data-search="youtube"><b>YOUTUBE</b><br><span class="tiny">Video network</span></div>
+   </div>
+   <h3>SESSION HISTORY</h3><div id="history" class="tiny">No network requests recorded.</div>
+  </div>
+ </div>
+
+ <div class="window" id="win-files">
+  <div class="titlebar"><b>▤ LOCAL FILESYSTEM</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content"><div class="toolbar"><button id="newFile">+ NEW TEXT FILE</button><button id="refreshFiles">REFRESH</button></div><div class="tiny">C:\USERS\GUEST\</div><div id="filegrid" class="filegrid"></div></div>
+ </div>
+
+ <div class="window" id="win-terminal">
+  <div class="titlebar"><b>&gt;_ SYSTEM TERMINAL</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content" style="padding-bottom:0"><div id="terminalOut">NX SYSTEM TERMINAL v1.01
+Type 'help' for command directory.
+</div><div class="promptrow"><span>guest@nx:/$</span><input id="terminalIn" autocomplete="off" autofocus></div></div>
+ </div>
+
+ <div class="window" id="win-system">
+  <div class="titlebar"><b>⌁ SYSTEM MAP</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content"><div class="sysgrid">
+   <div class="module"><div class="tiny">PROCESSOR ARRAY</div><div class="big" id="sysCpu">12%</div>Adaptive load simulation</div>
+   <div class="module"><div class="tiny">MEMORY MATRIX</div><div class="big" id="sysMem">31%</div>4096 MB mapped</div>
+   <div class="module"><div class="tiny">NETWORK INTERFACE</div><div class="big">READY</div>External browser gateway</div>
+   <div class="module"><div class="tiny">STORAGE</div><div class="big">38.7 GB</div>Virtual local volume</div>
+   <div class="module"><div class="tiny">DEVICE 07</div><div class="big" style="color:var(--warn)">UNKNOWN</div>Classification unavailable</div>
+   <div class="module"><div class="tiny">SECURITY</div><div class="big">LOCAL</div>Browser sandbox active</div>
+  </div></div>
+ </div>
+
+ <div class="window" id="win-notes">
+  <div class="titlebar"><b>✎ NOTES</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content"><textarea id="notesArea" placeholder="Local operator notes..."></textarea><br><button class="action" id="saveNotes">SAVE TO LOCAL STORAGE</button><span class="saveMsg" id="saveMsg"></span></div>
+ </div>
+
+ <div class="window" id="win-settings">
+  <div class="titlebar"><b>⚙ SETTINGS</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content"><h3>OPERATOR PROFILE</h3><input id="operatorName" placeholder="Operator name"><button class="action" id="saveOperator">REGISTER</button><p class="tiny">The workstation remembers this profile on this browser.</p><hr style="border-color:#183f47"><button class="action" id="reboot">REBOOT INTERFACE</button> <button class="action" id="cleanStorage">CLEAN LOG STORAGE</button> <button class="action" id="reset">RESET LOCAL SIMULATION</button></div>
+ </div>
+
+
+ <div class="window" id="win-monitor">
+  <div class="titlebar"><b>⌬ NETWORK TOPOLOGY</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <canvas id="networkCanvas" width="900" height="300"></canvas>
+   <div class="toolbar" style="margin-top:10px"><button id="pingNodes">PING NODES</button><button id="passiveSweep">PASSIVE SWEEP</button></div>
+   <div class="tiny" id="netMapLog">LOCALHOST mapped. Host-browser gateway available. No direct network scanning is performed.</div>
+  </div>
+ </div>
+
+ <div class="window" id="win-archive">
+  <div class="titlebar"><b>◫ RECOVERED ARCHIVE</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">RECOVERY INDEX // damaged local records reconstructed from the fictional workstation volume</div>
+   <div class="logline"><b>BOOT_FRAGMENT_03</b><br><span class="tiny">"inventory mismatch persisted after restart."</span></div>
+   <div class="logline"><b>OPERATOR_FRAGMENT</b><br><span class="tiny">Previous operator field is unreadable. Last session ended without logout.</span></div>
+   <div class="logline"><b>NETWORK_FRAGMENT</b><br><span class="tiny">Gateway was active. No remote session was recorded.</span></div>
+   <div class="deviceBox"><b>DEVICE 07 // PASSIVE RECORD</b><br>
+   Bus: LOCAL-SIM<br>State: PRESENT<br>Driver: NONE<br>Auto-mount: DISABLED<br>
+   <div class="signal"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+   <button class="action" id="inspect07">PASSIVE INSPECTION</button>
+   <div class="tiny" id="device07result">No inspection performed.</div></div>
+  </div>
+ </div>
+
+
+ <div class="window" id="win-tools">
+  <div class="titlebar"><b>⊞ LOCAL TOOLKIT</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content"><div class="toolgrid">
+   <div class="toolcard"><h4>CALCULATOR</h4><input id="calcDisplay" readonly value="0"><div class="calcrow" id="calcKeys"></div></div>
+   <div class="toolcard"><h4>TEXT / HEX VIEWER</h4><textarea id="hexInput" style="width:100%;height:90px" placeholder="Type text..."></textarea><button class="action" id="toHex">ENCODE</button><div class="hexout" id="hexOut"></div></div>
+   <div class="toolcard"><h4>TIME CONVERTER</h4><div class="tiny">Unix timestamp</div><input id="unixIn" placeholder="e.g. 1789910400"><button class="action" id="unixGo">CONVERT</button><div id="unixOut" class="tiny"></div></div>
+   <div class="toolcard"><h4>SESSION SCRATCHPAD</h4><textarea id="scratch" style="width:100%;height:120px" placeholder="Temporary scratch data..."></textarea></div>
+  </div></div>
+ </div>
+
+ <div class="window" id="win-console">
+  <div class="titlebar"><b>▦ DEVICE 07 // ISOLATED CONSOLE</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">LOCAL FICTIONAL SUBSYSTEM // browser sandbox remains active</div>
+   <div class="mountslot"><b style="color:#ffcf6a">DEVICE 07</b><br>07-AF-19-??<br><span class="tiny">AUTO-MOUNT DISABLED</span></div>
+   <div class="progress"><i id="probeProgress"></i></div>
+   <div class="toolbar" style="margin-top:10px"><button id="deepProbe">RUN DEEP LOCAL PROBE</button><button id="readHeader">READ HEADER</button></div>
+   <pre id="deviceConsole" style="white-space:pre-wrap;color:#9edfd5">Awaiting operator instruction.</pre>
+  </div>
+ </div>
+
+
+ <div class="window" id="win-browser">
+  <div class="titlebar"><b>◉ NX BROWSER GATEWAY</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="browserHead"><button class="action" id="browserBack">←</button><input id="browserAddress" placeholder="Search or enter address"><button class="action" id="browserGo">GO</button></div>
+   <div class="bookmarks"><button class="action" data-bm="https://www.wikipedia.org/">WIKIPEDIA</button><button class="action" data-bm="https://github.com/">GITHUB</button><button class="action" data-bm="https://www.youtube.com/">YOUTUBE</button><button class="action" data-bm="https://www.amazon.com/">AMAZON</button></div>
+   <div class="browserFrame">
+    <div class="hudTitle">HOST-BROWSER GATEWAY</div>
+    <div class="big">EXTERNAL WEB READY</div>
+    <p>This workstation can launch legitimate websites and searches through your normal browser. Many sites block being embedded inside another HTML page, so the gateway deliberately opens them in a new tab instead of faking an unrestricted browser.</p>
+    <div class="tiny">Local workstation history remains available in NET ACCESS and Terminal.</div>
+   </div>
+  </div>
+ </div>
+
+ <div class="window" id="win-processes">
+  <div class="titlebar"><b>≋ PROCESS MONITOR</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="proc procHead"><b>PROCESS</b><b>PID</b><b>CPU</b><b>STATE</b></div>
+   <div id="processList"></div>
+   <h3>EVENT JOURNAL</h3><div id="eventJournal"></div>
+  </div>
+ </div>
+
+
+ <div class="window" id="win-zoo">
+  <div class="titlebar"><b>◈ ZOO GODS // SPECIES INDEX</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="hudTitle">LOCAL SPECIES DATABASE // DEMONSTRATION RECORDS</div>
+   <div class="netbar"><input id="animalSearch" placeholder="Search animal records..."><button class="action" id="animalSearchBtn">FILTER</button></div>
+   <div id="animalgrid" class="animalgrid" style="margin-top:10px"></div>
+   <div id="animalDetail" class="deviceBox" style="display:none"></div>
+  </div>
+ </div>
+
+ <div class="window" id="win-habitat">
+  <div class="titlebar"><b>⌂ ZOO GODS // HABITAT CONTROL</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">FICTIONAL FACILITY OVERVIEW // telemetry is simulated</div>
+   <div class="habitatMap">
+    <div class="zone z1" data-zone="ARCTIC RIDGE"><b>ARCTIC RIDGE</b><br><span class="tiny">4 residents<br>-7°C SIM</span></div>
+    <div class="zone z2" data-zone="RAINFOREST DOME"><b>RAINFOREST</b><br><span class="tiny">7 residents<br>82% RH SIM</span></div>
+    <div class="zone z3" data-zone="SAVANNAH RANGE"><b>SAVANNAH</b><br><span class="tiny">6 residents<br>28°C SIM</span></div>
+    <div class="zone z4" data-zone="NOCTURNAL WING"><b>NOCTURNAL</b><br><span class="tiny">5 residents<br>low-light cycle</span></div>
+    <div class="zone z5" data-zone="CARE CORE"><b>CARE CORE</b><br><span class="tiny">medical / nutrition<br>READY</span></div>
+   </div>
+   <div id="zoneReadout" class="deviceBox"><b>FACILITY STATUS</b><br>Choose a habitat node for a simulated systems readout.</div>
+  </div>
+ </div>
+
+
+ <div class="window" id="win-care">
+  <div class="titlebar"><b>✚ ZOO GODS // CARE CORE</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">FICTIONAL ANIMAL-CARE SIMULATION // values and actions are gameplay, not veterinary guidance</div>
+   <div class="careLayout" style="margin-top:10px">
+    <div class="patientList"><div class="hudTitle">CURRENT RESIDENTS</div><div id="carePatients"></div></div>
+    <div class="module">
+     <div id="careName" class="big">SELECT A RESIDENT</div><div id="careSpecies" class="tiny">Care telemetry will appear here.</div>
+     <div id="careGauges"></div>
+     <div class="toolbar"><button data-care="water">OFFER WATER</button><button data-care="food">OFFER FOOD</button><button data-care="comfort">COMFORT</button><button data-care="observe">OBSERVE</button></div>
+     <div id="careLog" class="deviceBox">No care action selected.</div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <div class="window" id="win-feeds">
+  <div class="titlebar"><b>⌁ ZOO GODS // HABITAT FEEDS</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">ANIMATED FICTIONAL FACILITY FEEDS // no camera or device access</div>
+   <div class="feedgrid" style="margin-top:10px">
+    <div class="feed"><b>ARCTIC RIDGE // CAM A</b><div class="feedAnimal">🐺</div></div>
+    <div class="feed"><b>RAINFOREST // CAM C</b><div class="feedAnimal">🐅</div></div>
+    <div class="feed"><b>SAVANNAH // CAM B</b><div class="feedAnimal">🐘</div></div>
+    <div class="feed"><b>NOCTURNAL // CAM D</b><div class="feedAnimal">🦊</div></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="window" id="win-learn">
+  <div class="titlebar"><b>⌘ ZOO GODS // COMPUTER LEARNING LAB</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">SAFE LEARNING MODE // commands shown here are educational and operate on this simulated workstation unless explicitly opened as documentation.</div>
+   <div class="lesson"><h4>01 // NAVIGATION</h4>Learn the ideas behind listing files, identifying your location and reading text files.<div class="cmdexample">ls
+whoami
+cat README.NX</div><button class="action" data-copycmd="ls">SEND "ls" TO TERMINAL</button></div>
+   <div class="lesson"><h4>02 // SYSTEM OBSERVATION</h4>Inspect modeled processes and network state without changing anything.<div class="cmdexample">ps
+sysinfo
+netstat
+events</div><button class="action" data-copycmd="ps">SEND "ps" TO TERMINAL</button></div>
+   <div class="lesson"><h4>03 // WEB RESEARCH</h4>The browser gateway can hand ordinary searches to your real browser.<div class="cmdexample">browse animal enrichment research</div><button class="action" id="learnWeb">OPEN WEB SEARCH</button></div>
+   <div class="lesson"><h4>04 // SECURITY BASICS</h4>Practice defensive concepts: updates, strong unique passwords, backups, phishing awareness, least privilege and reading logs. This lab does not attack, bypass, exploit or scan real systems.</div>
+  </div>
+ </div>
+
+ <div class="window" id="win-research">
+  <div class="titlebar"><b>◇ ZOO GODS // RESEARCH DESK</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="hudTitle">EXTERNAL RESEARCH GATEWAY</div>
+   <div class="netbar"><input id="researchQuery" placeholder="Species, husbandry topic, conservation topic..."><button class="action" id="researchGo">SEARCH WEB</button></div>
+   <div class="researchgrid" style="margin-top:10px">
+    <div class="researchcard" data-rq="zoo animal enrichment research"><b>ANIMAL ENRICHMENT</b><br><span class="tiny">Search current public resources</span></div>
+    <div class="researchcard" data-rq="wildlife conservation research"><b>CONSERVATION</b><br><span class="tiny">Search conservation material</span></div>
+    <div class="researchcard" data-rq="zoo animal nutrition research"><b>NUTRITION</b><br><span class="tiny">Research starting point</span></div>
+    <div class="researchcard" data-rq="animal welfare zoo research"><b>WELFARE</b><br><span class="tiny">Public information search</span></div>
+   </div>
+   <h3>RESEARCH NOTES</h3><textarea id="researchNotes" style="width:100%;height:130px" placeholder="Save your own research notes here..."></textarea><br><button class="action" id="saveResearch">SAVE NOTES</button>
+  </div>
+ </div>
+
+
+ <div class="window" id="win-missions">
+  <div class="titlebar"><b>✦ ZOO GODS // OPERATOR MISSIONS</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">LOCAL DISCOVERY OBJECTIVES // completing them unlocks workstation records</div>
+   <div id="missionList"></div>
+   <div class="deviceBox"><b>DISCOVERY LEVEL</b><br><span class="big" id="discoveryLevel">0 / 5</span><br><span class="tiny">Your progress is saved in this browser.</span></div>
+  </div>
+ </div>
+
+ <div class="window" id="win-comms">
+  <div class="titlebar"><b>◌ ZOO GODS // COMMUNICATIONS ARRAY</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">FICTIONAL LOCAL MESSAGE SYSTEM // no microphone, radio, account, or messaging-service access</div>
+   <div class="wave" id="commWave"></div>
+   <div class="commScreen" id="commScreen">CHANNEL 00 // STANDBY
+No external receiver connected.</div>
+   <div class="toolbar" style="margin-top:10px"><button data-channel="01">CH 01</button><button data-channel="07">CH 07</button><button data-channel="12">CH 12</button><button id="decodeComm">DECODE LOCAL BUFFER</button></div>
+  </div>
+ </div>
+
+
+ <div class="window" id="win-aux">
+  <div class="titlebar"><b>⬡ ZOO GODS // AUXILIARY OPERATING LAYER</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">RECOVERED FICTIONAL LOCAL SUBSYSTEM // reconstructed after Device 07 investigation</div>
+   <div id="auxLocked" class="deviceBox"><b>AUX LAYER LOCKED</b><br>Complete the Device 07 deep probe and decode the communications buffer to reconstruct this layer.<br><button class="action" id="auxCheck">CHECK RECOVERY STATE</button></div>
+   <div id="auxContent" style="display:none">
+    <div class="big">AUXILIARY INDEX RESTORED</div>
+    <div class="auxgrid" style="margin-top:10px">
+     <div class="auxnode"><b>/AUX/SESSION/last.route</b><p>Last operator route: HABITAT → CARE → RESEARCH → AUX.</p></div>
+     <div class="auxnode"><b>/AUX/TOOLS</b><p>Secondary utilities registry. Several entries remain unrecovered.</p></div>
+     <div class="auxnode"><b>/AUX/ZOO/LINK</b><p>Species database and habitat controller share one resident identifier table.</p></div>
+     <div class="auxnode"><b>/AUX/NET/BOOKMARKS</b><p>External research gateway configuration recovered.</p></div>
+     <div class="auxnode"><b>/AUX/UNKNOWN/02</b><p>Encrypted-looking fictional block. No decoder installed.</p></div>
+     <div class="auxnode"><b>PHASE POINTER</b><p>Primary workstation initialization is nearly complete.</p></div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <div class="window" id="win-market">
+  <div class="titlebar"><b>▣ ZOO GODS // SUPPLY NETWORK</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">FICTIONAL INVENTORY + REAL WEB SEARCH GATEWAY // no purchases occur inside ZOO GODS</div>
+   <div class="netbar"><input id="supplySearch" placeholder="Search real web for animal supplies..."><button class="action" id="supplyWeb">WEB SEARCH</button></div>
+   <div class="supplygrid" id="supplyGrid" style="margin-top:10px"></div>
+   <div class="deviceBox">FICTIONAL ZOO CREDITS: <b id="credits">2500</b> ZC<br><span class="tiny">Credits exist only in this HTML simulation.</span></div>
+  </div>
+ </div>
+
+ <div id="startMenu">
+  <div class="hudTitle">NX APPLICATIONS</div>
+  <div class="menuitem" data-app="net">◎ Net Access</div><div class="menuitem" data-app="files">▤ Files</div><div class="menuitem" data-app="terminal">&gt;_ Terminal</div><div class="menuitem" data-app="system">⌁ System Map</div><div class="menuitem" data-app="notes">✎ Notes</div><div class="menuitem" data-app="settings">⚙ Settings</div>
+  <div class="menuitem" data-app="monitor">⌬ Network Topology</div>
+  <div class="menuitem" data-app="archive">◫ Recovered Archive</div>
+  <div class="menuitem" data-app="tools">⊞ Local Toolkit</div>
+  <div class="menuitem" data-app="console">▦ Device 07 Console</div>
+  <div class="menuitem" data-app="browser">◉ Browser Gateway</div>
+  <div class="menuitem" data-app="processes">≋ Process Monitor</div>
+  <div class="menuitem" data-app="zoo">◈ Zoo Gods Species Index</div>
+  <div class="menuitem" data-app="habitat">⌂ Habitat Control</div>
+  <div class="menuitem" data-app="care">✚ Care Core</div>
+  <div class="menuitem" data-app="feeds">⌁ Habitat Feeds</div>
+  <div class="menuitem" data-app="learn">⌘ Computer Learning Lab</div>
+  <div class="menuitem" data-app="research">◇ Research Desk</div>
+  <div class="menuitem" data-app="missions">✦ Operator Missions</div>
+  <div class="menuitem" data-app="comms">◌ Communications Array</div>
+  <div class="menuitem" data-app="aux">⬡ Auxiliary Layer</div>
+  <div class="menuitem" data-app="market">▣ Supply Network</div>
+ </div>
+ <div id="toast"></div>
+ <div class="taskbar"><button class="start" id="startBtn">NX // START</button><div class="tasks" id="tasks"></div></div>
+</div>
+
 <script>
-const BASE=[{"id":0,"name":"Kito","species":"African Lion","zone":"Savanna","icon":"\ud83e\udd81","diet":"carnivore","trait":"pride sentinel","hunger":71,"water":64,"health":74,"clean":83,"enrich":49,"trust":76,"temp":31,"notes":[]},{"id":1,"name":"Zuri","species":"African Lion","zone":"Savanna","icon":"\ud83e\udd81","diet":"carnivore","trait":"curious hunter","hunger":63,"water":73,"health":87,"clean":88,"enrich":54,"trust":67,"temp":24,"notes":[]},{"id":2,"name":"Amara","species":"Masai Giraffe","zone":"Savanna","icon":"\ud83e\udd92","diet":"browser","trait":"gentle browser","hunger":73,"water":73,"health":97,"clean":53,"enrich":57,"trust":41,"temp":19,"notes":[]},{"id":3,"name":"Nuru","species":"Masai Giraffe","zone":"Savanna","icon":"\ud83e\udd92","diet":"browser","trait":"bold youngster","hunger":72,"water":71,"health":72,"clean":64,"enrich":74,"trust":47,"temp":23,"notes":[]},{"id":4,"name":"Jabari","species":"White Rhinoceros","zone":"Savanna","icon":"\ud83e\udd8f","diet":"grazer","trait":"mud-loving giant","hunger":83,"water":69,"health":79,"clean":68,"enrich":89,"trust":45,"temp":19,"notes":[]},{"id":5,"name":"Tamu","species":"Plains Zebra","zone":"Savanna","icon":"\ud83e\udd93","diet":"grazer","trait":"alert herd mare","hunger":85,"water":94,"health":90,"clean":86,"enrich":91,"trust":77,"temp":20,"notes":[]},{"id":6,"name":"Mosi","species":"African Elephant","zone":"Savanna","icon":"\ud83d\udc18","diet":"herbivore","trait":"patient matriarch","hunger":75,"water":71,"health":79,"clean":66,"enrich":63,"trust":81,"temp":19,"notes":[]},{"id":7,"name":"Pili","species":"African Elephant","zone":"Savanna","icon":"\ud83d\udc18","diet":"herbivore","trait":"playful juvenile","hunger":81,"water":89,"health":97,"clean":60,"enrich":65,"trust":78,"temp":22,"notes":[]},{"id":8,"name":"Safi","species":"Cheetah","zone":"Savanna","icon":"\ud83d\udc06","diet":"carnivore","trait":"fast, watchful cat","hunger":86,"water":81,"health":79,"clean":91,"enrich":83,"trust":44,"temp":18,"notes":[]},{"id":9,"name":"Bako","species":"Spotted Hyena","zone":"Savanna","icon":"\ud83d\udc3e","diet":"carnivore","trait":"clever clan scout","hunger":55,"water":81,"health":90,"clean":78,"enrich":76,"trust":75,"temp":20,"notes":[]},{"id":10,"name":"Raja","species":"Bengal Tiger","zone":"Big Cats","icon":"\ud83d\udc05","diet":"carnivore","trait":"solitary stalker","hunger":55,"water":82,"health":80,"clean":78,"enrich":81,"trust":43,"temp":29,"notes":[]},{"id":11,"name":"Suki","species":"Amur Tiger","zone":"Big Cats","icon":"\ud83d\udc05","diet":"carnivore","trait":"snow-loving hunter","hunger":88,"water":69,"health":76,"clean":73,"enrich":68,"trust":35,"temp":20,"notes":[]},{"id":12,"name":"Nyx","species":"Black Leopard","zone":"Big Cats","icon":"\ud83d\udc06","diet":"carnivore","trait":"quiet climber","hunger":80,"water":58,"health":88,"clean":66,"enrich":92,"trust":79,"temp":31,"notes":[]},{"id":13,"name":"Paco","species":"Jaguar","zone":"Big Cats","icon":"\ud83d\udc06","diet":"carnivore","trait":"water-loving ambusher","hunger":77,"water":62,"health":77,"clean":90,"enrich":63,"trust":51,"temp":24,"notes":[]},{"id":14,"name":"Luma","species":"Snow Leopard","zone":"Big Cats","icon":"\ud83d\udc06","diet":"carnivore","trait":"mountain climber","hunger":61,"water":70,"health":100,"clean":65,"enrich":72,"trust":82,"temp":20,"notes":[]},{"id":15,"name":"Kibibi","species":"Western Lowland Gorilla","zone":"Primates","icon":"\ud83e\udd8d","diet":"omnivore","trait":"calm troop leader","hunger":78,"water":62,"health":73,"clean":70,"enrich":64,"trust":62,"temp":18,"notes":[]},{"id":16,"name":"Teko","species":"Chimpanzee","zone":"Primates","icon":"\ud83d\udc12","diet":"omnivore","trait":"puzzle expert","hunger":81,"water":85,"health":91,"clean":94,"enrich":67,"trust":63,"temp":18,"notes":[]},{"id":17,"name":"Mina","species":"Orangutan","zone":"Primates","icon":"\ud83e\udda7","diet":"omnivore","trait":"patient engineer","hunger":60,"water":80,"health":98,"clean":63,"enrich":47,"trust":53,"temp":21,"notes":[]},{"id":18,"name":"Pip","species":"Ring-tailed Lemur","zone":"Primates","icon":"\ud83d\udc12","diet":"omnivore","trait":"sun worshipper","hunger":86,"water":74,"health":77,"clean":95,"enrich":90,"trust":46,"temp":19,"notes":[]},{"id":19,"name":"Echo","species":"Siamang","zone":"Primates","icon":"\ud83d\udc12","diet":"omnivore","trait":"morning singer","hunger":75,"water":83,"health":81,"clean":91,"enrich":64,"trust":66,"temp":18,"notes":[]},{"id":20,"name":"Brutus","species":"Nile Crocodile","zone":"Reptile House","icon":"\ud83d\udc0a","diet":"carnivore","trait":"ancient ambusher","hunger":63,"water":82,"health":99,"clean":75,"enrich":62,"trust":48,"temp":18,"notes":[]},{"id":21,"name":"Ivy","species":"Green Iguana","zone":"Reptile House","icon":"\ud83e\udd8e","diet":"herbivore","trait":"canopy lounger","hunger":63,"water":77,"health":99,"clean":65,"enrich":63,"trust":51,"temp":31,"notes":[]},{"id":22,"name":"Sable","species":"King Cobra","zone":"Reptile House","icon":"\ud83d\udc0d","diet":"carnivore","trait":"reserved serpent","hunger":83,"water":55,"health":86,"clean":84,"enrich":89,"trust":40,"temp":20,"notes":[]},{"id":23,"name":"Atlas","species":"Aldabra Giant Tortoise","zone":"Reptile House","icon":"\ud83d\udc22","diet":"herbivore","trait":"slow elder","hunger":69,"water":94,"health":93,"clean":81,"enrich":73,"trust":49,"temp":29,"notes":[]},{"id":24,"name":"Ember","species":"Komodo Dragon","zone":"Reptile House","icon":"\ud83e\udd8e","diet":"carnivore","trait":"powerful monitor","hunger":89,"water":85,"health":83,"clean":61,"enrich":65,"trust":39,"temp":31,"notes":[]},{"id":25,"name":"Nova","species":"Bald Eagle","zone":"Aviary","icon":"\ud83e\udd85","diet":"carnivore","trait":"sharp-eyed flyer","hunger":67,"water":73,"health":90,"clean":88,"enrich":47,"trust":65,"temp":25,"notes":[]},{"id":26,"name":"Skye","species":"Scarlet Macaw","zone":"Aviary","icon":"\ud83e\udd9c","diet":"omnivore","trait":"social puzzle solver","hunger":77,"water":57,"health":83,"clean":74,"enrich":66,"trust":59,"temp":24,"notes":[]},{"id":27,"name":"Hoot","species":"Eurasian Eagle-Owl","zone":"Aviary","icon":"\ud83e\udd89","diet":"carnivore","trait":"night watcher","hunger":93,"water":63,"health":76,"clean":77,"enrich":66,"trust":61,"temp":25,"notes":[]},{"id":28,"name":"Coral","species":"Greater Flamingo","zone":"Aviary","icon":"\ud83e\udda9","diet":"filter feeder","trait":"flock dancer","hunger":59,"water":80,"health":94,"clean":73,"enrich":80,"trust":50,"temp":25,"notes":[]},{"id":29,"name":"Dash","species":"Peregrine Falcon","zone":"Aviary","icon":"\ud83e\udd85","diet":"carnivore","trait":"aerial sprinter","hunger":79,"water":85,"health":100,"clean":76,"enrich":52,"trust":49,"temp":26,"notes":[]},{"id":30,"name":"Bubbles","species":"Bottlenose Dolphin","zone":"Ocean","icon":"\ud83d\udc2c","diet":"piscivore","trait":"social swimmer","hunger":55,"water":84,"health":82,"clean":94,"enrich":58,"trust":76,"temp":29,"notes":[]},{"id":31,"name":"Kai","species":"California Sea Lion","zone":"Ocean","icon":"\ud83e\uddad","diet":"piscivore","trait":"training enthusiast","hunger":90,"water":95,"health":85,"clean":88,"enrich":64,"trust":79,"temp":22,"notes":[]},{"id":32,"name":"Marina","species":"Green Sea Turtle","zone":"Ocean","icon":"\ud83d\udc22","diet":"herbivore","trait":"reef traveler","hunger":61,"water":79,"health":79,"clean":84,"enrich":87,"trust":62,"temp":20,"notes":[]},{"id":33,"name":"Ink","species":"Giant Pacific Octopus","zone":"Ocean","icon":"\ud83d\udc19","diet":"carnivore","trait":"escape-room genius","hunger":57,"water":81,"health":86,"clean":53,"enrich":71,"trust":42,"temp":25,"notes":[]},{"id":34,"name":"Finn","species":"Sand Tiger Shark","zone":"Ocean","icon":"\ud83e\udd88","diet":"piscivore","trait":"slow cruiser","hunger":90,"water":60,"health":84,"clean":81,"enrich":64,"trust":40,"temp":26,"notes":[]},{"id":35,"name":"Nanook","species":"Polar Bear","zone":"Arctic","icon":"\ud83d\udc3b\u200d\u2744\ufe0f","diet":"carnivore","trait":"ice explorer","hunger":78,"water":55,"health":99,"clean":79,"enrich":84,"trust":36,"temp":30,"notes":[]},{"id":36,"name":"Pebble","species":"Gentoo Penguin","zone":"Arctic","icon":"\ud83d\udc27","diet":"piscivore","trait":"stone collector","hunger":79,"water":85,"health":85,"clean":63,"enrich":83,"trust":38,"temp":30,"notes":[]},{"id":37,"name":"Aurora","species":"Arctic Fox","zone":"Arctic","icon":"\ud83e\udd8a","diet":"omnivore","trait":"snow pouncer","hunger":66,"water":87,"health":82,"clean":58,"enrich":79,"trust":71,"temp":20,"notes":[]},{"id":38,"name":"Tundra","species":"Reindeer","zone":"Arctic","icon":"\ud83e\udd8c","diet":"herbivore","trait":"steady grazer","hunger":92,"water":64,"health":99,"clean":61,"enrich":80,"trust":56,"temp":23,"notes":[]},{"id":39,"name":"Miska","species":"Harbor Seal","zone":"Arctic","icon":"\ud83e\uddad","diet":"piscivore","trait":"curious diver","hunger":74,"water":74,"health":92,"clean":63,"enrich":66,"trust":76,"temp":19,"notes":[]},{"id":40,"name":"Boomer","species":"Red Kangaroo","zone":"Australia","icon":"\ud83e\udd98","diet":"herbivore","trait":"powerful hopper","hunger":70,"water":95,"health":76,"clean":71,"enrich":56,"trust":74,"temp":25,"notes":[]},{"id":41,"name":"Wattle","species":"Koala","zone":"Australia","icon":"\ud83d\udc28","diet":"browser","trait":"sleepy specialist","hunger":62,"water":91,"health":96,"clean":66,"enrich":52,"trust":49,"temp":29,"notes":[]},{"id":42,"name":"Taz","species":"Tasmanian Devil","zone":"Australia","icon":"\ud83d\udc3e","diet":"carnivore","trait":"noisy scavenger","hunger":68,"water":79,"health":73,"clean":63,"enrich":89,"trust":82,"temp":28,"notes":[]},{"id":43,"name":"Blue","species":"Southern Cassowary","zone":"Australia","icon":"\ud83d\udc26","diet":"omnivore","trait":"forest gardener","hunger":72,"water":83,"health":86,"clean":64,"enrich":88,"trust":42,"temp":19,"notes":[]},{"id":44,"name":"Dingo","species":"Dingo","zone":"Australia","icon":"\ud83d\udc15","diet":"carnivore","trait":"social tracker","hunger":61,"water":64,"health":76,"clean":93,"enrich":73,"trust":79,"temp":19,"notes":[]},{"id":45,"name":"Luna","species":"Fennec Fox","zone":"Nocturnal","icon":"\ud83e\udd8a","diet":"omnivore","trait":"big-eared listener","hunger":64,"water":84,"health":87,"clean":79,"enrich":78,"trust":61,"temp":18,"notes":[]},{"id":46,"name":"Quill","species":"African Crested Porcupine","zone":"Nocturnal","icon":"\ud83e\udd94","diet":"herbivore","trait":"night forager","hunger":86,"water":67,"health":98,"clean":74,"enrich":56,"trust":58,"temp":29,"notes":[]},{"id":47,"name":"Mango","species":"Kinkajou","zone":"Nocturnal","icon":"\ud83d\udc3e","diet":"omnivore","trait":"nectar acrobat","hunger":92,"water":95,"health":74,"clean":70,"enrich":82,"trust":65,"temp":19,"notes":[]},{"id":48,"name":"Vesper","species":"Egyptian Fruit Bat","zone":"Nocturnal","icon":"\ud83e\udd87","diet":"frugivore","trait":"colony navigator","hunger":75,"water":77,"health":89,"clean":68,"enrich":63,"trust":67,"temp":18,"notes":[]},{"id":49,"name":"Bandit","species":"Raccoon","zone":"Nocturnal","icon":"\ud83e\udd9d","diet":"omnivore","trait":"dexterous explorer","hunger":78,"water":74,"health":87,"clean":88,"enrich":48,"trust":75,"temp":18,"notes":[]},{"id":50,"name":"Titan","species":"Goliath Beetle","zone":"Insectarium","icon":"\ud83e\udeb2","diet":"detritivore","trait":"armored climber","hunger":79,"water":69,"health":76,"clean":83,"enrich":49,"trust":67,"temp":27,"notes":[]},{"id":51,"name":"Jade","species":"Praying Mantis","zone":"Insectarium","icon":"\ud83e\udd97","diet":"insectivore","trait":"patient hunter","hunger":57,"water":59,"health":90,"clean":85,"enrich":89,"trust":71,"temp":21,"notes":[]},{"id":52,"name":"Monarch","species":"Monarch Butterfly","zone":"Insectarium","icon":"\ud83e\udd8b","diet":"nectar","trait":"migratory jewel","hunger":81,"water":71,"health":100,"clean":61,"enrich":68,"trust":41,"temp":27,"notes":[]},{"id":53,"name":"Velvet","species":"Chilean Rose Tarantula","zone":"Insectarium","icon":"\ud83d\udd77\ufe0f","diet":"insectivore","trait":"quiet burrower","hunger":55,"water":69,"health":96,"clean":65,"enrich":63,"trust":55,"temp":25,"notes":[]},{"id":54,"name":"Empress","species":"Leafcutter Ant Colony","zone":"Insectarium","icon":"\ud83d\udc1c","diet":"fungiculture","trait":"superorganism","hunger":91,"water":60,"health":92,"clean":96,"enrich":75,"trust":69,"temp":24,"notes":[]},{"id":55,"name":"Sprout","species":"Red Panda","zone":"Forest","icon":"\ud83d\udc3e","diet":"herbivore","trait":"bamboo climber","hunger":58,"water":77,"health":95,"clean":64,"enrich":77,"trust":38,"temp":21,"notes":[]},{"id":56,"name":"Maple","species":"American Black Bear","zone":"Forest","icon":"\ud83d\udc3b","diet":"omnivore","trait":"foraging expert","hunger":84,"water":69,"health":84,"clean":96,"enrich":85,"trust":46,"temp":23,"notes":[]},{"id":57,"name":"River","species":"North American River Otter","zone":"Forest","icon":"\ud83e\udda6","diet":"carnivore","trait":"aquatic acrobat","hunger":56,"water":65,"health":75,"clean":53,"enrich":58,"trust":74,"temp":22,"notes":[]},{"id":58,"name":"Oak","species":"Moose","zone":"Forest","icon":"\ud83e\udece","diet":"browser","trait":"wetland giant","hunger":77,"water":71,"health":94,"clean":60,"enrich":74,"trust":80,"temp":26,"notes":[]},{"id":59,"name":"Rusty","species":"Red Fox","zone":"Forest","icon":"\ud83e\udd8a","diet":"omnivore","trait":"clever hunter","hunger":57,"water":68,"health":94,"clean":62,"enrich":75,"trust":40,"temp":23,"notes":[]},{"id":60,"name":"Mochi","species":"Pygmy Hippopotamus","zone":"Rainforest","icon":"\ud83e\udd9b","diet":"herbivore","trait":"shy swimmer","hunger":69,"water":65,"health":73,"clean":53,"enrich":63,"trust":79,"temp":21,"notes":[]},{"id":61,"name":"Kavi","species":"Malayan Tapir","zone":"Rainforest","icon":"\ud83d\udc3e","diet":"herbivore","trait":"night browser","hunger":75,"water":85,"health":74,"clean":56,"enrich":58,"trust":59,"temp":18,"notes":[]},{"id":62,"name":"Rio","species":"Capybara","zone":"Rainforest","icon":"\ud83d\udc39","diet":"herbivore","trait":"social swimmer","hunger":75,"water":70,"health":77,"clean":70,"enrich":59,"trust":72,"temp":20,"notes":[]},{"id":63,"name":"Sol","species":"Two-toed Sloth","zone":"Rainforest","icon":"\ud83e\udda5","diet":"browser","trait":"canopy sleeper","hunger":92,"water":75,"health":84,"clean":60,"enrich":51,"trust":47,"temp":22,"notes":[]},{"id":64,"name":"Azul","species":"Poison Dart Frog","zone":"Rainforest","icon":"\ud83d\udc38","diet":"insectivore","trait":"tiny sentinel","hunger":89,"water":86,"health":99,"clean":53,"enrich":46,"trust":81,"temp":19,"notes":[]},{"id":65,"name":"Willow","species":"Asian Small-clawed Otter","zone":"Wetlands","icon":"\ud83e\udda6","diet":"carnivore","trait":"family fisher","hunger":57,"water":80,"health":92,"clean":79,"enrich":79,"trust":38,"temp":18,"notes":[]},{"id":66,"name":"Lotus","species":"Hippopotamus","zone":"Wetlands","icon":"\ud83e\udd9b","diet":"herbivore","trait":"river heavyweight","hunger":91,"water":79,"health":85,"clean":62,"enrich":46,"trust":37,"temp":29,"notes":[]},{"id":67,"name":"Reed","species":"Shoebill","zone":"Wetlands","icon":"\ud83d\udc26","diet":"piscivore","trait":"statue-still fisher","hunger":72,"water":83,"health":97,"clean":67,"enrich":85,"trust":49,"temp":19,"notes":[]},{"id":68,"name":"Delta","species":"American Alligator","zone":"Wetlands","icon":"\ud83d\udc0a","diet":"carnivore","trait":"marsh guardian","hunger":67,"water":92,"health":78,"clean":79,"enrich":67,"trust":66,"temp":22,"notes":[]},{"id":69,"name":"Muddy","species":"Giant Salamander","zone":"Wetlands","icon":"\ud83d\udc38","diet":"carnivore","trait":"cool-water recluse","hunger":94,"water":58,"health":74,"clean":67,"enrich":52,"trust":54,"temp":18,"notes":[]},{"id":70,"name":"Poppy","species":"Meerkat","zone":"Desert","icon":"\ud83d\udc3e","diet":"omnivore","trait":"sentry specialist","hunger":56,"water":84,"health":85,"clean":94,"enrich":67,"trust":77,"temp":26,"notes":[]},{"id":71,"name":"Dune","species":"Dromedary Camel","zone":"Desert","icon":"\ud83d\udc2b","diet":"herbivore","trait":"heat traveler","hunger":68,"water":60,"health":82,"clean":64,"enrich":68,"trust":63,"temp":21,"notes":[]},{"id":72,"name":"Spike","species":"Desert Tortoise","zone":"Desert","icon":"\ud83d\udc22","diet":"herbivore","trait":"burrow engineer","hunger":77,"water":69,"health":93,"clean":88,"enrich":74,"trust":46,"temp":29,"notes":[]},{"id":73,"name":"Sahara","species":"Addax","zone":"Desert","icon":"\ud83e\udd8c","diet":"herbivore","trait":"drought survivor","hunger":88,"water":89,"health":79,"clean":64,"enrich":45,"trust":79,"temp":23,"notes":[]},{"id":74,"name":"Scorch","species":"Emperor Scorpion","zone":"Desert","icon":"\ud83e\udd82","diet":"insectivore","trait":"night hunter","hunger":60,"water":94,"health":85,"clean":86,"enrich":56,"trust":60,"temp":27,"notes":[]}];
-let state=JSON.parse(localStorage.getItem('zooGodsSave')||'null')||{animals:BASE,funds:12500,food:{carnivore:8,herbivore:12,omnivore:8,browser:8,piscivore:8,'filter feeder':5,insectivore:6,frugivore:5,nectar:5,detritivore:5,fungiculture:5},log:[],day:1};
-if(!state.food) state.food={};
-const zones=[...new Set(state.animals.map(a=>a.zone))];
-const zoneEmoji={Savanna:'🦒', 'Big Cats':'🐅',Primates:'🦍','Reptile House':'🐊',Aviary:'🦜',Ocean:'🐬',Arctic:'🐧',Australia:'🦘',Nocturnal:'🦇',Insectarium:'🦋',Forest:'🐻',Rainforest:'🦥',Wetlands:'🦦',Desert:'🐫'};
-function save(){localStorage.setItem('zooGodsSave',JSON.stringify(state));document.getElementById('funds').textContent='$'+state.funds.toLocaleString();updateKPIs()}
-function go(id){document.querySelectorAll('.screen').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x.dataset.screen===id));window.scrollTo({top:0,behavior:'smooth'});if(id==='rounds')renderRounds();if(id==='hospital')renderHospital();}
-document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>go(b.dataset.screen));
-function avg(a){return Math.round((a.hunger+a.water+a.health+a.clean+a.enrich)/5)}function low(a){return Math.min(a.hunger,a.water,a.health,a.clean,a.enrich)}function bar(v){return `<div class="bar"><i style="width:${v}%"></i></div>`}
-function renderZones(){document.getElementById('zones').innerHTML=zones.map(z=>{let aa=state.animals.filter(a=>a.zone===z),score=Math.round(aa.reduce((s,a)=>s+avg(a),0)/aa.length);return `<div class="card zone" onclick="openZone('${z}')"><h3>${z}</h3><span class="badge">${aa.length} residents</span><p class="muted">Welfare ${score}%</p>${bar(score)}<div class="emoji">${zoneEmoji[z]||'🐾'}</div></div>`}).join('')}
-function openZone(z){go('animals');document.getElementById('filter').value=z;renderAnimals()}
-document.getElementById('filter').innerHTML='<option value="">All habitats</option>'+zones.map(z=>`<option>${z}</option>`).join('');
-function card(a){return `<div class="card animal" onclick="openAnimal(${a.id})"><div class="animalTop"><div class="animalIcon">${a.icon}</div><div><h3>${a.name}</h3><div class="muted">${a.species}</div><span class="badge">${a.zone}</span></div></div><div class="muted">Care ${avg(a)}% · ${a.trait}</div>${bar(avg(a))}</div>`}
-function renderAnimals(){let q=document.getElementById('search').value.toLowerCase(),f=document.getElementById('filter').value;let arr=state.animals.filter(a=>(!f||a.zone===f)&&(!q||(a.name+' '+a.species).toLowerCase().includes(q)));document.getElementById('animalGrid').innerHTML=arr.map(card).join('')||'<div class="card">No matching residents.</div>'}
-function renderRounds(){document.getElementById('roundGrid').innerHTML=[...state.animals].sort((a,b)=>low(a)-low(b)).slice(0,24).map(card).join('')}
-function renderHospital(){let arr=state.animals.filter(a=>a.health<72);document.getElementById('hospitalGrid').innerHTML=arr.length?arr.map(card).join(''):'<div class="card"><h3>✅ Triage clear</h3><p>No residents currently require simulated hospital care.</p></div>'}
-function openAnimal(id){let a=state.animals.find(x=>x.id===id);window.current=id;document.getElementById('animalSheet').innerHTML=`<div class="portrait"><span>${a.icon}</span></div><h2>${a.name} · ${a.species}</h2><p class="muted">${a.zone} · ${a.diet} · ${a.trait}</p><div class="stats">${stat('❤️ Health',a.health)}${stat('🍽️ Fed',a.hunger)}${stat('💧 Hydration',a.water)}${stat('🧹 Habitat',a.clean)}${stat('🧠 Enrichment',a.enrich)}${stat('🤝 Trust',a.trust)}</div><div class="actions"><button class="btn" onclick="care('feed')">🍽️ Feed</button><button class="btn" onclick="care('water')">💧 Fresh Water</button><button class="btn" onclick="care('clean')">🧹 Clean Habitat</button><button class="btn" onclick="care('enrich')">🧩 Enrichment</button><button class="btn" onclick="care('observe')">🔭 Observe</button><button class="btn" onclick="care('train')">🤝 Cooperative Training</button>${a.health<80?'<button class="btn" onclick="care(\'vet\')">🩺 Vet Assessment</button>':''}</div><div class="card" style="margin-top:12px"><b>Keeper Observation</b><p>${observation(a)}</p></div>`;document.getElementById('modal').classList.add('open')}
-function stat(n,v){return `<div><span class="muted">${n}</span><b style="float:right">${v}%</b>${bar(v)}</div>`}
-function observation(a){let m=low(a);if(a.health===m)return 'Health is the current priority. Move this resident to veterinary assessment.';if(a.hunger===m)return 'Diet intake is the lowest care score. Prepare and offer the correct ration.';if(a.water===m)return 'Hydration station needs attention.';if(a.clean===m)return 'Habitat condition is below this resident’s other care scores.';if(a.enrich===m)return `${a.name} needs a new species-appropriate enrichment opportunity.`;return 'Resident appears stable. Continue routine observation.'}
-function care(type){let a=state.animals.find(x=>x.id===window.current),msg='';if(type==='feed'){let n=state.food[a.diet]||0;if(n<1){toast('No '+a.diet+' ration. Prepare food first.');return}state.food[a.diet]=n-1;a.hunger=Math.min(100,a.hunger+28);a.trust=Math.min(100,a.trust+2);msg=`Fed ${a.name} a ${a.diet} ration.`}if(type==='water'){a.water=Math.min(100,a.water+30);msg=`Refreshed ${a.name}'s water station.`}if(type==='clean'){a.clean=Math.min(100,a.clean+32);a.enrich=Math.min(100,a.enrich+3);msg=`Cleaned ${a.name}'s habitat.`}if(type==='enrich'){a.enrich=Math.min(100,a.enrich+30);a.trust=Math.min(100,a.trust+3);msg=`Added species-appropriate enrichment for ${a.name}.`}if(type==='observe'){a.health=Math.min(100,a.health+2);a.trust=Math.min(100,a.trust+2);msg=`Completed keeper observation for ${a.name}.`}if(type==='train'){a.trust=Math.min(100,a.trust+12);a.enrich=Math.min(100,a.enrich+8);msg=`Completed cooperative-care training with ${a.name}.`}if(type==='vet'){a.health=Math.min(100,a.health+18);state.funds=Math.max(0,state.funds-90);msg=`Wildlife team assessed ${a.name}. -$90 simulated care cost.`}state.log.unshift(new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})+' — '+msg);save();toast(msg);openAnimal(a.id);renderAll()}
-function closeAnimal(){document.getElementById('modal').classList.remove('open')}
-function renderFood(){let types=[...new Set(state.animals.map(a=>a.diet))];document.getElementById('foodGrid').innerHTML=types.map(t=>`<div class="card"><h3>${dietIcon(t)} ${t[0].toUpperCase()+t.slice(1)} Rations</h3><b>${state.food[t]||0} prepared</b><p class="muted">${state.animals.filter(a=>a.diet===t).length} residents use this diet group.</p><button class="btn" onclick="prep('${t}')">Prepare 5 · $25</button></div>`).join('')}
-function dietIcon(t){return t.includes('carn')?'🥩':t.includes('pisc')?'🐟':t.includes('insect')?'🦗':t==='nectar'?'🌸':'🥬'}
-function prep(t){if(state.funds<25)return toast('Not enough zoo funds.');state.funds-=25;state.food[t]=(state.food[t]||0)+5;state.log.unshift('Commissary prepared 5 '+t+' rations.');save();renderFood();toast('5 '+t+' rations prepared.')}
-function updateKPIs(){let score=Math.round(state.animals.reduce((s,a)=>s+avg(a),0)/state.animals.length),needs=state.animals.filter(a=>low(a)<60).length;document.getElementById('animalCount').textContent=state.animals.length;document.getElementById('zoneCount').textContent=zones.length;document.getElementById('needsCount').textContent=needs;document.getElementById('welfare').textContent=score+'%';document.getElementById('goalState').textContent=state.animals.every(a=>Math.min(a.hunger,a.water,a.clean,a.enrich)>=65)?'SHIFT GOAL COMPLETE':'IN PROGRESS';let med=state.animals.filter(a=>a.health<72).length;document.getElementById('medAlert').textContent=med?med+' resident(s) are on the triage board.':'No critical cases.'}
-function toast(s){let t=document.getElementById('toast');t.textContent=s;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
-function renderLog(){document.getElementById('log').innerHTML=state.log.length?state.log.slice(0,80).map(x=>'<div>'+x+'</div>').join(''):'<div>No keeper actions recorded yet.</div>'}
-function resetGame(){if(confirm('Reset the entire zoo save?')){localStorage.removeItem('zooGodsSave');location.reload()}}
-function renderAll(){renderZones();renderAnimals();renderRounds();renderHospital();renderFood();renderLog();updateKPIs();document.getElementById('funds').textContent='$'+state.funds.toLocaleString()}
-renderAll();save();
-</script></body></html>
+(()=>{"use strict";
+window.addEventListener("error",e=>{
+  try{
+    const t=document.querySelector("#toast");
+    if(t){t.textContent="SYSTEM SCRIPT ERROR // "+e.message;t.style.display="block";}
+    console.error("ZOO GODS runtime error:",e.error||e.message);
+  }catch(_){}
+});
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const state={z:30,start:Date.now(),max:new Map()};
+const bootLines=[
+"[ZOO GODS BIOS 7.19.88] cold-start sequence",
+"checking processor array .............. OK",
+"mapping volatile memory ............... 4096 MB",
+"mounting local volume ................. OK",
+"recovering graphical shell ............ OK",
+"network interface ..................... AVAILABLE",
+"operator credential ................... NOT FOUND",
+"device inventory ...................... 7 PRESENT",
+"recognized devices .................... 6",
+"DEVICE 07 ............................. CLASSIFICATION UNAVAILABLE",
+"",
+"starting ZOO GODS local workstation..."
+];
+function boot(){
+ const log=$("#bootlog"); log.textContent="";
+ bootLines.forEach((l,i)=>setTimeout(()=>{log.textContent+=l+"\n"; if(i===bootLines.length-1)setTimeout(()=>{$("#boot").style.display="none";$("#desktop").style.display="block";toast("WORKSTATION READY // one device remains unclassified");},500)},i*115));
+}
+function toast(t){let x=$("#toast");x.textContent=t;x.style.display="block";clearTimeout(x._t);x._t=setTimeout(()=>x.style.display="none",3000)}
+function openApp(app){
+ journal("application opened: "+app);
+ const w=$("#win-"+app); if(!w)return; w.style.display="block";w.style.zIndex=++state.z;
+ if(!$("#task-"+app)){let b=document.createElement("button");b.className="task";b.id="task-"+app;b.textContent=app.toUpperCase();b.onclick=()=>{w.style.display=w.style.display==="none"?"block":"none";w.style.zIndex=++state.z};$("#tasks").appendChild(b)}
+ $("#startMenu").style.display="none"; pulse();
+}
+function closeWin(w){
+ journal("application closed: "+w.id.replace("win-",""));w.style.display="none";let id=w.id.replace("win-","");$("#task-"+id)?.remove()}
+function pulse(){let n=55+Math.random()*40;$("#netBar").style.width=n+"%";$("#netVal").textContent="ACTIVE";setTimeout(()=>{$("#netBar").style.width="5%";$("#netVal").textContent="IDLE"},800)}
+$$("[data-app]").forEach(x=>x.addEventListener("click",()=>openApp(x.dataset.app)));
+$("#startBtn").onclick=()=>{let m=$("#startMenu");m.style.display=m.style.display==="block"?"none":"block"};
+$$(".window").forEach(w=>{
+ w.addEventListener("mousedown",()=>w.style.zIndex=++state.z);
+ w.querySelector("[data-close]").onclick=()=>closeWin(w);
+ w.querySelector("[data-min]").onclick=()=>w.style.display="none";
+ w.querySelector("[data-max]").onclick=()=>{
+   if(!state.max.has(w)){state.max.set(w,{l:w.style.left,t:w.style.top,w:w.style.width,h:w.style.height});Object.assign(w.style,{left:"1vw",top:"40px",width:"98vw",height:"calc(100vh - 86px)"})}
+   else{let o=state.max.get(w);Object.assign(w.style,{left:o.l,top:o.t,width:o.w,height:o.h});state.max.delete(w)}
+ };
+ let bar=w.querySelector(".titlebar"),drag=false,ox=0,oy=0;
+ bar.addEventListener("mousedown",e=>{if(e.target.tagName==="BUTTON")return;drag=true;ox=e.clientX-w.offsetLeft;oy=e.clientY-w.offsetTop});
+ addEventListener("mousemove",e=>{if(drag&&!state.max.has(w)){w.style.left=Math.max(0,e.clientX-ox)+"px";w.style.top=Math.max(34,e.clientY-oy)+"px"}});
+ addEventListener("mouseup",()=>drag=false);
+});
+function tick(){
+ let d=new Date();$("#clock").textContent=d.toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"});
+ let cpu=Math.round(8+Math.random()*27),mem=Math.round(28+Math.random()*12);
+ $("#cpuVal").textContent=cpu+"%";$("#cpuBar").style.width=cpu+"%";$("#loadTop").textContent="CPU "+cpu+"%";$("#sysCpu").textContent=cpu+"%";
+ $("#memVal").textContent=mem+"%";$("#memBar").style.width=mem+"%";$("#sysMem").textContent=mem+"%";
+ let s=Math.floor((Date.now()-state.start)/1000),h=String(Math.floor(s/3600)).padStart(2,"0"),m=String(Math.floor(s%3600/60)).padStart(2,"0"),q=String(s%60).padStart(2,"0");$("#uptime").textContent=h+":"+m+":"+q;
+}setInterval(tick,1000);tick();
+
+const defaultFiles=[
+{name:"README.NX",type:"SYS",text:"Recovered workstation shell. Network gateway is available. Device 07 remains unclassified."},
+{name:"previous-session.log",type:"LOG",text:"SESSION INTERRUPTED\\nOperator: [CORRUPTED]\\nNetwork: ACTIVE\\nLocal devices: 7\\nRecognized devices: 6\\n\\nDEVICE 07:\\nclassification unavailable\\n\\nDo not mount automatically."},
+{name:"network-notes.txt",type:"TXT",text:"External requests are handed to the host browser. Local history remains stored inside this workstation simulation."}
+];
+function getFiles(){try{return JSON.parse(localStorage.getItem("nx.files"))||defaultFiles}catch{return defaultFiles}}
+function setFiles(f){localStorage.setItem("nx.files",JSON.stringify(f))}
+function renderFiles(){let f=getFiles(),g=$("#filegrid");g.innerHTML="";f.forEach((x,i)=>{let d=document.createElement("div");d.className="file";d.innerHTML='<div class="ft">▧</div><b>'+esc(x.name)+'</b><div class="tiny">'+x.type+'</div>';d.onclick=()=>{openApp("notes");$("#notesArea").value=x.text;toast("OPENED "+x.name)};g.appendChild(d)})}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+$("#newFile").onclick=()=>{let name=prompt("New file name:","untitled.txt");if(!name)return;let f=getFiles();f.push({name,type:"TXT",text:""});setFiles(f);renderFiles();toast("FILE CREATED")};$("#refreshFiles").onclick=renderFiles;renderFiles();
+
+$("#notesArea").value=localStorage.getItem("nx.notes")||"";
+$("#saveNotes").onclick=()=>{localStorage.setItem("nx.notes",$("#notesArea").value);$("#saveMsg").textContent="SAVED";setTimeout(()=>$("#saveMsg").textContent="",1300)};
+
+let op=localStorage.getItem("nx.operator")||"GUEST";$("#operatorName").value=op==="GUEST"?"":op;
+$("#saveOperator").onclick=()=>{let v=$("#operatorName").value.trim();if(!v)return;localStorage.setItem("nx.operator",v);op=v;toast("OPERATOR REGISTERED: "+v.toUpperCase());term("identity updated: "+v)};
+$("#reboot").onclick=()=>location.reload();
+$("#cleanStorage").onclick=()=>{["nx.events","nx.history"].forEach(k=>{try{localStorage.removeItem(k)}catch(_){}});window.__zgMemoryEvents=[];renderJournal();toast("NONESSENTIAL LOGS CLEARED // GAME STATE PRESERVED")};
+$("#reset").onclick=()=>{if(confirm("Reset workstation local data?")){localStorage.removeItem("nx.files");localStorage.removeItem("nx.notes");localStorage.removeItem("nx.history");localStorage.removeItem("nx.operator");location.reload()}};
+
+function historyAdd(q,target){let h=[];try{h=JSON.parse(localStorage.getItem("nx.history"))||[]}catch{};h.unshift({q,target,t:new Date().toLocaleString()});h=h.slice(0,12);localStorage.setItem("nx.history",JSON.stringify(h));renderHistory()}
+function renderHistory(){let h=[];try{h=JSON.parse(localStorage.getItem("nx.history"))||[]}catch{};$("#history").innerHTML=h.length?h.map(x=>"["+esc(x.t)+"] "+esc(x.target.toUpperCase())+" :: "+esc(x.q)).join("<br>"):"No network requests recorded."}renderHistory();
+function search(target,q){
+ if(!q.trim()){toast("ENTER A SEARCH TERM OR ADDRESS");return}
+ let url;
+ if(/^https?:\/\//i.test(q))url=q;
+ else if(/^[\w.-]+\.[a-z]{2,}(\/.*)?$/i.test(q))url="https://"+q;
+ else {
+   const e=encodeURIComponent(q), map={web:"https://www.google.com/search?q=",wikipedia:"https://en.wikipedia.org/w/index.php?search=",amazon:"https://www.amazon.com/s?k=",github:"https://github.com/search?q=",youtube:"https://www.youtube.com/results?search_query="};
+   url=(map[target]||map.web)+e;
+ }
+ historyAdd(q,target);pulse();window.open(url,"_blank","noopener,noreferrer");toast("REQUEST HANDED TO HOST BROWSER");
+}
+$("#goNet").onclick=()=>search("web",$("#netQuery").value);$("#netQuery").addEventListener("keydown",e=>{if(e.key==="Enter")$("#goNet").click()});
+$$("[data-search]").forEach(c=>c.onclick=()=>search(c.dataset.search,$("#netQuery").value));
+
+const out=$("#terminalOut"),tin=$("#terminalIn");
+function term(s=""){out.textContent+=s+"\n";out.scrollTop=out.scrollHeight}
+function command(raw){
+ let [cmd,...args]=raw.trim().split(/\s+/);cmd=(cmd||"").toLowerCase();let arg=args.join(" ");
+ if(!cmd)return;
+ term("guest@nx:/$ "+raw);
+ const cmds={
+ help:()=>term("COMMAND DIRECTORY\\n help       commands\\n ls         list files\\n cat NAME   inspect file\\n clear      clear terminal\\n date       local date/time\\n whoami     operator identity\\n sysinfo    workstation info\\n netstat    network status\\n scan       inspect local systems\\n apps       installed applications\\n open APP   launch application\\n echo TEXT  print text"),
+ ls:()=>term(getFiles().map(f=>f.name).join("\\n")),
+ cat:()=>{let f=getFiles().find(x=>x.name.toLowerCase()===arg.toLowerCase());term(f?f.text:"file not found")},
+ clear:()=>out.textContent="",
+ date:()=>term(new Date().toString()),
+ whoami:()=>term(op),
+ sysinfo:()=>term("NX Workstation\\nShell: Phase 01.10\\nMemory: 4096 MB\\nNetwork gateway: READY\\nDevices: 7 / recognized: 6"),
+ netstat:()=>term("HOST BROWSER GATEWAY .... READY\\nLOCAL HISTORY ........... ENABLED\\nDIRECT SOCKET CONTROL ... SANDBOXED"),
+ scan:()=>{markMission("scan");term("SCANNING LOCAL SYSTEM...\\n\\nDESKTOP SERVICES .......... 06\\nSTANDARD APPLICATIONS ..... 06\\nNETWORK INTERFACE ......... READY\\nLOCAL ARCHIVES ............ 03\\n\\nUNREGISTERED DEVICES ...... 01\\n\\nDEVICE 07: classification unavailable.\\nSubsystem route exposed. Run 'probe 07' for a passive identification attempt.");toast("SCAN COMPLETE // ANOMALY FOUND")},
+ apps:()=>term("net\\nfiles\\nterminal\\nsystem\\nnotes\\nsettings"),
+ open:()=>{let a=arg.toLowerCase();if($("#win-"+a)){openApp(a);term("launching "+a)}else term("application not found")},
+ probe:()=>{if(arg!=="07")return term("probe target unavailable");term("PASSIVE PROBE DEVICE 07\nbus ........ LOCAL-SIM\nstate ...... PRESENT\ndriver ..... NONE\nauto-mount . DISABLED\nsignature .. 07-AF-19-??\n\nNo external device or network was accessed.");toast("DEVICE 07 PASSIVE RECORD OPENED");openApp("archive")},
+ deep:()=>{if(arg!=="07")return term("deep probe target unavailable");openApp("console");term("Device 07 isolated console opened. No external access performed.")},
+ tools:()=>{openApp("tools");term("local toolkit opened")},
+ ps:()=>term("PID   PROCESS          CPU   STATE\n101   nx-shell         2%    RUNNING\n118   local-storage    1%    READY\n126   net-gateway      0%    IDLE\n133   telemetry        3%    RUNNING\n207   device07-watch   0%    ISOLATED"),
+ events:()=>{let e=[];try{e=JSON.parse(localStorage.getItem("nx.events"))||[]}catch{};term(e.length?e.slice(0,12).join("\n"):"no journal entries")},
+ browse:()=>{if(!arg)return term("usage: browse SEARCH TERMS");search("web",arg);term("request handed to host browser")},
+ zoo:()=>{openApp("zoo");term("Zoo Gods species index opened")},
+ habitats:()=>{openApp("habitat");term("Habitat control opened")},
+ care:()=>{openApp("care");term("Fictional care core opened")},
+ feeds:()=>{openApp("feeds");term("Habitat feeds opened")},
+ learn:()=>{openApp("learn");term("Computer learning lab opened")},
+ research:()=>{openApp("research");term("Research desk opened")},
+ missions:()=>{openApp("missions");term("Discovery objectives opened")},
+ comms:()=>{openApp("comms");term("Local fictional communications array opened")},
+ aux:()=>{openApp("aux");term("Auxiliary layer console opened")},
+ supplies:()=>{openApp("market");term("Supply network opened")},
+ diagnose:()=>{let wins=$$(".window").length,apps=$$("[data-app]").length;term("ZOO GODS UI DIAGNOSTICS\nwindows detected: "+wins+"\napplication launchers: "+apps+"\nlocalStorage: "+(typeof localStorage!=="undefined"?"READY":"UNAVAILABLE")+"\nJavaScript runtime: READY\nwindow manager: READY");toast("DIAGNOSTICS COMPLETE")},
+ cleanup:()=>{["nx.events","nx.history"].forEach(k=>{try{localStorage.removeItem(k)}catch(_){}});window.__zgMemoryEvents=[];renderJournal();term("nonessential event and web-history logs cleared\nAnimal care, credits, inventory, operator profile, notes and discoveries were preserved.");toast("STORAGE LOGS CLEANED")},
+ history:()=>{let h=[];try{h=JSON.parse(localStorage.getItem("nx.history"))||[]}catch{};term(h.length?h.map(x=>x.t+" :: "+x.target+" :: "+x.q).join("\n"):"no network history")},
+ uptime:()=>term($("#uptime").textContent),
+ echo:()=>term(arg)
+ };(cmds[cmd]||(()=>term("unknown command: "+cmd+"  (type help)")))();
+}
+tin.addEventListener("keydown",e=>{if(e.key==="Enter"){command(tin.value);tin.value=""}});
+
+
+
+const zooAnimals=[
+ {n:"Lyra",sp:"Gray Wolf",ic:"🐺",zone:"ARCTIC RIDGE",sex:"Female",age:"5 yr",diet:"Carnivore",status:"Stable",note:"Alert, observant resident used to the northern ridge rotation."},
+ {n:"Koda",sp:"Siberian Husky",ic:"🐕",zone:"ARCTIC RIDGE",sex:"Male",age:"4 yr",diet:"Omnivore",status:"Stable",note:"High-energy canine resident assigned to enrichment cycle B."},
+ {n:"Vesper",sp:"Black Cat",ic:"🐈‍⬛",zone:"NOCTURNAL WING",sex:"Female",age:"3 yr",diet:"Carnivore",status:"Stable",note:"Quiet resident who favors elevated platforms and low-light rooms."},
+ {n:"Orion",sp:"Snowy Owl",ic:"🦉",zone:"ARCTIC RIDGE",sex:"Male",age:"6 yr",diet:"Carnivore",status:"Observation",note:"Flight and feather condition tracked in the fictional care database."},
+ {n:"Ember",sp:"Red Fox",ic:"🦊",zone:"NOCTURNAL WING",sex:"Female",age:"2 yr",diet:"Omnivore",status:"Stable",note:"Curious resident with an active foraging enrichment schedule."},
+ {n:"Atlas",sp:"African Elephant",ic:"🐘",zone:"SAVANNAH RANGE",sex:"Male",age:"18 yr",diet:"Herbivore",status:"Stable",note:"Large-range resident with hydration and foot-care routines."},
+ {n:"Mara",sp:"Tiger",ic:"🐅",zone:"RAINFOREST DOME",sex:"Female",age:"7 yr",diet:"Carnivore",status:"Stable",note:"Solitary habitat resident with rotating scent enrichment."},
+ {n:"Echo",sp:"Chimpanzee",ic:"🐒",zone:"RAINFOREST DOME",sex:"Male",age:"12 yr",diet:"Omnivore",status:"Stable",note:"Complex puzzle enrichment is recorded by the local system."},
+ {n:"Nimbus",sp:"Harbor Seal",ic:"🦭",zone:"CARE CORE",sex:"Male",age:"8 yr",diet:"Piscivore",status:"Recovery",note:"Temporarily assigned to the fictional care core for observation."},
+ {n:"Juniper",sp:"Giant Tortoise",ic:"🐢",zone:"RAINFOREST DOME",sex:"Female",age:"42 yr",diet:"Herbivore",status:"Stable",note:"Slow-cycle habitat monitoring with basking and feeding records."}
+];
+function renderAnimals(q=""){
+ const g=$("#animalgrid"); if(!g)return; q=q.toLowerCase();
+ const arr=zooAnimals.filter(a=>(a.n+" "+a.sp+" "+a.zone).toLowerCase().includes(q));
+ g.innerHTML=arr.map((a,i)=>'<div class="animalcard" data-animal="'+zooAnimals.indexOf(a)+'"><div class="animalicon">'+a.ic+'</div><b>'+a.n+'</b><br>'+a.sp+'<br><span class="badge">'+a.zone+'</span><span class="badge">'+a.status+'</span></div>').join("");
+ $$("[data-animal]").forEach(c=>c.onclick=()=>showAnimal(Number(c.dataset.animal)));
+}
+function showAnimal(i){
+ markMission("animal");
+ const a=zooAnimals[i],d=$("#animalDetail");d.style.display="block";
+ d.innerHTML='<div class="big">'+a.ic+' '+a.n+' // '+a.sp+'</div>'+
+ '<div class="statline"><span>Habitat</span><b>'+a.zone+'</b></div><div class="statline"><span>Sex</span><b>'+a.sex+'</b></div>'+
+ '<div class="statline"><span>Age</span><b>'+a.age+'</b></div><div class="statline"><span>Diet</span><b>'+a.diet+'</b></div>'+
+ '<div class="statline"><span>Status</span><b>'+a.status+'</b></div><p>'+a.note+'</p>'+
+ '<button class="action" id="webSpecies">WEB SEARCH: '+a.sp.toUpperCase()+'</button>';
+ $("#webSpecies").onclick=()=>search("web",a.sp+" animal species information");
+ journal("species record opened: "+a.n+" / "+a.sp);
+}
+$("#animalSearchBtn").onclick=()=>renderAnimals($("#animalSearch").value);
+$("#animalSearch").addEventListener("input",()=>renderAnimals($("#animalSearch").value));
+$$("[data-zone]").forEach(z=>z.onclick=()=>{
+ let name=z.dataset.zone,count=zooAnimals.filter(a=>a.zone===name).length;
+ $("#zoneReadout").innerHTML="<b>"+name+"</b><br>Resident records: "+count+"<br>Environmental telemetry: SIMULATED<br>Life-support model: NOMINAL<br>Enrichment scheduler: ACTIVE";
+ journal("habitat selected: "+name);
+});
+renderAnimals();
+
+
+
+
+function auxReady(){return localStorage.getItem("nx.deep07")==="1"&&localStorage.getItem("zg.m.comm")==="1"}
+function renderAux(){
+ let ok=auxReady();$("#auxLocked").style.display=ok?"none":"block";$("#auxContent").style.display=ok?"block":"none";
+ if(ok){localStorage.setItem("zg.aux","1");journal("auxiliary operating layer reconstructed")}
+}
+$("#auxCheck").onclick=()=>{renderAux();toast(auxReady()?"AUXILIARY INDEX RESTORED":"RECOVERY REQUIREMENTS INCOMPLETE")};
+
+const supplies=[
+ {n:"Canine Enrichment Pack",cost:120,q:"dog enrichment toys"},
+ {n:"Feline Climbing Module",cost:180,q:"cat climbing enrichment"},
+ {n:"Bird Perch Set",cost:95,q:"bird enrichment perches"},
+ {n:"Habitat Water Monitor",cost:260,q:"animal habitat water monitoring"},
+ {n:"Large Animal Feeder",cost:320,q:"zoo animal feeder"},
+ {n:"Transport Carrier",cost:210,q:"animal transport carrier"}
+];
+function supplyState(){let s;try{s=JSON.parse(localStorage.getItem("zg.supplies"))}catch{};return s||{credits:2500,items:{}}}
+function renderSupplies(){
+ let s=supplyState();$("#credits").textContent=s.credits;$("#supplyGrid").innerHTML=supplies.map((x,i)=>'<div class="supply"><b>'+x.n+'</b><div class="price">'+x.cost+' ZC</div><span class="tiny">Owned: '+(s.items[i]||0)+'</span><br><button class="action" data-buy="'+i+'">BUY FICTIONAL</button> <button class="action" data-websupply="'+i+'">WEB</button></div>').join("");
+ $$("[data-buy]").forEach(b=>b.onclick=()=>{let i=+b.dataset.buy,s=supplyState(),x=supplies[i];if(s.credits<x.cost)return toast("INSUFFICIENT FICTIONAL CREDITS");s.credits-=x.cost;s.items[i]=(s.items[i]||0)+1;localStorage.setItem("zg.supplies",JSON.stringify(s));renderSupplies();journal("fictional supply acquired: "+x.n);toast("INVENTORY UPDATED")});
+ $$("[data-websupply]").forEach(b=>b.onclick=()=>search("amazon",supplies[+b.dataset.websupply].q));
+}
+$("#supplyWeb").onclick=()=>{let q=$("#supplySearch").value.trim();if(q)search("amazon",q)};
+$("#supplySearch").addEventListener("keydown",e=>{if(e.key==="Enter")$("#supplyWeb").click()});
+renderSupplies();setTimeout(renderAux,300);
+const missions=[
+ {id:"scan",title:"Inventory Mismatch",desc:"Run the terminal scan command.",test:()=>localStorage.getItem("zg.m.scan")==="1"},
+ {id:"device",title:"Device 07",desc:"Complete the deep isolated probe.",test:()=>localStorage.getItem("nx.deep07")==="1"},
+ {id:"animal",title:"Species Record",desc:"Open an individual Zoo Gods animal record.",test:()=>localStorage.getItem("zg.m.animal")==="1"},
+ {id:"care",title:"Care Operator",desc:"Perform one fictional Care Core action.",test:()=>localStorage.getItem("zg.m.care")==="1"},
+ {id:"comm",title:"Buffered Signal",desc:"Decode the local communications buffer.",test:()=>localStorage.getItem("zg.m.comm")==="1"}
+];
+function renderMissions(){
+ let box=$("#missionList");if(!box)return;let done=0;
+ box.innerHTML=missions.map(m=>{let ok=m.test();if(ok)done++;return '<div class="mission '+(ok?'done':'')+'"><h4>'+(ok?'✓ ':'○ ')+m.title+'</h4>'+m.desc+'</div>'}).join("");
+ $("#discoveryLevel").textContent=done+" / "+missions.length;
+}
+function markMission(id){localStorage.setItem("zg.m."+id,"1");renderMissions()}
+for(let i=0;i<24;i++){let e=document.createElement("i");e.style.animationDelay=(i*.07)+"s";e.style.animationDuration=(.5+Math.random()*1.2)+"s";$("#commWave").appendChild(e)}
+$$("[data-channel]").forEach(b=>b.onclick=()=>{
+ let ch=b.dataset.channel,txt={"01":"CHANNEL 01 // HABITAT OPERATIONS\nRoutine local status packets archived.","07":"CHANNEL 07 // AUXILIARY\nCarrier detected in local simulation buffer.\nHeader: ZG-AUX-07\nPayload: fragmented.","12":"CHANNEL 12 // CARE CORE\nScheduled enrichment logs queued."}[ch];
+ $("#commScreen").textContent=txt;journal("communications channel selected: "+ch)
+});
+$("#decodeComm").onclick=()=>{
+ $("#commScreen").textContent="LOCAL BUFFER DECODE\n\nZG-AUX-07 / fragment 4\n\"...the workstation was not built only to observe the habitats. The auxiliary index contains a second operating layer...\"\n\nNEXT POINTER: /AUX/SESSION/last.route\n\n[FICTIONAL LOCAL RECORD]";
+ markMission("comm");journal("local communications buffer decoded");toast("BUFFER FRAGMENT RECOVERED")
+};
+renderMissions();
+$$("[data-copycmd]").forEach(b=>b.onclick=()=>{openApp("terminal");$("#terminalIn").value=b.dataset.copycmd;$("#terminalIn").focus();toast("COMMAND LOADED // PRESS ENTER")});
+$("#learnWeb").onclick=()=>search("web","computer security basics defensive cybersecurity");
+$("#researchGo").onclick=()=>{let q=$("#researchQuery").value.trim();if(q)search("web",q)};
+$("#researchQuery").addEventListener("keydown",e=>{if(e.key==="Enter")$("#researchGo").click()});
+$$("[data-rq]").forEach(c=>c.onclick=()=>search("web",c.dataset.rq));
+$("#researchNotes").value=localStorage.getItem("zg.research")||"";
+$("#saveResearch").onclick=()=>{localStorage.setItem("zg.research",$("#researchNotes").value);journal("research notes saved");toast("RESEARCH NOTES SAVED")};
+let activeCare=-1;
+function careState(){
+ let s={};try{s=JSON.parse(localStorage.getItem("zg.care"))||{}}catch{}
+ zooAnimals.forEach((a,i)=>{if(!s[i])s[i]={hydration:65+((i*7)%25),nutrition:60+((i*9)%30),comfort:55+((i*11)%35),observation:40+((i*13)%50)}});
+ return s;
+}
+function saveCare(s){localStorage.setItem("zg.care",JSON.stringify(s))}
+function renderCareList(){
+ let c=$("#carePatients");if(!c)return;
+ c.innerHTML=zooAnimals.map((a,i)=>'<button class="action" data-patient="'+i+'">'+a.ic+' '+a.n+' // '+a.sp+'</button>').join("");
+ $$("[data-patient]").forEach(b=>b.onclick=()=>selectCare(Number(b.dataset.patient)));
+}
+function selectCare(i){
+ activeCare=i;let a=zooAnimals[i];$("#careName").textContent=a.ic+" "+a.n;$("#careSpecies").textContent=a.sp+" // "+a.zone+" // "+a.status;renderCareGauges();journal("care record selected: "+a.n)
+}
+function renderCareGauges(){
+ if(activeCare<0)return;let s=careState()[activeCare],g=$("#careGauges");
+ g.innerHTML=Object.entries(s).map(([k,v])=>'<div class="gaugeRow"><span>'+k.toUpperCase()+'</span><div class="gaugeTrack"><i style="width:'+v+'%"></i></div><b>'+v+'%</b></div>').join("");
+}
+$$("[data-care]").forEach(b=>b.onclick=()=>{
+ if(activeCare<0){toast("SELECT A RESIDENT FIRST");return}
+ let all=careState(),s=all[activeCare],a=zooAnimals[activeCare],act=b.dataset.care,msg="";
+ if(act==="water"){s.hydration=Math.min(100,s.hydration+8);msg=a.n+" accepted simulated water. Hydration model increased."}
+ if(act==="food"){s.nutrition=Math.min(100,s.nutrition+7);msg=a.n+" completed a simulated feeding. Nutrition model increased."}
+ if(act==="comfort"){s.comfort=Math.min(100,s.comfort+10);msg="Comfort enrichment completed for "+a.n+"."}
+ if(act==="observe"){s.observation=Math.min(100,s.observation+12);msg="Observation cycle logged for "+a.n+"."}
+ saveCare(all);renderCareGauges();$("#careLog").textContent=msg;markMission("care");journal("care action: "+act+" / "+a.n);toast("CARE LOG UPDATED")
+});
+renderCareList();
+function journal(msg){
+ let e=[];
+ try{e=JSON.parse(localStorage.getItem("nx.events"))||[]}catch(_){e=[]}
+ const entry=new Date().toLocaleTimeString()+"  "+String(msg).slice(0,180);
+ const body=String(msg).slice(0,180);
+ if(!e.length || !String(e[0]).endsWith(body)) e.unshift(entry);
+ e=e.slice(0,12);
+ try{
+   localStorage.setItem("nx.events",JSON.stringify(e));
+ }catch(err){
+   // Browser storage can be full because older ZOO GODS builds share this origin.
+   // Keep the machine running: discard nonessential history, retry a tiny journal,
+   // and fall back to memory-only logging if storage is still unavailable.
+   try{
+     ["nx.history","nx.events"].forEach(k=>localStorage.removeItem(k));
+     e=e.slice(0,5);
+     localStorage.setItem("nx.events",JSON.stringify(e));
+   }catch(_){
+     window.__zgMemoryEvents=e.slice(0,5);
+   }
+ }
+ renderJournal();
+}
+function renderJournal(){
+ let e=[];try{e=JSON.parse(localStorage.getItem("nx.events"))||[]}catch(_){}
+ if(!e.length&&window.__zgMemoryEvents)e=window.__zgMemoryEvents;
+ let j=$("#eventJournal");if(j)j.innerHTML=e.length?e.slice(0,12).map(x=>'<div class="notif">'+esc(x)+'</div>').join(""):'<div class="tiny">No events recorded.</div>';
+}
+function renderProcesses(){
+ const base=[["nx-shell","101","2%","RUNNING"],["local-storage","118","1%","READY"],["net-gateway","126","0%","IDLE"],["telemetry","133","3%","RUNNING"],["device07-watch","207","0%","ISOLATED"]];
+ let p=$("#processList");if(p)p.innerHTML=base.map(x=>'<div class="proc"><b>'+x[0]+'</b><span>'+x[1]+'</span><span>'+x[2]+'</span><span>'+x[3]+'</span></div>').join("");
+}
+function browserLaunch(v){
+ v=v.trim();if(!v){toast("ENTER ADDRESS OR SEARCH");return}
+ journal("browser gateway request: "+v);search("web",v);
+}
+$("#browserGo").onclick=()=>browserLaunch($("#browserAddress").value);
+$("#browserAddress").addEventListener("keydown",e=>{if(e.key==="Enter")browserLaunch($("#browserAddress").value)});
+$("#browserBack").onclick=()=>toast("External pages remain in your normal browser tab.");
+$$("[data-bm]").forEach(b=>b.onclick=()=>{journal("bookmark opened: "+b.dataset.bm);window.open(b.dataset.bm,"_blank","noopener,noreferrer");pulse()});
+renderProcesses();renderJournal();
+let calc="";
+const keys=["7","8","9","/","4","5","6","*","1","2","3","-","0",".","C","+","="];
+keys.forEach(k=>{let b=document.createElement("button");b.className="action";b.textContent=k;b.onclick=()=>{if(k==="C")calc="";else if(k==="="){try{calc=String(Function('"use strict";return ('+calc+')')())}catch{calc="ERR"}}else calc+=k;$("#calcDisplay").value=calc||"0"};$("#calcKeys").appendChild(b)});
+$("#toHex").onclick=()=>{$("#hexOut").textContent=[...new TextEncoder().encode($("#hexInput").value)].map(x=>x.toString(16).padStart(2,"0")).join(" ")};
+$("#unixGo").onclick=()=>{let n=Number($("#unixIn").value);$("#unixOut").textContent=Number.isFinite(n)?new Date(n*1000).toString():"Invalid timestamp"};
+$("#scratch").value=sessionStorage.getItem("nx.scratch")||"";$("#scratch").oninput=()=>sessionStorage.setItem("nx.scratch",$("#scratch").value);
+
+$("#readHeader").onclick=()=>{$("#deviceConsole").textContent="HEADER READ\\nmagic: NX-AUX\\nrevision: 3\\nvolume-label: RECOVERY_AUX\\nfilesystem: unknown-sim\\nmount policy: MANUAL\\n\\nFragment discovered: /AUX/INDEX.NX";toast("DEVICE HEADER RECOVERED")};
+$("#deepProbe").onclick=()=>{
+ let p=$("#probeProgress"),o=$("#deviceConsole");p.style.width="0";o.textContent="Beginning isolated local probe...";let v=0;
+ let id=setInterval(()=>{v+=20;p.style.width=v+"%";o.textContent+="\\n["+v+"%] "+(["reading header","checking modeled blocks","reconstructing index","verifying sandbox","probe complete"][v/20-1]||"");
+ if(v>=100){clearInterval(id);o.textContent+="\\n\\nRECOVERED PATHS:\\n/AUX/INDEX.NX\\n/AUX/TOOLS/\\n/AUX/SESSION/last.route\\n\\nSTATUS: filesystem image recognized, not mounted.\\nNo host files, devices, or external systems were accessed.";localStorage.setItem("nx.deep07","1");toast("DEVICE 07 INDEX PARTIALLY RECOVERED")}},260)
+};
+function drawNetMap(){
+ const c=$("#networkCanvas"); if(!c)return; const x=c.getContext("2d"),w=c.width,h=c.height;
+ x.clearRect(0,0,w,h); x.fillStyle="#02090d";x.fillRect(0,0,w,h);
+ x.strokeStyle="#17434b";x.lineWidth=1;
+ for(let i=0;i<w;i+=45){x.beginPath();x.moveTo(i,0);x.lineTo(i,h);x.stroke()}
+ for(let i=0;i<h;i+=30){x.beginPath();x.moveTo(0,i);x.lineTo(w,i);x.stroke()}
+ const nodes=[
+  {x:110,y:150,n:"NX LOCAL",s:"READY"},{x:330,y:80,n:"HOST BROWSER",s:"GATEWAY"},
+  {x:330,y:220,n:"LOCAL STORAGE",s:"MOUNTED"},{x:590,y:80,n:"WEB",s:"EXTERNAL"},
+  {x:590,y:220,n:"DEVICE 07",s:"UNKNOWN"}
+ ];
+ const links=[[0,1],[0,2],[1,3],[0,4]];
+ links.forEach(([a,b])=>{x.strokeStyle=b===4?"#80682c":"#28626c";x.lineWidth=2;x.beginPath();x.moveTo(nodes[a].x,nodes[a].y);x.lineTo(nodes[b].x,nodes[b].y);x.stroke()});
+ nodes.forEach((n,i)=>{x.fillStyle=i===4?"#241d08":"#09232a";x.strokeStyle=i===4?"#ffcf6a":"#70d8c8";x.lineWidth=2;x.beginPath();x.arc(n.x,n.y,34,0,Math.PI*2);x.fill();x.stroke();x.fillStyle=i===4?"#ffcf6a":"#bafff3";x.font="12px monospace";x.textAlign="center";x.fillText(n.n,n.x,n.y-3);x.fillStyle="#6f9ca2";x.font="10px monospace";x.fillText(n.s,n.x,n.y+13)});
+}
+$("#pingNodes").onclick=()=>{$("#netMapLog").textContent="SIMULATED PING: NX LOCAL 1ms // STORAGE 2ms // HOST GATEWAY ready";pulse();toast("LOCAL SIMULATION PING COMPLETE")};
+$("#passiveSweep").onclick=()=>{$("#netMapLog").textContent="PASSIVE SWEEP: 4 modeled routes. Device 07 has no driver and remains isolated.";toast("PASSIVE TOPOLOGY UPDATED")};
+$("#inspect07").onclick=()=>{$("#device07result").innerHTML="<br>Signature: <b>07-AF-19-??</b><br>Header fragments: NX / AUX / RECOVERY<br>Result: unknown local simulated subsystem. No mount attempted.";localStorage.setItem("nx.device07seen","1");toast("PASSIVE INSPECTION COMPLETE")};
+setTimeout(drawNetMap,500);
+boot();
+})();
+</script>
+</body>
+</html>
