@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>ZOO GODS // Phase 1 Step 10</title>
+<title>ZOO GODS // Development Phase 15</title>
 <style>
 :root{--bg:#03090d;--panel:#07131a;--panel2:#0a1d25;--line:#1f6170;--hot:#80f7e2;--text:#c8e8e7;--muted:#6f9ca2;--warn:#ffcf6a;--bad:#ff7676}
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#000;color:var(--text);font:14px/1.35 ui-monospace,SFMono-Regular,Consolas,monospace}
@@ -96,14 +96,164 @@ input,textarea{background:#020a0e;color:#c9fff4;border:1px solid #24535c;padding
 
 .auxgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:9px}.auxnode{border:1px solid #5c5128;background:#151207;padding:12px;min-height:115px}.auxnode b{color:#ffcf6a}
 .supplygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}.supply{border:1px solid #1d4d57;background:#071a21;padding:11px}.supply .price{font-size:22px;color:#aaf6e8}
+
+.registryTop{display:grid;grid-template-columns:1fr auto;gap:8px}
+.filterbar{display:flex;gap:5px;flex-wrap:wrap;margin:8px 0}.filterbar button{font-size:10px}
+.dossier{display:grid;grid-template-columns:minmax(180px,.7fr) minmax(280px,1.5fr);gap:10px;margin-top:10px}
+.identityPlate{border:1px solid #2b626c;background:#071a21;padding:14px;position:sticky;top:0;height:max-content}
+.identityPlate .portrait{font-size:74px;text-align:center;padding:10px}
+.dataSections{display:grid;gap:9px}.dataSection{border:1px solid #1b4851;background:#06171d;padding:10px}
+.dataSection h4{margin:0 0 7px;color:#91ecdc;letter-spacing:.1em}
+.dataTable{display:grid;grid-template-columns:minmax(120px,.7fr) 1.3fr}.dataTable div{padding:5px 7px;border-bottom:1px dotted #173c44}.dataTable div:nth-child(odd){color:#719da2}
+.registryCount{font-size:11px;color:#79bdb5}
+@media(max-width:650px){.dossier{grid-template-columns:1fr}.identityPlate{position:static}}
+
+
+/* DEV PHASE 1 — Massive Registry, inserted safely */
+.registryStats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:8px 0}
+.registryStats div{border:1px solid #1c4b54;background:#06171d;padding:7px;text-align:center}
+.registryStats b{display:block;font-size:18px;color:#aaf6e8}
+@media(max-width:650px){.registryStats{grid-template-columns:repeat(2,1fr)}}
+
+/* DEV PHASE 2 — Individual Resident Command */
+.residentHead{display:grid;grid-template-columns:100px 1fr;gap:12px;align-items:center}
+.residentPortrait{font-size:68px;text-align:center;border:1px solid #28535b;background:#071b21;padding:12px}
+.timeline{border-left:2px solid #28535b;margin-left:8px;padding-left:14px}.timeline div{margin:9px 0;position:relative}.timeline div:before{content:"";position:absolute;left:-20px;top:5px;width:8px;height:8px;border-radius:50%;background:#8be9d8}
+.shiftgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:7px}.shiftcard{border:1px solid #204952;background:#06171d;padding:9px}
+.residentNote{width:100%;min-height:90px;background:#020b0f;color:#b9e7df;border:1px solid #28535b;padding:8px;box-sizing:border-box}
+
+/* DEV PHASE 3 — Food & Nutrition Command */
+.foodDash{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:7px;margin:8px 0}
+.foodTile{border:1px solid #22515a;background:#06181e;padding:9px}.foodTile b{display:block;font-size:17px;color:#a9f4e6}
+.rationGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:7px}
+.rationCard{border:1px solid #214a53;background:#05151b;padding:9px}
+.foodStatus{display:inline-block;border:1px solid #32616a;padding:2px 6px;font-size:10px;margin:2px}
+.stockbar{height:8px;border:1px solid #28535b;background:#020a0d;margin:5px 0}.stockbar i{display:block;height:100%;background:#8ce8d8}
+.prepLog{max-height:190px;overflow:auto;border:1px solid #1c444c;background:#020b0f;padding:8px}
+
+/* DEV PHASE 4 — Habitat Engineering */
+.engGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:7px;margin:8px 0}
+.engGauge{border:1px solid #24515a;background:#05161c;padding:9px}.engGauge strong{font-size:20px;color:#a8f2e4}
+.engBar{height:9px;border:1px solid #28545c;background:#02090c;margin:5px 0}.engBar i{display:block;height:100%;background:#82dfd1}
+.alarmOk{color:#8df1b2}.alarmWarn{color:#ffd477}.switchRow{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.systemLamp{display:inline-block;width:8px;height:8px;border-radius:50%;background:#8df1b2;margin-right:5px;box-shadow:0 0 8px currentColor}
+.maintlog{max-height:180px;overflow:auto;border:1px solid #1b4149;background:#020b0f;padding:8px}
+
+/* DEV PHASE 5 — Zoo Security Command */
+.secDash{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:7px;margin:8px 0}
+.secTile{border:1px solid #27515a;background:#06171d;padding:9px}.secTile b{display:block;font-size:18px;color:#aaf5e7}
+.secMap{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:8px 0}.secZone{border:1px solid #254b54;background:#07191f;padding:8px;font-size:10px;min-height:48px}
+.secZone strong{display:block;color:#9aeadc}.secGreen{color:#8df1b2}.secAmber{color:#ffd477}.secRed{color:#ff8d8d}
+.badgeRow{display:flex;flex-wrap:wrap;gap:5px}.badgeChip{border:1px solid #315c64;background:#071b21;padding:4px 7px;font-size:10px}
+.incidentLog{max-height:190px;overflow:auto;border:1px solid #1c4149;background:#020b0f;padding:8px}
+@media(max-width:650px){.secMap{grid-template-columns:repeat(2,1fr)}}
+
+/* DEV PHASE 6 — Veterinary & Care Center */
+.careDash{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:7px;margin:8px 0}
+.careTile{border:1px solid #24515a;background:#06171d;padding:9px}.careTile b{display:block;font-size:18px;color:#a9f4e6}
+.vitalGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:7px}
+.vital{border:1px solid #28515a;background:#05151b;padding:9px}.vital strong{font-size:20px;color:#a7efe2}
+.careStage{display:flex;gap:5px;flex-wrap:wrap;margin:8px 0}.careStage span{border:1px solid #2a5861;padding:4px 7px;font-size:10px}.careStage .active{background:#123a3b;color:#baffdf}
+.carelog{max-height:190px;overflow:auto;border:1px solid #1d424a;background:#020b0f;padding:8px}
+
+/* DEV PHASE 7 — Transport & Equipment */
+.eqDash{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:7px;margin:8px 0}
+.eqTile{border:1px solid #28515a;background:#06171d;padding:9px}.eqTile b{display:block;font-size:18px;color:#a9f4e6}
+.eqGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:7px}
+.eqCard{border:1px solid #244d56;background:#05161c;padding:9px}.eqCard strong{color:#a9f4e6}
+.eqTag{display:inline-block;border:1px solid #315d65;padding:2px 5px;font-size:9px;margin:2px}
+.eqlog{max-height:180px;overflow:auto;border:1px solid #1c424a;background:#020b0f;padding:8px}
+
+/* DEV PHASE 8 — Keeper Operations */
+.keepDash{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:7px;margin:8px 0}
+.keepTile{border:1px solid #28515a;background:#06171d;padding:9px}.keepTile b{display:block;font-size:18px;color:#a9f4e6}
+.taskGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:7px}.taskCard{border:1px solid #244d56;background:#05161c;padding:9px}
+.taskCard.done{opacity:.62}.taskCard strong{color:#a9f4e6}.taskState{font-size:9px;border:1px solid #315d65;padding:2px 5px;float:right}
+.shiftBoard{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:8px 0}.shiftBox{border:1px solid #244d56;background:#07191f;padding:7px;font-size:10px}
+.dailylog{max-height:200px;overflow:auto;border:1px solid #1c424a;background:#020b0f;padding:8px}
+@media(max-width:650px){.shiftBoard{grid-template-columns:repeat(2,1fr)}}
+
+/* DEV PHASE 9 — Research & Conservation Network */
+.researchDash{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:7px;margin:8px 0}
+.researchTile{border:1px solid #28515a;background:#06171d;padding:9px}.researchTile b{display:block;font-size:18px;color:#a9f4e6}
+.worldNet{position:relative;min-height:180px;border:1px solid #214a53;background:radial-gradient(circle at 50% 50%,#0a2730,#02090d 72%);overflow:hidden;margin:8px 0}
+.netNode{position:absolute;border:1px solid #3b7077;background:#071a20;padding:4px 6px;font-size:9px;box-shadow:0 0 12px #143d42}
+.projectGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:7px}.projectCard{border:1px solid #244d56;background:#05161c;padding:9px}.projectCard strong{color:#a9f4e6}
+.fieldlog{max-height:190px;overflow:auto;border:1px solid #1c424a;background:#020b0f;padding:8px}
+
+/* DEV PHASE 15 — Integrated Command Center */
+.cmdDash{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:7px;margin:8px 0}
+.cmdTile{border:1px solid #2a5962;background:#06191f;padding:10px;position:relative;overflow:hidden}.cmdTile b{display:block;font-size:20px;color:#b3f7e9}.cmdTile:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#4b9b99}
+.topology{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:9px 0}.topoNode{border:1px solid #28525b;background:#041319;padding:9px;min-height:54px}.topoNode strong{color:#a9f4e6}.topoNode small{display:block;margin-top:5px}
+.alertFeed{max-height:170px;overflow:auto;border:1px solid #1d454d;background:#020b0f;padding:8px}.alertFeed div{border-bottom:1px solid #123139;padding:5px}
+.locatorGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:5px;max-height:210px;overflow:auto}.locatorCard{border:1px solid #244b53;background:#06171d;padding:7px;cursor:pointer}.locatorCard:hover{background:#0b242a}
+.commandPulse{display:inline-block;width:8px;height:8px;border-radius:50%;background:#8df1b2;box-shadow:0 0 10px #8df1b2;animation:cmdpulse 1.8s infinite}@keyframes cmdpulse{50%{opacity:.3}}
+.globalResults{max-height:230px;overflow:auto}.globalHit{border:1px solid #234a52;background:#05151b;padding:8px;margin:5px 0;cursor:pointer}
+@media(max-width:650px){.topology{grid-template-columns:repeat(2,1fr)}}
+
+/* PHASE 11 ARTIFACT BOOT */
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:99990;background:repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0 1px,transparent 1px 4px);opacity:.35}#boot{background:radial-gradient(circle at 50% 42%,rgba(27,96,91,.17),transparent 38%),linear-gradient(#010506,#020a0c 65%,#010405);overflow:hidden}#boot:after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 110px #000}.bootShell{position:relative;z-index:2;width:min(880px,92vw);margin:auto}.bootHeader{display:flex;justify-content:space-between;border-bottom:1px solid #1d4e4b;padding:8px 0;font-size:10px}.bootMeters{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:8px 0}.bootMeter{border:1px solid #173d3c;background:#020909;padding:6px;font-size:9px}.bootMeter i{display:block;height:4px;margin-top:5px;background:#143331}.bootMeter i:after{content:"";display:block;height:100%;width:15%;background:#8cf2d9;animation:bm 1.4s ease-in-out infinite alternate}@keyframes bm{to{width:92%}}#bootlog{height:min(42vh,360px);overflow:hidden;text-shadow:0 0 6px rgba(130,255,226,.35)}.bootControls{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.bootControls button,.artifactCtl{background:#041518;color:#a9eadd;border:1px solid #285651;padding:6px 9px;font:inherit}#bootProgress{height:5px;border:1px solid #214c49;background:#010505;margin-top:8px}#bootProgress i{display:block;height:100%;width:0;background:#8be7d3}.artifactHud{position:absolute;right:8px;bottom:49px;z-index:900;display:flex;gap:5px}.artifactCtl{font-size:9px;opacity:.78}#desktop.artifactFlicker{animation:af 7s infinite}@keyframes af{0%,97%,100%{filter:none}98%{filter:brightness(.88)}99%{filter:brightness(1.04)}}.historyGhost{position:absolute;right:12px;top:42px;z-index:3;width:min(330px,48vw);padding:7px;border:1px solid rgba(71,139,132,.25);background:rgba(2,12,14,.48);font-size:9px;opacity:.55;pointer-events:none}.historyGhost b{color:#a5e9dc}@media(max-width:650px){.bootMeters{grid-template-columns:repeat(2,1fr)}.historyGhost{display:none}}
+
+/* PHASE 12 — ZOO MAP + CAMERA NETWORK */
+.zooMapWrap{position:relative;min-height:410px;border:1px solid #28545d;background:
+ radial-gradient(circle at 50% 45%,rgba(25,87,75,.18),transparent 35%),
+ linear-gradient(135deg,#06171a,#02090c 70%);overflow:hidden}
+.zooMapWrap:before{content:"";position:absolute;inset:0;background:
+ linear-gradient(90deg,transparent 49.7%,rgba(95,190,170,.07) 50%,transparent 50.3%),
+ linear-gradient(0deg,transparent 49.7%,rgba(95,190,170,.07) 50%,transparent 50.3%);
+ background-size:52px 52px;pointer-events:none}
+.mapSector{position:absolute;border:1px solid #3c716d;background:rgba(5,27,29,.86);padding:7px;border-radius:18px;min-width:88px;text-align:center;font-size:9px;cursor:pointer;box-shadow:0 0 15px rgba(48,139,126,.14)}
+.mapSector:hover{background:#0d3433;box-shadow:0 0 18px rgba(102,235,205,.28)}
+.mapSector b{display:block;color:#aaf4e5;font-size:10px}.mapSector .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#8ef0b4;box-shadow:0 0 8px #8ef0b4;margin-right:3px}
+.mapRoad{position:absolute;height:1px;background:#25524f;transform-origin:left center;opacity:.6;pointer-events:none}
+.cameraGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:7px;margin-top:8px}
+.cameraCard{border:1px solid #28545d;background:#041216;padding:7px;cursor:pointer}.cameraCard:hover{background:#092228}.cameraCard b{color:#a9f4e6}
+.camView{position:relative;height:290px;border:1px solid #2c5c63;background:#020809;overflow:hidden}
+.camScene{position:absolute;inset:0;background:linear-gradient(#092128 0 54%,#10241e 54% 100%)}
+.camScene.aquatic{background:linear-gradient(#061c29,#073949 58%,#031b22)}
+.camScene.desert{background:linear-gradient(#172024 0 53%,#312a17 53% 100%)}
+.camScene.forest{background:linear-gradient(#071b1d 0 48%,#0c291c 48% 100%)}
+.camScene.polar{background:linear-gradient(#0b2029 0 55%,#8aa6a6 55% 100%)}
+.camScan{position:absolute;left:0;right:0;height:2px;background:rgba(130,255,225,.25);animation:camScan 4s linear infinite}@keyframes camScan{from{top:0}to{top:100%}}
+.camNoise{position:absolute;inset:0;opacity:.14;background:repeating-linear-gradient(0deg,transparent 0 3px,#9ef5e5 4px 5px);animation:noiseShift .35s steps(2) infinite}@keyframes noiseShift{50%{transform:translateY(2px)}}
+.camAnimal{position:absolute;left:45%;top:56%;font-size:64px;filter:drop-shadow(0 0 8px #000);animation:animalDrift 8s ease-in-out infinite alternate}@keyframes animalDrift{to{transform:translateX(55px) translateY(-7px)}}
+.camTree{position:absolute;font-size:60px;opacity:.38}.camTree.t1{left:7%;bottom:12%}.camTree.t2{right:8%;bottom:16%}
+.camHud{position:absolute;inset:7px;color:#b9eee4;font-size:10px;text-shadow:0 1px 2px #000;pointer-events:none}.camHud .right{float:right;text-align:right}.camReticle{position:absolute;left:50%;top:50%;width:54px;height:54px;border:1px solid rgba(160,245,225,.32);transform:translate(-50%,-50%)}.camReticle:before,.camReticle:after{content:"";position:absolute;background:rgba(160,245,225,.25)}.camReticle:before{width:1px;height:74px;left:26px;top:-10px}.camReticle:after{height:1px;width:74px;left:-10px;top:26px}
+.camControls{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}.camTelemetry{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:5px;margin-top:7px}.camTelemetry div{border:1px solid #244c53;background:#05151a;padding:6px;font-size:9px}.camTelemetry b{display:block;color:#a9f4e6;font-size:13px}
+
+/* PHASE 13 — COMMUNICATIONS NETWORK */
+.commsGrid{display:grid;grid-template-columns:190px 1fr;gap:8px}.channelList,.messagePane{border:1px solid #28535b;background:#031014;min-height:360px}
+.channel{padding:8px;border-bottom:1px solid #173940;cursor:pointer;font-size:10px}.channel:hover,.channel.active{background:#0a292d}.channel b{color:#aaf3e4}.unread{float:right;border:1px solid #44746d;padding:1px 4px;color:#baf9e9}
+.radioScope{height:62px;position:relative;overflow:hidden;background:#02090c;border-bottom:1px solid #21464d}
+.radioWave{position:absolute;left:-10%;top:28px;width:120%;height:2px;background:#6fd6c3;box-shadow:0 0 8px #57c9b6;animation:wave 2.1s linear infinite}
+.radioWave:after{content:"";position:absolute;left:0;top:-15px;width:100%;height:30px;background:repeating-linear-gradient(90deg,transparent 0 12px,rgba(112,225,202,.18) 13px 14px);transform:skewY(8deg)}
+@keyframes wave{50%{transform:translateY(8px) scaleY(2)}}
+.msg{padding:9px;border-bottom:1px solid #15363c;font-size:10px}.msg:hover{background:#061b20}.msgHead{display:flex;justify-content:space-between;gap:8px;color:#8fd8cc}.msgBody{margin-top:5px;line-height:1.45}.msgLink{border:0;background:none;color:#b4f6e8;text-decoration:underline;padding:0;font:inherit;cursor:pointer}
+.composer{border-top:1px solid #244c53;padding:7px}.commsStatus{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:8px}.commsStatus div{border:1px solid #244c53;background:#05161b;padding:7px;font-size:9px}.commsStatus b{display:block;color:#aaf3e4;font-size:14px}
+@media(max-width:650px){.commsGrid{grid-template-columns:1fr}.channelList{min-height:auto}.commsStatus{grid-template-columns:repeat(2,1fr)}}
+
+/* PHASE 14 — HIDDEN ARCHIVES + DISCOVERY SYSTEM */
+.archiveLayout{display:grid;grid-template-columns:220px 1fr;gap:8px}.archiveTree,.archiveDoc{border:1px solid #28535b;background:#031014;min-height:390px}.archiveTree{padding:6px}.archiveFolder,.archiveFile{padding:7px;border-bottom:1px solid #15363c;font-size:10px;cursor:pointer}.archiveFolder:hover,.archiveFile:hover{background:#092329}.archiveFile.locked{opacity:.42}.archiveFile b{color:#aaf3e4}
+.archiveDoc{padding:12px;line-height:1.55}.archiveDoc h3{color:#aaf3e4;border-bottom:1px solid #234b51;padding-bottom:7px}.redact{background:#86bcb4;color:#86bcb4;padding:0 8px}.corrupt{opacity:.62;text-shadow:2px 0 #153c3a}.archiveStamp{display:inline-block;border:1px solid #496d68;padding:3px 6px;transform:rotate(-2deg);font-size:9px;margin:3px}
+.discoveryBar{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:5px;margin-bottom:8px}.discoveryBar div{border:1px solid #244c53;background:#05161b;padding:7px;font-size:9px}.discoveryBar b{display:block;color:#aaf3e4;font-size:14px}
+.unlockFlash{animation:unlockFlash .8s ease}@keyframes unlockFlash{50%{box-shadow:inset 0 0 40px rgba(127,255,224,.25)}}
+@media(max-width:650px){.archiveLayout{grid-template-columns:1fr}.archiveTree{min-height:auto}}
+
+/* PHASE 15 — LIVING MACHINE */
+.liveStrip{position:absolute;left:8px;right:8px;bottom:47px;z-index:890;display:flex;gap:5px;pointer-events:none}.liveChip{border:1px solid rgba(55,108,103,.6);background:rgba(2,15,18,.8);padding:4px 7px;font-size:8px;color:#9bded2}
+.livePanel{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:6px;margin-bottom:8px}.liveTile{border:1px solid #28535b;background:#041419;padding:8px}.liveTile b{display:block;color:#aaf3e4;font-size:16px}
+.timeline{max-height:250px;overflow:auto;border:1px solid #21464d;background:#020b0f}.timeline div{padding:6px 8px;border-bottom:1px solid #123239;font-size:9px}
+.eventCard{border:1px solid #2b5a60;background:#06191e;padding:9px;margin:6px 0}.eventCard b{color:#aaf3e4}
+#liveToast{position:fixed;right:12px;top:46px;z-index:100000;width:min(340px,86vw);display:none;border:1px solid #4a7d75;background:#04181c;padding:10px;box-shadow:0 0 28px #000;font-size:10px}
+#liveToast.show{display:block;animation:liveIn .3s ease}@keyframes liveIn{from{transform:translateX(30px);opacity:0}}
 </style>
 </head>
-<body>
-<div id="boot"><div class="logo">ZOO GODS</div><div id="bootlog"></div></div>
+<body><div class="safeBanner">ZOO GODS SAFE MODE // a subsystem failed; desktop recovered</div>
+<div id="boot"><div class="bootShell"><div class="bootHeader"><span>ZG/BIOS ARTIFACT TERMINAL</span><span id="bootClock">RTC --:--:--</span></div><div class="logo">ZOO GODS</div><div class="bootMeters"><div class="bootMeter">CORE BUS<i></i></div><div class="bootMeter">MEMORY MAP<i></i></div><div class="bootMeter">ARCHIVE ARRAY<i></i></div><div class="bootMeter">NETWORK PHY<i></i></div></div><div id="bootlog"></div><div id="bootProgress"><i></i></div><div class="bootControls"><button id="bootSkip">SKIP BOOT</button><button id="bootSound">SOUND: ARMED</button><button id="bootSafe">SAFE DISPLAY</button></div></div></div>
 
-<div id="desktop">
+<div id="desktop" class="artifactFlicker"><div class="historyGhost"><b>RECOVERED SESSION FRAGMENT</b><br>operator: UNKNOWN<br>archive mount: PARTIAL<br>last clean shutdown: NOT RECORDED<br>device 07: UNRESOLVED</div><div class="artifactHud"><button class="artifactCtl" id="artifactSound">SOUND ON</button><button class="artifactCtl" id="artifactFx">CRT FX ON</button><button class="artifactCtl" id="artifactBootAgain">REBOOT DISPLAY</button></div><div class="liveStrip" id="liveStrip"><span class="liveChip">SESSION --</span><span class="liveChip">EVENT BUS ONLINE</span><span class="liveChip">STATE --</span></div>
  <div class="topbar">
-   <div class="brand">ZOO GODS // WORKSTATION</div><div class="tiny">PHASE 01.10</div>
+   <div class="brand">ZOO GODS // WORKSTATION</div><div class="tiny">DEV PHASE 15</div>
    <div class="status"><span><i class="led"></i>NET READY</span><span class="hideMob" id="loadTop">CPU 12%</span><span id="clock"></span></div>
  </div>
 
@@ -130,6 +280,20 @@ input,textarea{background:#020a0e;color:#c9fff4;border:1px solid #24535c;padding
    <button class="icon" data-app="comms"><span class="glyph">◌</span><small>COMMS</small></button>
    <button class="icon" data-app="aux"><span class="glyph">⬡</span><small>AUX LAYER</small></button>
    <button class="icon" data-app="market"><span class="glyph">▣</span><small>SUPPLY NET</small></button>
+   <button class="icon" data-app="records"><span class="glyph">▤</span><small>ANIMAL OPS</small></button>
+   <button class="icon" data-app="residents"><span class="glyph">◉</span><small>RESIDENTS</small></button>
+   <button class="icon" data-app="nutrition"><span class="glyph">▥</span><small>NUTRITION</small></button>
+   <button class="icon" data-app="engineering"><span class="glyph">⌁</span><small>HABITAT ENG</small></button>
+   <button class="icon" data-app="security"><span class="glyph">⬡</span><small>SECURITY</small></button>
+   <button class="icon" data-app="vetcare"><span class="glyph">✚</span><small>VET CARE</small></button>
+   <button class="icon" data-app="equipment"><span class="glyph">▣</span><small>EQUIPMENT</small></button>
+   <button class="icon" data-app="keepers"><span class="glyph">☷</span><small>KEEPER OPS</small></button>
+   <button class="icon" data-app="research"><span class="glyph">◎</span><small>RESEARCH NET</small></button>
+   <button class="icon" data-app="command"><span class="glyph">◈</span><small>COMMAND</small></button>
+   <button class="icon" data-app="surveillance"><span class="glyph">◫</span><small>ZOO MAP</small></button>
+   <button class="icon" data-app="comms"><span class="glyph">⌁</span><small>COMMS</small></button>
+   <button class="icon" data-app="archives"><span class="glyph">▤</span><small>ARCHIVE</small></button>
+   <button class="icon" data-app="livecore"><span class="glyph">◉</span><small>LIVE CORE</small></button>
  </div>
 
  <aside id="hud">
@@ -263,12 +427,13 @@ Type 'help' for command directory.
 
 
  <div class="window" id="win-zoo">
-  <div class="titlebar"><b>◈ ZOO GODS // SPECIES INDEX</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="titlebar"><b>◈ ZOO GODS // MASTER SPECIES REGISTRY</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
   <div class="content">
-   <div class="hudTitle">LOCAL SPECIES DATABASE // DEMONSTRATION RECORDS</div>
-   <div class="netbar"><input id="animalSearch" placeholder="Search animal records..."><button class="action" id="animalSearchBtn">FILTER</button></div>
-   <div id="animalgrid" class="animalgrid" style="margin-top:10px"></div>
-   <div id="animalDetail" class="deviceBox" style="display:none"></div>
+   <div class="hudTitle">PHASE 02 // INSTITUTIONAL ANIMAL DATABASE</div>
+   <div class="registryStats" id="registryStats"></div><div class="registryTop"><input id="animalSearch" placeholder="Search name, species, taxonomy, habitat, diet, badge, security class..."><span class="registryCount" id="registryCount"></span></div>
+   <div class="filterbar"><button class="action" data-filter="">ALL</button><button class="action" data-filter="mammal">MAMMALS</button><button class="action" data-filter="bird">BIRDS</button><button class="action" data-filter="reptile">REPTILES</button><button class="action" data-filter="carnivore">CARNIVORES</button><button class="action" data-filter="herbivore">HERBIVORES</button><button class="action" data-filter="controlled">CONTROLLED</button></div>
+   <div id="animalgrid" class="animalgrid"></div>
+   <div id="animalDetail" class="dossier" style="display:none"></div>
   </div>
  </div>
 
@@ -400,6 +565,147 @@ No external receiver connected.</div>
   </div>
  </div>
 
+
+ <div class="window" id="win-records">
+  <div class="titlebar"><b>▤ ZOO GODS // ANIMAL OPERATIONS RECORDS</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">INSTITUTIONAL SIMULATION RECORDS // select a resident to inspect operational data</div>
+   <div class="netbar"><select id="opsAnimal" style="flex:1"></select><button class="action" id="opsLoad">LOAD DOSSIER</button></div>
+   <div id="opsRecord" class="opsPanel">No resident loaded.</div>
+  </div>
+ </div>
+
+ <div class="window" id="win-residents">
+  <div class="titlebar"><b>◉ ZOO GODS // INDIVIDUAL RESIDENT COMMAND</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">PERMANENT FICTIONAL ZOO RESIDENT FILES // identity, institutional history, assignments and operator notes</div>
+   <div class="netbar"><select id="residentSelect" style="flex:1"></select><button class="action" id="residentLoad">OPEN RESIDENT</button></div>
+   <div id="residentRecord" class="opsPanel">Select a resident record.</div>
+  </div>
+ </div>
+
+ <div class="window" id="win-nutrition">
+  <div class="titlebar"><b>▥ ZOO GODS // FOOD & NUTRITION COMMAND</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">SIMULATED ZOO FEED OPERATIONS // species-specific concepts, inventory, preparation logs and public research gateways</div>
+   <div class="foodDash" id="foodDash"></div>
+   <div class="netbar"><select id="nutritionAnimal" style="flex:1"></select><button class="action" id="nutritionLoad">LOAD FEED FILE</button></div>
+   <div id="nutritionRecord" class="opsPanel">Select a resident to load its nutrition command file.</div>
+  </div>
+ </div>
+
+ <div class="window" id="win-engineering">
+  <div class="titlebar"><b>⌁ ZOO GODS // HABITAT ENGINEERING</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">FICTIONAL FACILITY ENVIRONMENT CONSOLE // simulated telemetry and maintenance controls</div>
+   <div class="netbar"><select id="engAnimal" style="flex:1"></select><button class="action" id="engLoad">LOAD HABITAT</button></div>
+   <div id="engRecord" class="opsPanel">Select a resident habitat.</div>
+  </div>
+ </div>
+
+ <div class="window" id="win-security">
+  <div class="titlebar"><b>⬡ ZOO GODS // SECURITY COMMAND</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">FICTIONAL ZOO OPERATIONS SECURITY // simulated badges, resident tracking, gates, cameras, headcounts and incident records</div>
+   <div class="secDash" id="secDash"></div>
+   <div class="secMap" id="secMap"></div>
+   <div class="netbar"><select id="secAnimal" style="flex:1"></select><button class="action" id="secLoad">LOAD SECURITY FILE</button></div>
+   <div id="secRecord" class="opsPanel">Select a resident security file.</div>
+  </div>
+ </div>
+
+ <div class="window" id="win-vetcare">
+  <div class="titlebar"><b>✚ ZOO GODS // VETERINARY & CARE CENTER</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">FICTIONAL CARE SIMULATION // gameplay observations and simulated readouts are not veterinary diagnosis</div>
+   <div class="careDash" id="careDash"></div>
+   <div class="netbar"><select id="careAnimal" style="flex:1"></select><button class="action" id="careLoad">OPEN CARE FILE</button></div>
+   <div id="careRecord" class="opsPanel">Select a resident care file.</div>
+  </div>
+ </div>
+
+ <div class="window" id="win-equipment">
+  <div class="titlebar"><b>▣ ZOO GODS // TRANSPORT & EQUIPMENT DATABASE</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">FICTIONAL FACILITY ASSET SYSTEM // transport categories, habitat equipment, care equipment, inventory and inspections</div>
+   <div class="eqDash" id="eqDash"></div>
+   <div class="netbar"><select id="eqAnimal" style="flex:1"></select><button class="action" id="eqLoad">LOAD ASSET FILE</button></div>
+   <div id="eqRecord" class="opsPanel">Select a resident equipment file.</div>
+  </div>
+ </div>
+
+ <div class="window" id="win-keepers">
+  <div class="titlebar"><b>☷ ZOO GODS // KEEPER OPERATIONS</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">DAILY OPERATIONS BOARD // rounds, feeding, enrichment, inspections, headcounts, cleaning and maintenance tickets</div>
+   <div class="keepDash" id="keepDash"></div>
+   <div class="shiftBoard" id="shiftBoard"></div>
+   <div class="netbar"><select id="keeperAnimal" style="flex:1"></select><button class="action" id="keeperLoad">OPEN DAILY BOARD</button><button class="action" id="keeperReport">DAILY REPORT</button></div>
+   <div id="keeperRecord" class="opsPanel">Select a resident to open its keeper board.</div>
+  </div>
+ </div>
+
+ <div class="window" id="win-research">
+  <div class="titlebar"><b>◎ ZOO GODS // RESEARCH & CONSERVATION NETWORK</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny">SPECIES RESEARCH CONSOLE // fictional projects + public Internet research gateways for current authoritative information</div>
+   <div class="researchDash" id="researchDash"></div>
+   <div class="worldNet" id="worldNet"></div>
+   <div class="netbar"><select id="researchAnimal" style="flex:1"></select><button class="action" id="researchLoad">OPEN RESEARCH DOSSIER</button></div>
+   <div id="researchRecord" class="opsPanel">Select a species research dossier.</div>
+  </div>
+ </div>
+
+ <div class="window" id="win-command">
+  <div class="titlebar"><b>◈ ZOO GODS // INTEGRATED COMMAND CENTER</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny"><span class="commandPulse"></span> INSTITUTIONAL SYSTEM BUS ONLINE // unified fictional zoo operations workstation</div>
+   <div class="cmdDash" id="cmdDash"></div>
+   <div class="topology" id="cmdTopology"></div>
+   <div class="dataSection"><h4>GLOBAL SYSTEM SEARCH</h4><div class="netbar"><input id="globalSearch" placeholder="Search resident, species, accession, enclosure, zone, badge..."><button class="action" id="globalSearchBtn">SEARCH</button></div><div id="globalResults" class="globalResults"></div></div>
+   <div class="dataSection"><h4>RESIDENT LOCATOR</h4><div class="locatorGrid" id="residentLocator"></div></div>
+   <div class="dataSection"><h4>SYSTEM ACTIVITY / ALERTS</h4><div class="alertFeed" id="commandAlerts"></div></div>
+  </div>
+ </div>
+
+ <div class="window" id="win-surveillance">
+  <div class="titlebar"><b>◫ ZOO GODS // FACILITY MAP + CAMERA NETWORK</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="tiny"><span class="commandPulse"></span> SIMULATED FACILITY VISUALIZATION // procedural fictional camera scenes, not real surveillance feeds</div>
+   <div class="netbar"><button class="action" id="mapOverview">MAP OVERVIEW</button><button class="action" id="cameraWall">CAMERA WALL</button><select id="cameraSelect" style="flex:1"></select><button class="action" id="cameraOpen">OPEN CAMERA</button></div>
+   <div id="surveillanceView"></div>
+  </div>
+ </div>
+
+ <div class="window" id="win-comms">
+  <div class="titlebar"><b>⌁ ZOO GODS // INSTITUTIONAL COMMUNICATIONS</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="commsStatus" id="commsStatus"></div>
+   <div class="commsGrid"><div class="channelList"><div class="radioScope"><div class="radioWave"></div></div><div id="commsChannels"></div></div>
+   <div class="messagePane"><div id="commsMessages"></div><div class="composer"><div class="netbar"><input id="commsInput" placeholder="Enter simulated operations transmission..."><button class="action" id="commsSend">TRANSMIT</button></div><div class="tiny">Local fictional communications only. Messages remain inside this HTML.</div></div></div></div>
+  </div>
+ </div>
+
+ <div class="window" id="win-archives">
+  <div class="titlebar"><b>▤ ZOO GODS // RECOVERED ARCHIVE NODE 04</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="discoveryBar" id="discoveryBar"></div>
+   <div class="netbar"><input id="archiveSearch" placeholder="Search archive filename, code, operator, enclosure..."><button class="action" id="archiveSearchBtn">SEARCH ARCHIVE</button></div>
+   <div class="archiveLayout"><div class="archiveTree" id="archiveTree"></div><div class="archiveDoc" id="archiveDoc">Select a recovered file.</div></div>
+  </div>
+ </div>
+
+ <div id="liveToast"></div>
+ <div class="window" id="win-livecore">
+  <div class="titlebar"><b>◉ ZOO GODS // LIVING MACHINE CORE</b><div class="winBtns"><button data-min>_</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="content">
+   <div class="livePanel" id="livePanel"></div>
+   <div class="dataSection"><h4>SESSION TIMELINE</h4><div class="timeline" id="sessionTimeline"></div></div>
+   <div class="dataSection"><h4>ACTIVE MACHINE EVENTS</h4><div id="machineEvents"></div></div>
+   <div class="dataSection"><h4>MACHINE CONTROLS</h4><button class="action" id="liveGenerate">POLL EVENT BUS</button> <button class="action" id="liveRestore">RESTORE LAST CONTEXT</button> <button class="action" id="liveClear">CLEAR SESSION TIMELINE</button></div>
+  </div>
+ </div>
+
  <div id="startMenu">
   <div class="hudTitle">NX APPLICATIONS</div>
   <div class="menuitem" data-app="net">◎ Net Access</div><div class="menuitem" data-app="files">▤ Files</div><div class="menuitem" data-app="terminal">&gt;_ Terminal</div><div class="menuitem" data-app="system">⌁ System Map</div><div class="menuitem" data-app="notes">✎ Notes</div><div class="menuitem" data-app="settings">⚙ Settings</div>
@@ -419,40 +725,51 @@ No external receiver connected.</div>
   <div class="menuitem" data-app="comms">◌ Communications Array</div>
   <div class="menuitem" data-app="aux">⬡ Auxiliary Layer</div>
   <div class="menuitem" data-app="market">▣ Supply Network</div>
+  <div class="menuitem" data-app="records">▤ Animal Operations Records</div>
+  <div class="menuitem" data-app="residents">◉ Individual Resident Command</div>
+  <div class="menuitem" data-app="nutrition">▥ Food & Nutrition Command</div>
+  <div class="menuitem" data-app="engineering">⌁ Habitat Engineering</div>
+  <div class="menuitem" data-app="security">⬡ Zoo Security Command</div>
+  <div class="menuitem" data-app="vetcare">✚ Veterinary & Care Center</div>
+  <div class="menuitem" data-app="equipment">▣ Transport & Equipment Database</div>
+  <div class="menuitem" data-app="keepers">☷ Keeper Operations</div>
+  <div class="menuitem" data-app="research">◎ Research & Conservation Network</div>
+  <div class="menuitem" data-app="command">◈ ZOO GODS Command Center</div>
+  <div class="menuitem" data-app="surveillance">◫ Zoo Map & Camera Network</div>
+  <div class="menuitem" data-app="comms">⌁ Institutional Communications</div>
+  <div class="menuitem" data-app="archives">▤ Recovered Archive</div>
+  <div class="menuitem" data-app="livecore">◉ Living Machine Core</div>
  </div>
  <div id="toast"></div>
  <div class="taskbar"><button class="start" id="startBtn">NX // START</button><div class="tasks" id="tasks"></div></div>
 </div>
 
 <script>
+/* ZOO GODS REPAIR WATCHDOG */
+setTimeout(()=>{
+ const b=document.getElementById("boot");
+ if(b){b.style.display="none";}
+ const d=document.getElementById("desktop");if(d)d.style.display="block";
+},6500);
 (()=>{"use strict";
 window.addEventListener("error",e=>{
   try{
     const t=document.querySelector("#toast");
     if(t){t.textContent="SYSTEM SCRIPT ERROR // "+e.message;t.style.display="block";}
     console.error("ZOO GODS runtime error:",e.error||e.message);
+    const b=document.querySelector("#boot");if(b){b.style.display="none";}
+    const d=document.querySelector("#desktop");if(d){d.style.display="block";}
+    document.body.classList.add("safeMode");
   }catch(_){}
 });
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const state={z:30,start:Date.now(),max:new Map()};
-const bootLines=[
-"[ZOO GODS BIOS 7.19.88] cold-start sequence",
-"checking processor array .............. OK",
-"mapping volatile memory ............... 4096 MB",
-"mounting local volume ................. OK",
-"recovering graphical shell ............ OK",
-"network interface ..................... AVAILABLE",
-"operator credential ................... NOT FOUND",
-"device inventory ...................... 7 PRESENT",
-"recognized devices .................... 6",
-"DEVICE 07 ............................. CLASSIFICATION UNAVAILABLE",
-"",
-"starting ZOO GODS local workstation..."
-];
-function boot(){
- const log=$("#bootlog"); log.textContent="";
- bootLines.forEach((l,i)=>setTimeout(()=>{log.textContent+=l+"\n"; if(i===bootLines.length-1)setTimeout(()=>{$("#boot").style.display="none";$("#desktop").style.display="block";toast("WORKSTATION READY // one device remains unclassified");},500)},i*115));
-}
+const bootLines=["[ZOO GODS BIOS 7.44.13] artifact cold-start","rtc oscillator ........................ LOCKED","processor array ....................... PASS","volatile memory ....................... 4096 MB / PASS","graphics fabric ....................... PHOSPHOR COMPATIBLE","mount /ZG/SYSTEM ...................... OK","mount /ZG/RESIDENTS ................... 32 INDEXED","mount /ZG/OPERATIONS .................. OK","mount /ZG/RESEARCH .................... OK","mount /ZG/ARCHIVE ..................... DEGRADED","network physical layer ................ CARRIER DETECTED","internet gateway ...................... AVAILABLE","operator credential ................... NOT FOUND","recovering previous session ........... FRAGMENT FOUND","last operator ......................... [REDACTED]","last clean shutdown ................... NOT RECORDED","device inventory ...................... 7 PRESENT","recognized devices .................... 6","DEVICE 07 ............................. CLASSIFICATION UNAVAILABLE","","starting ZOO GODS institutional shell..."];
+let bootTimers=[],bootSoundEnabled=true,audioCtx=null;
+function tone(f=440,d=.04,gain=.02){try{if(!bootSoundEnabled)return;audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();let o=audioCtx.createOscillator(),g=audioCtx.createGain();o.frequency.value=f;g.gain.value=gain;o.connect(g);g.connect(audioCtx.destination);o.start();g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+d);o.stop(audioCtx.currentTime+d)}catch(_){}}
+function clearBootTimers(){bootTimers.forEach(clearTimeout);bootTimers=[]}
+function finishBoot(){clearBootTimers();let b=$("#boot");if(b)b.style.display="none";$("#desktop").style.display="block";tone(740,.08,.03);toast("WORKSTATION READY // recovered session fragment mounted")}
+function boot(){clearBootTimers();let log=$("#bootlog"),bar=$("#bootProgress i");if(!log)return;log.textContent="";bootLines.forEach((l,i)=>bootTimers.push(setTimeout(()=>{log.textContent+=l+"\\n";if(bar)bar.style.width=Math.round((i+1)/bootLines.length*100)+"%";if(i%2===0)tone(180+(i%6)*35,.025,.01);if(i===bootLines.length-1)bootTimers.push(setTimeout(finishBoot,650))},i*145)))}
 function toast(t){let x=$("#toast");x.textContent=t;x.style.display="block";clearTimeout(x._t);x._t=setTimeout(()=>x.style.display="none",3000)}
 function openApp(app){
  journal("application opened: "+app);
@@ -535,7 +852,7 @@ function command(raw){
  clear:()=>out.textContent="",
  date:()=>term(new Date().toString()),
  whoami:()=>term(op),
- sysinfo:()=>term("NX Workstation\\nShell: Phase 01.10\\nMemory: 4096 MB\\nNetwork gateway: READY\\nDevices: 7 / recognized: 6"),
+ sysinfo:()=>term("NX Workstation\\nShell: Dev Phase 15\\nMemory: 4096 MB\\nNetwork gateway: READY\\nDevices: 7 / recognized: 6"),
  netstat:()=>term("HOST BROWSER GATEWAY .... READY\\nLOCAL HISTORY ........... ENABLED\\nDIRECT SOCKET CONTROL ... SANDBOXED"),
  scan:()=>{markMission("scan");term("SCANNING LOCAL SYSTEM...\\n\\nDESKTOP SERVICES .......... 06\\nSTANDARD APPLICATIONS ..... 06\\nNETWORK INTERFACE ......... READY\\nLOCAL ARCHIVES ............ 03\\n\\nUNREGISTERED DEVICES ...... 01\\n\\nDEVICE 07: classification unavailable.\\nSubsystem route exposed. Run 'probe 07' for a passive identification attempt.");toast("SCAN COMPLETE // ANOMALY FOUND")},
  apps:()=>term("net\\nfiles\\nterminal\\nsystem\\nnotes\\nsettings"),
@@ -546,7 +863,25 @@ function command(raw){
  ps:()=>term("PID   PROCESS          CPU   STATE\n101   nx-shell         2%    RUNNING\n118   local-storage    1%    READY\n126   net-gateway      0%    IDLE\n133   telemetry        3%    RUNNING\n207   device07-watch   0%    ISOLATED"),
  events:()=>{let e=[];try{e=JSON.parse(localStorage.getItem("nx.events"))||[]}catch{};term(e.length?e.slice(0,12).join("\n"):"no journal entries")},
  browse:()=>{if(!arg)return term("usage: browse SEARCH TERMS");search("web",arg);term("request handed to host browser")},
- zoo:()=>{openApp("zoo");term("Zoo Gods species index opened")},
+ zoo:()=>{openApp("zoo");term("Zoo Gods master species registry opened")},
+ animal:()=>{openApp("zoo");$("#animalSearch").value=arg;renderAnimals(arg);term("registry search: "+(arg||"all records"))},
+ record:()=>{openApp("records");let q=(arg||"").toLowerCase(),i=zooAnimals.findIndex(a=>(a.n+" "+a.sp).toLowerCase().includes(q));if(i>=0){$("#opsAnimal").value=String(i);renderOps(i);term("resident operations dossier loaded: "+zooAnimals[i].n)}else term("resident record not found")},
+ resident:()=>{openApp("residents");let q=(arg||"").toLowerCase(),i=zooAnimals.findIndex(a=>(a.n+" "+a.sp+" "+a.accession).toLowerCase().includes(q));if(i>=0){$("#residentSelect").value=String(i);renderResident(i);term("individual resident file opened: "+zooAnimals[i].n)}else term("resident not found")},
+ nutrition:()=>{openApp("nutrition");let q=(arg||"").toLowerCase(),i=zooAnimals.findIndex(a=>(a.n+" "+a.sp+" "+a.accession).toLowerCase().includes(q));if(i>=0){$("#nutritionAnimal").value=String(i);renderNutrition(i);term("nutrition command file opened: "+zooAnimals[i].n)}else term("nutrition record not found")},
+ habitat:()=>{openApp("engineering");let q=(arg||"").toLowerCase(),i=zooAnimals.findIndex(a=>(a.n+" "+a.sp+" "+a.zone+" "+a.enclosure).toLowerCase().includes(q));if(i>=0){$("#engAnimal").value=String(i);renderEngineering(i);term("habitat engineering loaded: "+zooAnimals[i].n)}else term("habitat record not found")},
+ security:()=>{openApp("security");let q=(arg||"").toLowerCase(),i=zooAnimals.findIndex(a=>(a.n+" "+a.sp+" "+a.badge+" "+a.security+" "+a.enclosure).toLowerCase().includes(q));if(i>=0){$("#secAnimal").value=String(i);renderSecurity(i);term("security file loaded: "+zooAnimals[i].n)}else term("security record not found")},
+ care:()=>{openApp("vetcare");let q=(arg||"").toLowerCase(),i=zooAnimals.findIndex(a=>(a.n+" "+a.sp+" "+a.status+" "+a.accession).toLowerCase().includes(q));if(i>=0){$("#careAnimal").value=String(i);renderVetCare(i);term("care file loaded: "+zooAnimals[i].n)}else term("care record not found")},
+ equipment:()=>{openApp("equipment");let q=(arg||"").toLowerCase(),i=zooAnimals.findIndex(a=>(a.n+" "+a.sp+" "+a.transport+" "+a.enclosure).toLowerCase().includes(q));if(i>=0){$("#eqAnimal").value=String(i);renderEquipment(i);term("equipment file loaded: "+zooAnimals[i].n)}else term("equipment record not found")},
+ keeper:()=>{openApp("keepers");let q=(arg||"").toLowerCase(),i=zooAnimals.findIndex(a=>(a.n+" "+a.sp+" "+a.zone+" "+a.enclosure).toLowerCase().includes(q));if(i>=0){$("#keeperAnimal").value=String(i);renderKeeper(i);term("keeper board loaded: "+zooAnimals[i].n)}else term("keeper record not found")},
+ research:()=>{openApp("research");let q=(arg||"").toLowerCase(),i=zooAnimals.findIndex(a=>(a.n+" "+a.sp+" "+a.scientific+" "+a.origin+" "+a.range).toLowerCase().includes(q));if(i>=0){$("#researchAnimal").value=String(i);renderResearch(i);term("research dossier loaded: "+zooAnimals[i].sp)}else term("research record not found")},
+ command:()=>{openApp("command");renderCommand();term("integrated command center online")},
+ map:()=>{openApp("surveillance");renderZooMap();term("facility map online")},
+ camera:()=>{openApp("surveillance");let q=(arg||"").toLowerCase(),i=zooAnimals.findIndex(a=>(a.n+" "+a.sp+" "+a.zone+" "+a.enclosure).toLowerCase().includes(q));if(i<0)i=0;$("#cameraSelect").value=String(i);renderCamera(i);term("camera channel opened: CAM-"+String(i+1).padStart(2,"0"))},
+ comms:()=>{openApp("comms");renderComms();term("institutional communications online")},
+ archive:()=>{openApp("archives");renderArchives(arg||"");term("archive node 04 mounted")},
+ recover:()=>{let q=(arg||"").trim().toUpperCase();if(q)archiveUnlock(q,true);else term("usage: recover CODE")},
+ live:()=>{openApp("livecore");renderLiveCore();term("living machine core online")},
+ status:()=>{let s=loadLiveState();term("session "+s.session+" / events "+s.timeline.length+" / discoveries "+loadDiscoveries().length+" / last app "+(s.lastApp||"none"))},
  habitats:()=>{openApp("habitat");term("Habitat control opened")},
  care:()=>{openApp("care");term("Fictional care core opened")},
  feeds:()=>{openApp("feeds");term("Habitat feeds opened")},
@@ -568,36 +903,850 @@ tin.addEventListener("keydown",e=>{if(e.key==="Enter"){command(tin.value);tin.va
 
 
 const zooAnimals=[
- {n:"Lyra",sp:"Gray Wolf",ic:"🐺",zone:"ARCTIC RIDGE",sex:"Female",age:"5 yr",diet:"Carnivore",status:"Stable",note:"Alert, observant resident used to the northern ridge rotation."},
- {n:"Koda",sp:"Siberian Husky",ic:"🐕",zone:"ARCTIC RIDGE",sex:"Male",age:"4 yr",diet:"Omnivore",status:"Stable",note:"High-energy canine resident assigned to enrichment cycle B."},
- {n:"Vesper",sp:"Black Cat",ic:"🐈‍⬛",zone:"NOCTURNAL WING",sex:"Female",age:"3 yr",diet:"Carnivore",status:"Stable",note:"Quiet resident who favors elevated platforms and low-light rooms."},
- {n:"Orion",sp:"Snowy Owl",ic:"🦉",zone:"ARCTIC RIDGE",sex:"Male",age:"6 yr",diet:"Carnivore",status:"Observation",note:"Flight and feather condition tracked in the fictional care database."},
- {n:"Ember",sp:"Red Fox",ic:"🦊",zone:"NOCTURNAL WING",sex:"Female",age:"2 yr",diet:"Omnivore",status:"Stable",note:"Curious resident with an active foraging enrichment schedule."},
- {n:"Atlas",sp:"African Elephant",ic:"🐘",zone:"SAVANNAH RANGE",sex:"Male",age:"18 yr",diet:"Herbivore",status:"Stable",note:"Large-range resident with hydration and foot-care routines."},
- {n:"Mara",sp:"Tiger",ic:"🐅",zone:"RAINFOREST DOME",sex:"Female",age:"7 yr",diet:"Carnivore",status:"Stable",note:"Solitary habitat resident with rotating scent enrichment."},
- {n:"Echo",sp:"Chimpanzee",ic:"🐒",zone:"RAINFOREST DOME",sex:"Male",age:"12 yr",diet:"Omnivore",status:"Stable",note:"Complex puzzle enrichment is recorded by the local system."},
- {n:"Nimbus",sp:"Harbor Seal",ic:"🦭",zone:"CARE CORE",sex:"Male",age:"8 yr",diet:"Piscivore",status:"Recovery",note:"Temporarily assigned to the fictional care core for observation."},
- {n:"Juniper",sp:"Giant Tortoise",ic:"🐢",zone:"RAINFOREST DOME",sex:"Female",age:"42 yr",diet:"Herbivore",status:"Stable",note:"Slow-cycle habitat monitoring with basking and feeding records."}
+ {n:"Lyra",sp:"Gray Wolf",scientific:"Canis lupus",class:"Mammal",order:"Carnivora",family:"Canidae",ic:"🐺",zone:"ARCTIC RIDGE",sex:"Female",age:"5 yr",diet:"Carnivore",status:"Stable",origin:"Northern Hemisphere",range:"North America, Europe, Asia",biome:"Forest, tundra, grassland",activity:"Crepuscular / flexible",social:"Pack-oriented",lifespan:"6–13 yr wild; often longer managed",weight:"30–50 kg typical adult female range varies by population",badge:"SILVER-7",security:"CONTROLLED",accession:"ZG-26-WLF-017",enclosure:"A-04 NORTH RIDGE",gate:"A4-2",camera:"AR-01 / AR-02",transport:"Large-canid secure crate",feed:"F-12",traits:"Highly social, scent-oriented, endurance traveler",enrichment:"Scent trails, hidden food, durable manipulable objects, habitat exploration",note:"Institutional resident record. Operational identifiers are fictional."},
+ {n:"Koda",sp:"Siberian Husky",scientific:"Canis lupus familiaris",class:"Mammal",order:"Carnivora",family:"Canidae",ic:"🐕",zone:"ARCTIC RIDGE",sex:"Male",age:"4 yr",diet:"Omnivore",status:"Stable",origin:"Domestic breed",range:"Worldwide domestic",biome:"Managed habitat",activity:"Diurnal / active",social:"Highly social",lifespan:"12–14 yr typical",weight:"20–27 kg typical male",badge:"BLUE-4",security:"STANDARD",accession:"ZG-26-DOG-004",enclosure:"A-02",gate:"A2-1",camera:"AR-03",transport:"Large dog travel crate",feed:"F-08",traits:"Endurance, social engagement, high activity",enrichment:"Running, scent games, puzzle feeders, social interaction",note:"Domestic canid resident."},
+ {n:"Vesper",sp:"Domestic Cat",scientific:"Felis catus",class:"Mammal",order:"Carnivora",family:"Felidae",ic:"🐈",zone:"NOCTURNAL WING",sex:"Female",age:"3 yr",diet:"Obligate carnivore",status:"Stable",origin:"Domestic",range:"Worldwide domestic",biome:"Managed indoor habitat",activity:"Crepuscular",social:"Flexible / individual",lifespan:"12–18 yr typical managed",weight:"3–5 kg typical",badge:"VIOLET-2",security:"STANDARD",accession:"ZG-26-CAT-009",enclosure:"N-03",gate:"N3",camera:"NW-04",transport:"Cat carrier",feed:"F-03",traits:"Climbing, stalking, strong low-light vision",enrichment:"Vertical space, hiding, scent, chase toys, puzzle feeding",note:"Feline resident record."},
+ {n:"Orion",sp:"Snowy Owl",scientific:"Bubo scandiacus",class:"Bird",order:"Strigiformes",family:"Strigidae",ic:"🦉",zone:"ARCTIC RIDGE",sex:"Male",age:"6 yr",diet:"Carnivore",status:"Observation",origin:"Arctic regions",range:"Circumpolar Arctic; seasonal movements south",biome:"Tundra / open country",activity:"Variable; often diurnal in Arctic summer",social:"Generally solitary",lifespan:"10+ yr wild; managed longevity varies",weight:"1.4–2.5 kg approximate species range",badge:"WHITE-5",security:"CONTROLLED",accession:"ZG-26-OWL-011",enclosure:"A-AVIARY-1",gate:"AV1",camera:"AR-05",transport:"Species-appropriate bird transport crate",feed:"F-15",traits:"Powerful flight, acute hearing and vision",enrichment:"Perches, flight space, varied feeding presentation",note:"Raptor record; handling details require trained professionals."},
+ {n:"Ember",sp:"Red Fox",scientific:"Vulpes vulpes",class:"Mammal",order:"Carnivora",family:"Canidae",ic:"🦊",zone:"NOCTURNAL WING",sex:"Female",age:"2 yr",diet:"Omnivore",status:"Stable",origin:"Northern Hemisphere",range:"North America, Europe, Asia, North Africa",biome:"Forest, grassland, tundra, urban edge",activity:"Crepuscular / nocturnal",social:"Usually solitary or small family groups",lifespan:"2–5 yr commonly wild; longer managed",weight:"3–14 kg, geographically variable",badge:"AMBER-3",security:"CONTROLLED",accession:"ZG-26-FOX-006",enclosure:"N-07",gate:"N7-2",camera:"NW-02",transport:"Secure mesocarnivore crate",feed:"F-09",traits:"Excellent hearing, scenting, digging and pouncing",enrichment:"Digging substrate, scent trails, hidden feeding",note:"Wild canid resident."},
+ {n:"Atlas",sp:"African Savanna Elephant",scientific:"Loxodonta africana",class:"Mammal",order:"Proboscidea",family:"Elephantidae",ic:"🐘",zone:"SAVANNAH RANGE",sex:"Male",age:"18 yr",diet:"Herbivore",status:"Stable",origin:"Sub-Saharan Africa",range:"Patchy sub-Saharan distribution",biome:"Savanna, woodland, scrub",activity:"Long daily foraging cycles",social:"Complex social system",lifespan:"Often 50–70 yr",weight:"Adult males may exceed 5,000 kg",badge:"GOLD-1",security:"RESTRICTED",accession:"ZG-26-ELP-001",enclosure:"S-MEGA-01",gate:"S1 / S2",camera:"SV-01–06",transport:"Specialized professional elephant transport system",feed:"F-20",traits:"Exceptional strength, memory, tactile trunk control, long-range communication",enrichment:"Browse, substrate, water, large manipulable objects, choice-based habitat access",note:"Large dangerous-animal operations require specialist teams."},
+ {n:"Mara",sp:"Tiger",scientific:"Panthera tigris",class:"Mammal",order:"Carnivora",family:"Felidae",ic:"🐅",zone:"RAINFOREST DOME",sex:"Female",age:"7 yr",diet:"Carnivore",status:"Stable",origin:"Asia",range:"Fragmented populations across Asia",biome:"Forest, grassland, mangrove and other habitats by subspecies",activity:"Often crepuscular / nocturnal",social:"Primarily solitary",lifespan:"10–15 yr wild; often longer managed",weight:"Strongly varies by sex/subspecies",badge:"RED-9",security:"RESTRICTED",accession:"ZG-26-TGR-002",enclosure:"R-PRED-01",gate:"RP1-A/B",camera:"RF-01–04",transport:"Professional big-cat transport crate",feed:"F-21",traits:"Ambush predator, powerful swimmer, territorial scent communication",enrichment:"Scent, pools, climbing, hidden feeding, rotating objects",note:"Dangerous-animal record; fictional facility security data."},
+ {n:"Echo",sp:"Chimpanzee",scientific:"Pan troglodytes",class:"Mammal",order:"Primates",family:"Hominidae",ic:"🐒",zone:"RAINFOREST DOME",sex:"Male",age:"12 yr",diet:"Omnivore",status:"Stable",origin:"Equatorial Africa",range:"West and Central Africa",biome:"Forest and woodland mosaics",activity:"Diurnal",social:"Fission-fusion communities",lifespan:"Several decades",weight:"Adult size varies by sex/population",badge:"GREEN-8",security:"RESTRICTED",accession:"ZG-26-PRI-003",enclosure:"R-PRI-02",gate:"PR2",camera:"RF-08–11",transport:"Specialist primate transport enclosure",feed:"F-18",traits:"Complex social learning, tool use, manipulation and problem solving",enrichment:"Foraging puzzles, social complexity, manipulable materials, climbing",note:"Great-ape resident record."},
+ {n:"Nimbus",sp:"Harbor Seal",scientific:"Phoca vitulina",class:"Mammal",order:"Carnivora",family:"Phocidae",ic:"🦭",zone:"CARE CORE",sex:"Male",age:"8 yr",diet:"Piscivore",status:"Recovery",origin:"Northern coastal waters",range:"North Atlantic and North Pacific coasts",biome:"Coastal marine",activity:"Aquatic / haul-out cycles",social:"Variable aggregations",lifespan:"20–30+ yr",weight:"Approx. 60–170 kg depending population/sex",badge:"AQUA-6",security:"CONTROLLED",accession:"ZG-26-SEA-014",enclosure:"C-AQUA-02",gate:"CA2",camera:"CC-07",transport:"Specialist marine-mammal transport",feed:"F-25",traits:"Streamlined swimmer, vibrissae-assisted prey detection",enrichment:"Water features, varied feeding, training for cooperative care",note:"Marine mammal care record."},
+ {n:"Juniper",sp:"Aldabra Giant Tortoise",scientific:"Aldabrachelys gigantea",class:"Reptile",order:"Testudines",family:"Testudinidae",ic:"🐢",zone:"RAINFOREST DOME",sex:"Female",age:"42 yr",diet:"Herbivore",status:"Stable",origin:"Aldabra Atoll",range:"Seychelles / managed populations",biome:"Grassland, scrub, coastal habitat",activity:"Diurnal",social:"Loose aggregations",lifespan:"100+ yr possible",weight:"Large adults can exceed 150 kg",badge:"BRONZE-2",security:"STANDARD",accession:"ZG-26-REP-005",enclosure:"R-HERB-04",gate:"RH4",camera:"RF-14",transport:"Heavy-duty tortoise transport platform/crate",feed:"F-30",traits:"Long-lived terrestrial grazer, powerful limbs",enrichment:"Browse variety, terrain, shade, wallows and exploration",note:"Long-lived reptile resident."},
+ {n:"Sable",sp:"Reticulated Python",scientific:"Malayopython reticulatus",class:"Reptile",order:"Squamata",family:"Pythonidae",ic:"🐍",zone:"NOCTURNAL WING",sex:"Female",age:"9 yr",diet:"Carnivore",status:"Stable",origin:"South and Southeast Asia",range:"South/Southeast Asian tropical regions",biome:"Rainforest, wetland, woodland",activity:"Often nocturnal",social:"Solitary",lifespan:"15–25+ yr managed",weight:"Highly variable; very large constrictor",badge:"RED-6",security:"RESTRICTED",accession:"ZG-26-REP-012",enclosure:"N-REP-01",gate:"NR1",camera:"NW-09",transport:"Secure professional reptile transport container",feed:"F-32",traits:"Constrictor, strong climbing/swimming ability, heat-sensing pits",enrichment:"Branches, water, hides, thermal gradients",note:"Large constrictor; trained staff only."},
+ {n:"Pixel",sp:"Blue-and-yellow Macaw",scientific:"Ara ararauna",class:"Bird",order:"Psittaciformes",family:"Psittacidae",ic:"🦜",zone:"RAINFOREST DOME",sex:"Male",age:"14 yr",diet:"Herbivore / omnivorous plant-heavy",status:"Stable",origin:"South America",range:"Tropical South America",biome:"Forest, woodland, palm swamp",activity:"Diurnal",social:"Pairs / flocks",lifespan:"Several decades",weight:"~0.9–1.5 kg typical",badge:"BLUE-7",security:"CONTROLLED",accession:"ZG-26-BRD-021",enclosure:"R-AVIARY-03",gate:"RA3",camera:"RF-18",transport:"Secure parrot carrier",feed:"F-17",traits:"Powerful beak, dexterous feet, vocal/social intelligence",enrichment:"Foraging, destructible objects, climbing, social interaction",note:"Psittacine resident."}
+,
+ {n:"Nuru",sp:"Lion",scientific:"Panthera leo",class:"Mammal",order:"Carnivora",family:"Felidae",ic:"🦁",zone:"SAVANNAH RANGE",sex:"Male",age:"8 yr",diet:"Carnivore",status:"Stable",origin:"Africa / small Asian population",range:"Sub-Saharan Africa and Gir Forest region",biome:"Savanna, grassland, open woodland",activity:"Crepuscular / nocturnal tendency",social:"Pride-based",lifespan:"Often 10–14 yr wild; longer managed",weight:"Adult males commonly 150–250 kg, variable",badge:"GOLD-4",security:"RESTRICTED",accession:"ZG-26-LIO-031",enclosure:"S-PRED-02",gate:"SP2",camera:"SV-11–14",transport:"Professional big-cat transport crate",feed:"F-41",traits:"Social big cat, powerful ambush hunter, roaring long-range communication",enrichment:"Scent trails, elevated views, feeding challenges, durable objects",note:"Dangerous-animal institutional record."},
+ {n:"Zuri",sp:"Giraffe",scientific:"Giraffa camelopardalis",class:"Mammal",order:"Artiodactyla",family:"Giraffidae",ic:"🦒",zone:"SAVANNAH RANGE",sex:"Female",age:"9 yr",diet:"Herbivore",status:"Stable",origin:"Africa",range:"Patchy sub-Saharan populations",biome:"Savanna and open woodland",activity:"Diurnal / flexible",social:"Fluid social groups",lifespan:"Around 20–25 yr",weight:"Adult females often 700–1,200 kg",badge:"GOLD-6",security:"CONTROLLED",accession:"ZG-26-GIR-032",enclosure:"S-HERB-03",gate:"SH3",camera:"SV-15",transport:"Specialist tall-animal transport system",feed:"F-42",traits:"Exceptional height, long prehensile tongue, high browsing specialization",enrichment:"Browse at varied heights, puzzle feeders, habitat exploration",note:"Large herbivore record."},
+ {n:"Bramble",sp:"American Black Bear",scientific:"Ursus americanus",class:"Mammal",order:"Carnivora",family:"Ursidae",ic:"🐻",zone:"FOREST RANGE",sex:"Male",age:"11 yr",diet:"Omnivore",status:"Stable",origin:"North America",range:"Canada, United States, northern Mexico",biome:"Forest, mountain, wetland edges",activity:"Mostly crepuscular",social:"Primarily solitary",lifespan:"Often 10–30 yr",weight:"Highly variable; adult males often 60–300 kg",badge:"AMBER-8",security:"RESTRICTED",accession:"ZG-26-BER-033",enclosure:"F-BEAR-01",gate:"FB1",camera:"FR-01–03",transport:"Professional bear transport enclosure",feed:"F-43",traits:"Strong climber, powerful smell, seasonal behavioral changes",enrichment:"Foraging, logs, pools, scent, hidden food",note:"Large carnivore record."},
+ {n:"Rook",sp:"Common Raven",scientific:"Corvus corax",class:"Bird",order:"Passeriformes",family:"Corvidae",ic:"🐦‍⬛",zone:"FOREST RANGE",sex:"Male",age:"7 yr",diet:"Omnivore",status:"Stable",origin:"Northern Hemisphere",range:"North America, Europe, Asia, North Africa",biome:"Forest, mountain, tundra, desert",activity:"Diurnal",social:"Pairs / flexible groups",lifespan:"Often 10–20+ yr",weight:"~0.7–1.6 kg",badge:"BLACK-4",security:"CONTROLLED",accession:"ZG-26-RVN-035",enclosure:"F-AVIARY-02",gate:"FA2",camera:"FR-06",transport:"Secure bird carrier",feed:"F-45",traits:"Advanced problem solving, vocal learning, object manipulation",enrichment:"Puzzle boxes, caching, destructible objects, flight",note:"Corvid cognition record."},
+ {n:"Khepri",sp:"Komodo Dragon",scientific:"Varanus komodoensis",class:"Reptile",order:"Squamata",family:"Varanidae",ic:"🦎",zone:"REPTILE COMPLEX",sex:"Male",age:"13 yr",diet:"Carnivore",status:"Stable",origin:"Indonesia",range:"Several Indonesian islands",biome:"Dry forest and savanna",activity:"Diurnal",social:"Mostly solitary",lifespan:"Around 20–30 yr",weight:"Large adults often 50–90+ kg",badge:"RED-8",security:"RESTRICTED",accession:"ZG-26-KOM-036",enclosure:"RPT-01",gate:"RPT1",camera:"RC-01–04",transport:"Specialist large-reptile crate",feed:"F-46",traits:"Large monitor lizard, strong smell, powerful bite and locomotion",enrichment:"Terrain, scent, feeding challenges, thermal choices",note:"Dangerous reptile record."},
+ {n:"Delta",sp:"American Alligator",scientific:"Alligator mississippiensis",class:"Reptile",order:"Crocodylia",family:"Alligatoridae",ic:"🐊",zone:"WETLAND DOME",sex:"Female",age:"16 yr",diet:"Carnivore",status:"Stable",origin:"Southeastern United States",range:"Atlantic/Gulf coastal plain wetlands",biome:"Freshwater wetland",activity:"Temperature-dependent / often dusk-night active",social:"Loose aggregations",lifespan:"30–50+ yr",weight:"Adult females commonly 90–200 kg",badge:"RED-7",security:"RESTRICTED",accession:"ZG-26-ALG-037",enclosure:"W-CROC-01",gate:"WC1",camera:"WD-01–04",transport:"Specialist crocodilian transport",feed:"F-47",traits:"Powerful aquatic ambush predator, pressure-sensitive facial organs",enrichment:"Water depth variation, basking, habitat complexity",note:"Crocodilian record."},
+ {n:"Azul",sp:"Poison Dart Frog",scientific:"Dendrobatidae spp.",class:"Amphibian",order:"Anura",family:"Dendrobatidae",ic:"🐸",zone:"RAINFOREST DOME",sex:"Unknown",age:"2 yr",diet:"Insectivore",status:"Stable",origin:"Central and South America",range:"Tropical Americas",biome:"Humid tropical forest",activity:"Diurnal",social:"Species-dependent",lifespan:"Varies; many managed species live several years",weight:"Usually only a few grams",badge:"GREEN-2",security:"STANDARD",accession:"ZG-26-FRG-038",enclosure:"R-AMPH-01",gate:"RA1",camera:"RF-23",transport:"Small secure amphibian container",feed:"F-48",traits:"Small colorful frogs; wild toxicity relates to diet in many species",enrichment:"Live planting, microhabitats, humidity gradients",note:"Amphibian record."},
+ {n:"Kai",sp:"Bottlenose Dolphin",scientific:"Tursiops truncatus",class:"Mammal",order:"Cetacea",family:"Delphinidae",ic:"🐬",zone:"OCEAN HABITAT",sex:"Male",age:"15 yr",diet:"Piscivore",status:"Stable",origin:"Temperate/tropical oceans",range:"Coastal and offshore waters worldwide",biome:"Marine",activity:"Active across day/night cycles",social:"Complex fission-fusion groups",lifespan:"Several decades",weight:"Often 150–650 kg depending population",badge:"AQUA-9",security:"CONTROLLED",accession:"ZG-26-DOL-040",enclosure:"O-MARINE-02",gate:"OM2",camera:"OC-08–12",transport:"Specialist marine-mammal transport",feed:"F-50",traits:"Echolocation, complex social communication, fast swimming",enrichment:"Social interaction, varied objects, cooperative-care training",note:"Marine mammal record."},
+ {n:"Ink",sp:"Giant Pacific Octopus",scientific:"Enteroctopus dofleini",class:"Cephalopod",order:"Octopoda",family:"Enteroctopodidae",ic:"🐙",zone:"OCEAN HABITAT",sex:"Female",age:"3 yr",diet:"Carnivore",status:"Stable",origin:"North Pacific",range:"Coastal North Pacific",biome:"Rocky marine benthic",activity:"Often nocturnal",social:"Solitary",lifespan:"Roughly 3–5 yr",weight:"Large individuals may exceed 20 kg",badge:"VIOLET-9",security:"CONTROLLED",accession:"ZG-26-OCT-041",enclosure:"O-CEPH-01",gate:"OC1",camera:"OC-14",transport:"Specialist aquatic transfer container",feed:"F-51",traits:"Highly flexible body, camouflage, problem solving, manipulative arms",enrichment:"Puzzle feeding, dens, objects, varied textures",note:"Cephalopod welfare record."},
+ {n:"Nova",sp:"Emperor Penguin",scientific:"Aptenodytes forsteri",class:"Bird",order:"Sphenisciformes",family:"Spheniscidae",ic:"🐧",zone:"ARCTIC RIDGE",sex:"Female",age:"8 yr",diet:"Piscivore",status:"Stable",origin:"Antarctica",range:"Antarctic coastal/sea-ice regions",biome:"Polar marine / sea ice",activity:"Seasonally variable",social:"Colonial",lifespan:"Often 15–20+ yr",weight:"~22–45 kg seasonally",badge:"WHITE-8",security:"CONTROLLED",accession:"ZG-26-PEN-043",enclosure:"A-POLAR-03",gate:"AP3",camera:"AR-11",transport:"Specialist penguin transport crate",feed:"F-53",traits:"Deep diving, dense insulation, colonial breeding",enrichment:"Pool complexity, varied feeding, social environment",note:"Polar bird record."},
+ {n:"Bamboo",sp:"Giant Panda",scientific:"Ailuropoda melanoleuca",class:"Mammal",order:"Carnivora",family:"Ursidae",ic:"🐼",zone:"FOREST RANGE",sex:"Female",age:"10 yr",diet:"Herbivore-specialized",status:"Stable",origin:"China",range:"Mountain forests of central China",biome:"Temperate bamboo forest",activity:"Active in multiple daily periods",social:"Mostly solitary",lifespan:"15–20 yr wild; longer managed",weight:"~70–125 kg",badge:"GREEN-9",security:"CONTROLLED",accession:"ZG-26-PND-046",enclosure:"F-BAMBOO-01",gate:"FP1",camera:"FR-15–17",transport:"Specialist bear transport crate",feed:"F-56",traits:"Bamboo specialization, powerful jaw, pseudo-thumb",enrichment:"Browse, scent, climbing, puzzle feeding",note:"Conservation-focused ursid record."},
+ {n:"Lumen",sp:"Axolotl",scientific:"Ambystoma mexicanum",class:"Amphibian",order:"Caudata",family:"Ambystomatidae",ic:"🦎",zone:"WETLAND DOME",sex:"Female",age:"3 yr",diet:"Carnivore",status:"Stable",origin:"Mexico",range:"Native to Xochimilco lake/canal system",biome:"Freshwater",activity:"Low-light / aquatic",social:"Mostly solitary",lifespan:"10–15 yr managed possible",weight:"Often 60–200 g",badge:"AQUA-2",security:"STANDARD",accession:"ZG-26-AXO-051",enclosure:"W-AMPH-04",gate:"WA4",camera:"WD-11",transport:"Temperature-controlled aquatic container",feed:"F-61",traits:"Neoteny and notable regenerative abilities",enrichment:"Shelters, aquatic structure, low-stress habitat",note:"Critically endangered wild species; managed-care record."},
+ {n:"Silk",sp:"Goliath Birdeater",scientific:"Theraphosa blondi",class:"Arachnid",order:"Araneae",family:"Theraphosidae",ic:"🕷️",zone:"INVERTEBRATE LAB",sex:"Female",age:"8 yr",diet:"Carnivore",status:"Stable",origin:"Northern South America",range:"Amazon rainforest region",biome:"Humid tropical forest floor",activity:"Mostly nocturnal",social:"Solitary",lifespan:"Females may live 15–25 yr",weight:"Up to ~170 g",badge:"VIOLET-4",security:"CONTROLLED",accession:"ZG-26-ARA-052",enclosure:"I-ARA-01",gate:"IA1",camera:"IL-01",transport:"Secure ventilated invertebrate container",feed:"F-62",traits:"Very large tarantula, urticating hairs, vibration sensitivity",enrichment:"Burrow, substrate, shelter and stable microclimate",note:"Invertebrate record."},
+ {n:"Titan",sp:"Hercules Beetle",scientific:"Dynastes hercules",class:"Insect",order:"Coleoptera",family:"Scarabaeidae",ic:"🪲",zone:"INVERTEBRATE LAB",sex:"Male",age:"Adult",diet:"Fruit / plant material",status:"Stable",origin:"Central/South America",range:"Neotropical rainforest",biome:"Tropical forest",activity:"Nocturnal tendency",social:"Mostly solitary",lifespan:"Multi-stage life cycle",weight:"Large beetle; tens of grams",badge:"GREEN-1",security:"STANDARD",accession:"ZG-26-BTL-053",enclosure:"I-INS-02",gate:"II2",camera:"IL-03",transport:"Small secure invertebrate container",feed:"F-63",traits:"Extreme horn size in males, strong lifting ability",enrichment:"Natural substrate, climbing surfaces, fruit presentation",note:"Large scarab beetle record."},
+ {n:"Monarch",sp:"Monarch Butterfly",scientific:"Danaus plexippus",class:"Insect",order:"Lepidoptera",family:"Nymphalidae",ic:"🦋",zone:"INVERTEBRATE LAB",sex:"Female",age:"Adult",diet:"Nectar; larvae use milkweed",status:"Stable",origin:"Americas",range:"Americas with introduced populations elsewhere",biome:"Open habitats with host/nectar plants",activity:"Diurnal",social:"Migratory aggregations",lifespan:"Generation-dependent",weight:"Less than 1 g",badge:"ORANGE-1",security:"STANDARD",accession:"ZG-26-BFY-054",enclosure:"I-FLIGHT-01",gate:"IF1",camera:"IL-05",transport:"Ventilated butterfly transport container",feed:"F-64",traits:"Long-distance migration, warning coloration, host-plant specialization",enrichment:"Live host/nectar plants and flight space",note:"Pollinator and migration record."},
+ {n:"Horizon",sp:"Plains Zebra",scientific:"Equus quagga",class:"Mammal",order:"Perissodactyla",family:"Equidae",ic:"🦓",zone:"SAVANNAH RANGE",sex:"Female",age:"7 yr",diet:"Herbivore",status:"Stable",origin:"Africa",range:"Eastern and southern Africa",biome:"Grassland and savanna",activity:"Diurnal / grazing",social:"Harems and bachelor groups",lifespan:"Around 20–25 yr",weight:"~175–385 kg",badge:"SILVER-3",security:"CONTROLLED",accession:"ZG-26-ZEB-056",enclosure:"S-HERB-09",gate:"SH9",camera:"SV-31",transport:"Equid transport system",feed:"F-66",traits:"Striped coat, strong social recognition, fast running",enrichment:"Large range, herd interaction, browse and varied terrain",note:"Equid resident record."},
+ {n:"Pogo",sp:"Red Kangaroo",scientific:"Osphranter rufus",class:"Mammal",order:"Diprotodontia",family:"Macropodidae",ic:"🦘",zone:"OUTBACK RANGE",sex:"Male",age:"6 yr",diet:"Herbivore",status:"Stable",origin:"Australia",range:"Arid/semi-arid Australia",biome:"Grassland, shrubland, desert",activity:"Crepuscular / nocturnal",social:"Mobs",lifespan:"Around 8–20 yr",weight:"Adult males may reach 90 kg",badge:"ORANGE-5",security:"CONTROLLED",accession:"ZG-26-KNG-057",enclosure:"OB-01",gate:"OB1",camera:"OB-01–02",transport:"Macropod transport crate",feed:"F-67",traits:"Powerful hopping locomotion, tail support, heat adaptation",enrichment:"Open range, browse, shade, varied terrain",note:"Macropod resident record."},
+ {n:"Koji",sp:"Koala",scientific:"Phascolarctos cinereus",class:"Mammal",order:"Diprotodontia",family:"Phascolarctidae",ic:"🐨",zone:"OUTBACK RANGE",sex:"Male",age:"5 yr",diet:"Herbivore-specialized",status:"Stable",origin:"Australia",range:"Eastern/southeastern Australia",biome:"Eucalyptus woodland",activity:"Mostly nocturnal / low-energy",social:"Mostly solitary",lifespan:"Around 10–15 yr",weight:"~4–15 kg",badge:"GREEN-6",security:"STANDARD",accession:"ZG-26-KOA-058",enclosure:"OB-CANOPY-01",gate:"OBC1",camera:"OB-05",transport:"Secure arboreal-mammal carrier",feed:"F-68",traits:"Eucalyptus specialization, strong climbing adaptations",enrichment:"Fresh browse, climbing structures, resting choices",note:"Australian arboreal marsupial record."},
+ {n:"Rhino",sp:"Southern White Rhinoceros",scientific:"Ceratotherium simum simum",class:"Mammal",order:"Perissodactyla",family:"Rhinocerotidae",ic:"🦏",zone:"SAVANNAH RANGE",sex:"Male",age:"17 yr",diet:"Herbivore",status:"Stable",origin:"Southern Africa",range:"Southern African populations",biome:"Grassland and savanna",activity:"Grazing/rest cycles",social:"Variable",lifespan:"40–50 yr",weight:"Adult males often 1,800–2,500 kg",badge:"GOLD-8",security:"RESTRICTED",accession:"ZG-26-RHI-059",enclosure:"S-MEGA-04",gate:"SM4",camera:"SV-35–39",transport:"Specialist megaherbivore transport",feed:"F-69",traits:"Massive grazer, strong smell/hearing, horn used socially/defensively",enrichment:"Mud wallows, large range, browse/grass, durable objects",note:"Megaherbivore record."},
+ {n:"River",sp:"Hippopotamus",scientific:"Hippopotamus amphibius",class:"Mammal",order:"Artiodactyla",family:"Hippopotamidae",ic:"🦛",zone:"WETLAND DOME",sex:"Female",age:"14 yr",diet:"Herbivore",status:"Stable",origin:"Sub-Saharan Africa",range:"Rivers/lakes across parts of sub-Saharan Africa",biome:"Freshwater with nearby grassland",activity:"Mostly nocturnal grazing",social:"Groups in water",lifespan:"40–50 yr",weight:"Adults commonly 1,300–3,200 kg",badge:"RED-10",security:"RESTRICTED",accession:"ZG-26-HIP-060",enclosure:"W-MEGA-01",gate:"WM1",camera:"WD-18–22",transport:"Specialist megafauna transport",feed:"F-70",traits:"Semi-aquatic, massive jaws, territorial behavior in water",enrichment:"Deep water, grazing, habitat choice, robust objects",note:"Potentially dangerous megafauna record."}
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function defaultLiveState(){return {session:1,lastSeen:Date.now(),lastApp:"command",lastResident:0,timeline:[],events:[],boots:1}}
+function loadLiveState(){try{let s=JSON.parse(localStorage.getItem("zg.live")||"null");return s&&typeof s==="object"?Object.assign(defaultLiveState(),s):defaultLiveState()}catch(_){return defaultLiveState()}}
+function saveLiveState(s){
+ s.timeline=(s.timeline||[]).slice(0,40);s.events=(s.events||[]).slice(0,8);
+ try{localStorage.setItem("zg.live",JSON.stringify(s))}catch(e){console.warn("live state storage full")}
+}
+function liveLog(kind,text,meta=""){
+ let s=loadLiveState();s.timeline.unshift({t:new Date().toLocaleTimeString(),kind,text:String(text).slice(0,180),meta:String(meta).slice(0,80)});s.lastSeen=Date.now();saveLiveState(s);updateLiveStrip()
+}
+function updateLiveStrip(){
+ let s=loadLiveState(),d=loadDiscoveries(),el=$("#liveStrip");if(el)el.innerHTML='<span class="liveChip">SESSION '+String(s.session).padStart(3,"0")+'</span><span class="liveChip">EVENT BUS ONLINE</span><span class="liveChip">'+d.length+'/'+archiveFiles.length+' ARCHIVES</span><span class="liveChip">LAST '+String(s.lastApp||"NONE").toUpperCase()+'</span>'
+}
+function liveNotify(title,text,app=""){
+ let el=$("#liveToast");if(!el)return;el.innerHTML='<b>'+title+'</b><br>'+text+(app?'<br><button class="action" id="liveToastOpen">OPEN</button>':"");el.classList.add("show");tone(630,.05,.015);if(app)$("#liveToastOpen").onclick=()=>{el.classList.remove("show");openApp(app);if(app==="livecore")renderLiveCore();if(app==="comms")renderComms();if(app==="surveillance")renderCameraWall();if(app==="archives")renderArchives()};setTimeout(()=>el.classList.remove("show"),7000)
+}
+function makeMachineEvent(){
+ let s=loadLiveState(),i=(s.timeline.length+s.session*3)%zooAnimals.length,a=zooAnimals[i],pool=[
+  {title:"KEEPER BUS",text:a.n+" has an open daily operations board in "+a.enclosure+".",app:"keepers"},
+  {title:"CAMERA ROUTER",text:"CAM-"+String(i+1).padStart(2,"0")+" heartbeat received from "+a.zone+".",app:"surveillance"},
+  {title:"RESEARCH SYNC",text:a.sp+" dossier has a public research gateway available.",app:"research"},
+  {title:"HABITAT CORE",text:a.enclosure+" environmental console completed a simulated status cycle.",app:"engineering"},
+  {title:"ARCHIVE NODE 04",text:loadDiscoveries().length<archiveFiles.length?"Unrecovered archive entries remain indexed.":"Archive recovery index reports complete.",app:"archives"},
+  {title:"COMMS ROUTER",text:"Institutional channel traffic has been queued for operator review.",app:"comms"}
+ ],e=pool[(s.events.length+s.session)%pool.length];
+ let item={...e,t:new Date().toLocaleTimeString()};s.events.unshift(item);s.events=s.events.slice(0,8);saveLiveState(s);liveLog("EVENT",e.title+": "+e.text,e.app);liveNotify(e.title,e.text,e.app);return item
+}
+function renderLiveCore(){
+ let s=loadLiveState(),d=loadDiscoveries(),lp=$("#livePanel");if(lp)lp.innerHTML='<div class="liveTile"><b>'+String(s.session).padStart(3,"0")+'</b>SESSION</div><div class="liveTile"><b>'+s.timeline.length+'</b>TIMELINE EVENTS</div><div class="liveTile"><b>'+d.length+'/'+archiveFiles.length+'</b>DISCOVERIES</div><div class="liveTile"><b>'+String(s.lastApp||"NONE").toUpperCase()+'</b>LAST CONTEXT</div><div class="liveTile"><b>'+s.events.length+'</b>ACTIVE EVENTS</div><div class="liveTile"><b>'+s.boots+'</b>BOOTS SEEN</div>';
+ let tl=$("#sessionTimeline");if(tl)tl.innerHTML=s.timeline.length?s.timeline.map(x=>'<div><b>['+esc(x.kind)+'] '+esc(x.t)+'</b> '+esc(x.text)+'</div>').join(""):'<div>No session activity recorded.</div>';
+ let ev=$("#machineEvents");if(ev)ev.innerHTML=s.events.length?s.events.map((x,i)=>'<div class="eventCard"><b>'+esc(x.title)+'</b><br>'+esc(x.text)+'<br><span class="tiny">'+esc(x.t)+'</span> <button class="action" data-liveapp="'+esc(x.app)+'">OPEN SYSTEM</button></div>').join(""):'<div class="tiny">No active machine events.</div>';
+ $$("[data-liveapp]").forEach(b=>b.onclick=()=>openApp(b.dataset.liveapp));
+ updateLiveStrip()
+}
+function restoreLastContext(){
+ let s=loadLiveState(),app=s.lastApp||"command";openApp(app);if(app==="command")renderCommand();if(app==="livecore")renderLiveCore();if(app==="archives")renderArchives();if(app==="comms")renderComms();if(app==="surveillance")renderZooMap();toast("RESTORED // "+app.toUpperCase())
+}
+function initLivingMachine(){
+ try{
+  let s=loadLiveState(),away=Math.max(0,Date.now()-(s.lastSeen||Date.now()));
+  s.session=(s.session||0)+1;s.boots=(s.boots||0)+1;s.lastSeen=Date.now();
+  s.timeline.unshift({t:new Date().toLocaleTimeString(),kind:"SESSION",text:"Workstation session resumed after "+Math.round(away/60000)+" minute(s).",meta:""});
+  saveLiveState(s);updateLiveStrip();
+  $("#liveGenerate").onclick=()=>{makeMachineEvent();renderLiveCore()};
+  $("#liveRestore").onclick=restoreLastContext;
+  $("#liveClear").onclick=()=>{let x=loadLiveState();x.timeline=[];saveLiveState(x);renderLiveCore();toast("SESSION TIMELINE CLEARED")};
+  setTimeout(()=>{let x=loadLiveState();if(x.events.length===0)makeMachineEvent()},2600);
+  setInterval(()=>{let x=loadLiveState();x.lastSeen=Date.now();saveLiveState(x)},30000);
+ }catch(e){console.warn("Living machine disabled:",e)}
+}
+setTimeout(initLivingMachine,1650);
+
+const archiveFiles=[
+ {id:"A01",dir:"/archive/operators",name:"OPERATOR_17.TXT",code:"OPEN",title:"Operator 17 Handoff",body:"If this terminal boots without an operator token, the identity service has failed again. Do not erase the resident index. The animal records outlived three workstation replacements. Camera routing was moved to the facility map. Archive Node 04 still contains the old enclosure references.",link:"command"},
+ {id:"A02",dir:"/archive/field",name:"FIELD_K19.LOG",code:"K19",title:"Field Note K-19",body:"K-19 was not an animal identifier. It was the temporary designation for the north observation relay. After the habitat expansion, the relay was removed from the printed map but remained addressable by the camera router. Cross-reference CAMERA 07.",link:"surveillance"},
+ {id:"A03",dir:"/archive/recovered",name:"CAMERA_07.MEM",code:"CAM07",title:"Camera 07 Memory Fragment",body:"Recovered frame metadata: service path / north relay / enclosure telemetry present. No image survived the storage fault. A maintenance note references DEVICE 07 and a diagnostic key: D07.",link:"surveillance"},
+ {id:"A04",dir:"/system/lost+found",name:"DEVICE_07.DAT",code:"D07",title:"Device 07 Classification",body:"DEVICE 07 was a retired environmental recorder used during early habitat commissioning. It collected temperature, humidity, light and acoustic observations. The mysterious boot warning is a stale hardware inventory entry—not an active unknown device. Final archive reference: ORIGIN.",link:"engineering"},
+ {id:"A05",dir:"/archive/history",name:"ORIGIN.NFO",code:"ORIGIN",title:"Zoo Gods Workstation History",body:"The ZOO GODS shell began as a collection of disconnected keeper, habitat and animal record utilities. Operators gradually linked the systems so one resident record could open nutrition, habitat, care, security, equipment and research. The recovered machine is therefore less a secret supercomputer than years of accumulated institutional software.",link:"records"},
+ {id:"A06",dir:"/archive/operators",name:"SHIFT_BRAVO.MSG",code:"BRAVO",title:"Old Shift Message",body:"Bravo shift: leave the archive mount alone until the resident index finishes rebuilding. The old terminal makes frightening noises when the cooling fan changes speed. It has always done that.",link:"keepers"},
+ {id:"A07",dir:"/archive/research",name:"SPECIES_INDEX.BAK",code:"SPECIES",title:"Species Index Backup",body:"Partial species index recovered. Scientific names, geographic range, ecological notes and field research references were migrated into the modern Research Network.",link:"research"},
+ {id:"A08",dir:"/archive/maintenance",name:"POWER_EVENT_0317.LOG",code:"0317",title:"03:17 Power Event",body:"03:17:42 — utility interruption. 03:17:44 — archive write aborted. 03:18:02 — backup power stabilized. The recurring 03:17 timestamp in recovered-session fragments comes from this interrupted write.",link:"engineering"},
+ {id:"A09",dir:"/archive/nutrition",name:"FEEDROOM_OLD.TXT",code:"FEED",title:"Feed Room Migration",body:"Legacy feed schedules were consolidated into Nutrition Command. Do not use this historical file as a current feeding plan; species care information should be verified against current professional sources.",link:"nutrition"},
+ {id:"A10",dir:"/archive/security",name:"BADGE_MIGRATION.LOG",code:"BADGE",title:"Badge System Migration",body:"Historical fictional badge identifiers were converted to the current simulation format. No real credentials are stored in this archive.",link:"security"}
+];
+function loadDiscoveries(){try{return JSON.parse(localStorage.getItem("zg.discoveries")||'["A01"]')}catch(_){return ["A01"]}}
+function saveDiscoveries(x){try{localStorage.setItem("zg.discoveries",JSON.stringify([...new Set(x)].slice(0,30)))}catch(e){toast("STORAGE FULL // DISCOVERY NOT SAVED")}}
+function archiveUnlock(code,terminalMode=false){
+ code=String(code||"").toUpperCase();let f=archiveFiles.find(x=>x.code===code||x.id===code||x.name.toUpperCase().includes(code));
+ if(!f){if(terminalMode)term("recovery code not recognized");return false}
+ let d=loadDiscoveries();if(!d.includes(f.id)){d.push(f.id);saveDiscoveries(d);toast("ARCHIVE DISCOVERY // "+f.name);tone(860,.07,.02);setTimeout(()=>tone(1100,.09,.015),90);journal("archive discovered: "+f.name)}
+ if(terminalMode){openApp("archives");renderArchives("");openArchiveFile(f.id);term("recovered: "+f.name)}
+ return true
+}
+function renderDiscoveryBar(){
+ let d=loadDiscoveries(),el=$("#discoveryBar");if(el)el.innerHTML='<div><b>'+d.length+'/'+archiveFiles.length+'</b>FILES RECOVERED</div><div><b>'+new Set(archiveFiles.map(x=>x.dir)).size+'</b>ARCHIVE PATHS</div><div><b>NODE 04</b>MOUNT STATE</div><div><b>'+(d.length===archiveFiles.length?"COMPLETE":"PARTIAL")+'</b>RECOVERY</div>'
+}
+function renderArchives(query=""){
+ renderDiscoveryBar();let d=loadDiscoveries(),q=String(query).toLowerCase(),el=$("#archiveTree");if(!el)return;
+ let files=archiveFiles.filter(f=>!q||(f.name+" "+f.title+" "+f.code+" "+f.dir+" "+f.body).toLowerCase().includes(q));
+ let dirs=[...new Set(files.map(f=>f.dir))];
+ el.innerHTML=dirs.map(dir=>'<div class="archiveFolder"><b>'+dir+'</b></div>'+files.filter(f=>f.dir===dir).map(f=>{let open=d.includes(f.id);return '<div class="archiveFile '+(open?"":"locked")+'" data-afile="'+f.id+'"><b>'+(open?f.name:"████████.LOCK")+'</b><br><span class="tiny">'+(open?f.title:"RECOVERY CODE REQUIRED")+'</span></div>'}).join("")).join("");
+ $$("[data-afile]").forEach(b=>b.onclick=()=>openArchiveFile(b.dataset.afile));
+}
+function openArchiveFile(id){
+ let f=archiveFiles.find(x=>x.id===id),d=loadDiscoveries(),el=$("#archiveDoc");if(!f||!el)return;
+ if(!d.includes(id)){el.innerHTML='<h3>ACCESS BLOCKED</h3><p>Archive entry is present but its index is damaged.</p><p class="corrupt">RECOVERY TOKEN: '+f.code.split("").map((x,i)=>i%2?x:"▓").join("")+'</p><p>Search communications, older recovered files, terminal clues and system messages for references.</p>';return}
+ el.innerHTML='<span class="archiveStamp">RECOVERED NODE 04</span><span class="archiveStamp">'+f.id+'</span><h3>'+f.name+'</h3><p class="tiny">'+f.dir+' // checksum reconstructed // historical fictional record</p><p>'+f.body+'</p><button class="action" id="archiveLink">OPEN LINKED SYSTEM</button>';
+ $("#archiveLink").onclick=()=>{openApp(f.link);if(f.link==="command")renderCommand();if(f.link==="surveillance")renderCameraWall();if(f.link==="research")renderResearch(0);if(f.link==="keepers")renderKeeper(0)};
+ journal("archive file opened: "+f.name)
+}
+function archiveSearchRun(){
+ let q=($("#archiveSearch")?.value||"").trim();renderArchives(q);
+ let exact=archiveFiles.find(f=>f.code.toLowerCase()===q.toLowerCase());
+ if(exact)archiveUnlock(exact.code,false),renderArchives(q),openArchiveFile(exact.id)
+}
+function initArchives(){
+ try{
+  renderArchives();
+  $("#archiveSearchBtn").onclick=archiveSearchRun;
+  $("#archiveSearch").addEventListener("keydown",e=>{if(e.key==="Enter")archiveSearchRun()});
+ }catch(e){console.warn("Archive disabled:",e)}
+}
+setTimeout(initArchives,1450);
+
+const commChannels=[
+ {id:"OPS",name:"Operations",freq:"142.650"},
+ {id:"KEEPER",name:"Keeper Radio",freq:"143.125"},
+ {id:"VET",name:"Veterinary",freq:"144.275"},
+ {id:"HAB",name:"Habitat Engineering",freq:"145.800"},
+ {id:"SEC",name:"Security",freq:"146.420"},
+ {id:"FIELD",name:"Field Research",freq:"147.075"},
+ {id:"SYS",name:"System Messages",freq:"148.900"}
+];
+let activeComms="OPS";
+function seedComms(){
+ let a=zooAnimals;
+ return [
+  {ch:"OPS",from:"SHIFT CONTROL",text:"Morning institutional board synchronized. "+a.length+" resident records indexed.",ref:-1},
+  {ch:"KEEPER",from:"KEEPER BRAVO",text:a[0].n+" completed enrichment observation in "+a[0].enclosure+".",ref:0},
+  {ch:"VET",from:"CARE CENTER",text:"Observation review requested for "+a[Math.min(2,a.length-1)].n+". Open resident care file.",ref:Math.min(2,a.length-1)},
+  {ch:"HAB",from:"ENGINEERING",text:a[Math.min(4,a.length-1)].enclosure+" environmental loop scheduled for sensor review.",ref:Math.min(4,a.length-1)},
+  {ch:"SEC",from:"SECURITY DESK",text:"Camera group diagnostic completed. Resident headcount board available.",ref:-2},
+  {ch:"FIELD",from:"RESEARCH NODE",text:"Species dossier synchronization available for "+a[Math.min(6,a.length-1)].sp+".",ref:Math.min(6,a.length-1)},
+  {ch:"SYS",from:"ZG SYSTEM",text:"Recovered archive fragment references DEVICE 07. Classification remains unavailable. Archive recovery trail begins with K19.",ref:-3},
+  {ch:"OPS",from:"NUTRITION",text:"Feed preparation board linked to "+a[Math.min(1,a.length-1)].n+" and scheduled keeper round.",ref:Math.min(1,a.length-1)}
+ ];
+}
+function loadComms(){
+ try{let x=JSON.parse(localStorage.getItem("zg.comms")||"null");if(Array.isArray(x))return x.slice(0,30)}catch(_){}
+ return seedComms().map((x,i)=>({...x,t:new Date(Date.now()-i*360000).toLocaleTimeString()}));
+}
+function saveComms(x){try{localStorage.setItem("zg.comms",JSON.stringify(x.slice(0,30)))}catch(e){toast("STORAGE FULL // COMMS NOT SAVED")}}
+function commRefButton(m){
+ if(m.ref>=0){let a=zooAnimals[m.ref];return '<button class="msgLink" data-comref="'+m.ref+'">OPEN '+a.n.toUpperCase()+' RECORD →</button>'}
+ if(m.ref===-2)return '<button class="msgLink" data-comapp="surveillance">OPEN CAMERA NETWORK →</button>';
+ if(m.ref===-3)return '<button class="msgLink" data-comapp="command">OPEN COMMAND CENTER →</button>';
+ return "";
+}
+function renderComms(){
+ let msgs=loadComms(),ch=commChannels.find(x=>x.id===activeComms)||commChannels[0],filtered=msgs.filter(x=>x.ch===activeComms);
+ let st=$("#commsStatus");if(st)st.innerHTML='<div><b>'+ch.freq+'</b>MHz SIM BAND</div><div><b>'+filtered.length+'</b>MESSAGES</div><div><b>LINKED</b>INTERNAL BUS</div><div><b>'+new Date().toLocaleTimeString()+'</b>LOCAL CLOCK</div>';
+ let cl=$("#commsChannels");if(cl)cl.innerHTML=commChannels.map(c=>'<div class="channel '+(c.id===activeComms?"active":"")+'" data-channel="'+c.id+'"><span class="unread">'+msgs.filter(m=>m.ch===c.id).length+'</span><b>'+c.id+'</b><br>'+c.name+'<br><span class="tiny">'+c.freq+' MHz</span></div>').join("");
+ let pane=$("#commsMessages");if(pane)pane.innerHTML='<div class="titlebar"><b>'+ch.name.toUpperCase()+' // '+ch.freq+' MHz</b><span>SIGNAL LOCK</span></div>'+filtered.map(m=>'<div class="msg"><div class="msgHead"><b>'+esc(m.from)+'</b><span>'+esc(m.t||"")+'</span></div><div class="msgBody">'+esc(m.text)+'</div>'+commRefButton(m)+'</div>').join("");
+ $$("[data-channel]").forEach(b=>b.onclick=()=>{activeComms=b.dataset.channel;tone(310,.035,.012);renderComms()});
+ $$("[data-comref]").forEach(b=>b.onclick=()=>openUnifiedResident(Number(b.dataset.comref)));
+ $$("[data-comapp]").forEach(b=>b.onclick=()=>{openApp(b.dataset.comapp);if(b.dataset.comapp==="surveillance")renderCameraWall();if(b.dataset.comapp==="command")renderCommand()});
+}
+function sendComms(){
+ let inp=$("#commsInput"),txt=(inp?.value||"").trim();if(!txt)return;
+ let msgs=loadComms();msgs.unshift({ch:activeComms,from:"LOCAL OPERATOR",text:txt.slice(0,320),ref:-1,t:new Date().toLocaleTimeString()});saveComms(msgs);inp.value="";tone(760,.045,.018);setTimeout(()=>tone(520,.04,.012),70);journal("comms transmission: "+activeComms);renderComms()
+}
+function initComms(){
+ try{
+  renderComms();
+  $("#commsSend").onclick=sendComms;
+  $("#commsInput").addEventListener("keydown",e=>{if(e.key==="Enter")sendComms()});
+ }catch(e){console.warn("Comms disabled:",e)}
+}
+setTimeout(initComms,1350);
+
+function mapPosition(i){
+ const pts=[[11,12],[35,8],[62,12],[80,24],[13,37],[39,31],[65,38],[84,49],[9,65],[32,58],[58,63],[78,72],[18,83],[47,79],[70,87],[89,84]];
+ return pts[i%pts.length];
+}
+function cameraSceneClass(a){
+ let s=((a.biome||"")+" "+(a.zone||"")).toLowerCase();
+ if(/marine|aquatic|wetland|freshwater|ocean/.test(s))return "aquatic";
+ if(/desert|savanna|grassland|dry/.test(s))return "desert";
+ if(/polar|arctic|tundra/.test(s))return "polar";
+ return "forest";
+}
+function renderZooMap(){
+ const v=$("#surveillanceView");if(!v)return;
+ const zones=[...new Set(zooAnimals.map(a=>a.zone))];
+ let roads="";
+ for(let i=0;i<Math.min(zones.length-1,11);i++){
+   let a=mapPosition(i),b=mapPosition(i+1),x1=a[0],y1=a[1],x2=b[0],y2=b[1],dx=x2-x1,dy=y2-y1,len=Math.sqrt(dx*dx+dy*dy),ang=Math.atan2(dy,dx)*180/Math.PI;
+   roads+='<div class="mapRoad" style="left:'+x1+'%;top:'+y1+'%;width:'+len+'%;transform:rotate('+ang+'deg)"></div>';
+ }
+ v.innerHTML='<div class="zooMapWrap">'+roads+zones.slice(0,16).map((z,j)=>{let p=mapPosition(j),count=zooAnimals.filter(a=>a.zone===z).length;return '<div class="mapSector" data-mapzone="'+z+'" style="left:'+p[0]+'%;top:'+p[1]+'%"><b><span class="dot"></span>'+z+'</b>'+count+' residents<br>CAM GROUP '+String.fromCharCode(65+j%6)+'</div>'}).join("")+'</div><div class="tiny">Select a sector to reveal resident camera channels. Paths and locations are fictional visualization geometry.</div>';
+ $$("[data-mapzone]").forEach(b=>b.onclick=()=>renderCameraWall(b.dataset.mapzone));
+ journal("facility map opened");
+}
+function renderCameraWall(zone=""){
+ const v=$("#surveillanceView");if(!v)return;
+ let arr=zooAnimals.map((a,i)=>({a,i})).filter(x=>!zone||x.a.zone===zone);
+ v.innerHTML='<div class="big">CAMERA WALL '+(zone?"// "+zone:"// ALL CHANNELS")+'</div><div class="cameraGrid">'+arr.map(x=>'<div class="cameraCard" data-cam="'+x.i+'"><b>CAM-'+String(x.i+1).padStart(2,"0")+' // '+x.a.enclosure+'</b><br>'+x.a.ic+' '+x.a.n+' — '+x.a.sp+'<br><span class="tiny">'+x.a.zone+' // SIGNAL '+(82+(x.i*7)%18)+'%</span></div>').join("")+'</div>';
+ $$("[data-cam]").forEach(b=>b.onclick=()=>{$("#cameraSelect").value=b.dataset.cam;renderCamera(Number(b.dataset.cam))});
+ journal("camera wall opened"+(zone?": "+zone:""));
+}
+function renderCamera(i){
+ const a=zooAnimals[i];if(!a)return;const hp=habitatProfile(a,i),cls=cameraSceneClass(a),signal=82+(i*7)%18,cam="CAM-"+String(i+1).padStart(2,"0");
+ const v=$("#surveillanceView");if(!v)return;
+ v.innerHTML='<div class="camView"><div class="camScene '+cls+'"></div><div class="camTree t1">♣</div><div class="camTree t2">♠</div><div class="camAnimal">'+a.ic+'</div><div class="camScan"></div><div class="camNoise"></div><div class="camReticle"></div><div class="camHud"><b>'+cam+' // '+a.enclosure+'</b><span class="right" id="camClock">'+new Date().toLocaleTimeString()+'<br>SIGNAL '+signal+'%</span><br>'+a.zone+'<br>MOTION: PASSIVE</div></div>'+
+ '<div class="camTelemetry"><div><b>'+hp.temp+'°C</b>AIR TEMP</div><div><b>'+hp.humidity+'%</b>HUMIDITY</div><div><b>'+hp.light+'%</b>LIGHT</div><div><b>'+signal+'%</b>SIGNAL</div><div><b>'+a.status+'</b>RESIDENT STATUS</div><div><b>'+a.gate+'</b>GATE GROUP</div></div>'+
+ '<div class="camControls"><button class="action" id="camNight">NIGHT FILTER</button><button class="action" id="camMotion">MOTION SCAN</button><button class="action" id="camSnapshot">LOG SNAPSHOT</button><button class="action" id="camHabitat">HABITAT CONSOLE</button><button class="action" id="camResident">RESIDENT FILE</button></div>'+
+ '<div id="camFeedback" class="tiny">LIVE SIMULATION // procedural scene active</div>';
+ let clock=setInterval(()=>{let c=$("#camClock");if(c)c.innerHTML=new Date().toLocaleTimeString()+"<br>SIGNAL "+signal+"%";else clearInterval(clock)},1000);
+ $("#camNight").onclick=()=>{let s=$(".camScene");s.style.filter=s.style.filter?"":"grayscale(1) brightness(.65) sepia(.2) hue-rotate(70deg)";$("#camFeedback").textContent="NIGHT FILTER TOGGLED // "+cam;tone(420,.04,.012)};
+ $("#camMotion").onclick=()=>{$("#camFeedback").textContent="MOTION SCAN // "+a.n+" graphical movement signature detected // "+new Date().toLocaleTimeString();tone(690,.05,.015)};
+ $("#camSnapshot").onclick=()=>{journal("camera snapshot logged: "+cam+" / "+a.n);$("#camFeedback").textContent="SNAPSHOT EVENT LOGGED // image remains simulated";toast("CAMERA EVENT LOGGED")};
+ $("#camHabitat").onclick=()=>{openApp("engineering");$("#engAnimal").value=String(i);renderEngineering(i)};
+ $("#camResident").onclick=()=>{openApp("residents");$("#residentSelect").value=String(i);renderResident(i)};
+ journal("camera opened: "+cam+" / "+a.n);
+}
+function initSurveillance(){
+ try{
+  const s=$("#cameraSelect");if(!s)return;
+  s.innerHTML=zooAnimals.map((a,i)=>'<option value="'+i+'">CAM-'+String(i+1).padStart(2,"0")+' — '+a.n+' — '+a.enclosure+'</option>').join("");
+  $("#cameraOpen").onclick=()=>renderCamera(Number(s.value));
+  $("#mapOverview").onclick=renderZooMap;
+  $("#cameraWall").onclick=()=>renderCameraWall();
+  renderZooMap();
+ }catch(e){console.warn("Surveillance module disabled:",e)}
+}
+setTimeout(initSurveillance,1250);
+
+const commandApps=[
+ ["RESIDENTS","residents","Identity / history / assignments"],
+ ["NUTRITION","nutrition","Food operations / feed logs"],
+ ["HABITAT ENG","engineering","Environment / systems / maintenance"],
+ ["SECURITY","security","Tracking / gates / cameras / headcounts"],
+ ["VET CARE","vetcare","Fictional care / observations / recovery"],
+ ["EQUIPMENT","equipment","Transport / assets / inspections"],
+ ["KEEPER OPS","keepers","Rounds / tasks / daily reports"],
+ ["RESEARCH NET","research","Ecology / conservation / public research"],
+ ["ANIMAL OPS","records","Institutional animal operations dossiers"],
+ ["ZOO MAP","surveillance","Facility map / procedural camera network"],
+ ["COMMS","comms","Keeper radio / care / engineering / research traffic"],
+ ["ARCHIVE","archives","Recovered operators / lost files / workstation history"],
+ ["LIVE CORE","livecore","Session memory / event bus / context restoration"]
+];
+function commandCounts(){
+ let tasks=0,incidents=0;
+ zooAnimals.forEach((a,i)=>{try{tasks+=loadKeeperState(a).done.length}catch(_){}
+  try{incidents+=JSON.parse(localStorage.getItem("zg.incident."+a.accession)||"[]").length}catch(_){}
+ });
+ return {tasks,incidents,recovery:zooAnimals.filter(a=>a.status==="Recovery").length,restricted:zooAnimals.filter(a=>a.security==="RESTRICTED").length,zones:new Set(zooAnimals.map(a=>a.zone)).size};
+}
+function commandAlerts(){
+ const c=commandCounts(),arr=[
+  ["SYSTEM","All primary ZOO GODS modules responding."],
+  ["RESIDENTS",zooAnimals.length+" institutional resident records indexed."],
+  ["KEEPER",c.tasks+" daily tasks currently marked complete."],
+  ["SECURITY",c.restricted+" resident files carry restricted simulation classification."],
+  ["CARE",c.recovery+" residents currently tagged Recovery."],
+  ["NETWORK","Public research/search gateway available when device has Internet access."]
+ ];
+ zooAnimals.slice(0,6).forEach((a,i)=>{if(i%2===0)arr.push(["ZONE",a.zone+" / "+a.enclosure+" telemetry nominal."])});
+ return arr;
+}
+function renderCommand(){
+ const c=commandCounts(),d=$("#cmdDash");
+ if(d)d.innerHTML='<div class="cmdTile"><b>'+zooAnimals.length+'</b>RESIDENTS</div><div class="cmdTile"><b>'+c.zones+'</b>ZOO ZONES</div><div class="cmdTile"><b>'+c.tasks+'</b>TASKS COMPLETE</div><div class="cmdTile"><b>'+c.recovery+'</b>RECOVERY</div><div class="cmdTile"><b>'+c.restricted+'</b>RESTRICTED FILES</div><div class="cmdTile"><b>ONLINE</b>SYSTEM BUS</div>';
+ const t=$("#cmdTopology");if(t)t.innerHTML=commandApps.map(x=>'<div class="topoNode" data-cmdapp="'+x[1]+'"><strong><span class="commandPulse"></span> '+x[0]+'</strong><small>'+x[2]+'</small><button class="action" data-cmdopen="'+x[1]+'">OPEN</button></div>').join("");
+ const l=$("#residentLocator");if(l)l.innerHTML=zooAnimals.map((a,i)=>'<div class="locatorCard" data-locate="'+i+'"><b>'+a.ic+' '+a.n+'</b><br>'+a.sp+'<br><span class="tiny">'+a.zone+' / '+a.enclosure+'</span></div>').join("");
+ const af=$("#commandAlerts");if(af)af.innerHTML=commandAlerts().map(x=>'<div><b>['+x[0]+']</b> '+x[1]+'</div>').join("");
+ $$("[data-cmdopen]").forEach(b=>b.onclick=()=>openApp(b.dataset.cmdopen));
+ $$("[data-locate]").forEach(b=>b.onclick=()=>openUnifiedResident(Number(b.dataset.locate)));
+}
+function openUnifiedResident(i){
+ try{let ls=loadLiveState();ls.lastResident=i;saveLiveState(ls);liveLog("RESIDENT","Located "+(zooAnimals[i]?.n||"resident"),String(i))}catch(_){}
+ const a=zooAnimals[i];if(!a)return;
+ openApp("residents");$("#residentSelect").value=String(i);renderResident(i);
+ toast("LOCATED // "+a.n+" // "+a.enclosure);
+}
+function runGlobalSearch(){
+ const q=($("#globalSearch")?.value||"").trim().toLowerCase(),el=$("#globalResults");if(!el)return;
+ if(!q){el.innerHTML='<div class="tiny">Enter a resident, species, accession, enclosure, zone or badge.</div>';return}
+ const hits=zooAnimals.map((a,i)=>({a,i})).filter(x=>Object.values(x.a).join(" ").toLowerCase().includes(q)).slice(0,24);
+ el.innerHTML=hits.length?hits.map(x=>'<div class="globalHit" data-ghit="'+x.i+'"><b>'+x.a.ic+' '+x.a.n+' — '+x.a.sp+'</b><br><span class="tiny">'+x.a.accession+' // '+x.a.zone+' // '+x.a.enclosure+' // '+x.a.badge+'</span></div>').join(""):'<div class="tiny">NO INTERNAL RECORD MATCH // try the Internet/search application for public information.</div>';
+ $$("[data-ghit]").forEach(b=>b.onclick=()=>openUnifiedResident(Number(b.dataset.ghit)));
+}
+function initCommand(){
+ try{
+  renderCommand();
+  const b=$("#globalSearchBtn");if(b)b.onclick=runGlobalSearch;
+  const q=$("#globalSearch");if(q)q.addEventListener("keydown",e=>{if(e.key==="Enter")runGlobalSearch()});
+ }catch(e){console.warn("Command Center disabled:",e)}
+}
+setTimeout(initCommand,1150);
+function researchProfile(a,i){
+ const regions=["AFRICA NODE","AMERICAS NODE","EURASIA NODE","OCEANIA NODE","MARINE NODE","POLAR NODE"];
+ return {
+  project:"ZG-RP-"+String(2600+i*53), field:"FIELD-"+String(400+i*17),
+  region:regions[i%regions.length], lead:"RESEARCH UNIT "+String.fromCharCode(65+i%6),
+  dataset:"DATASET-"+String(8800+i*71), cycle:"CYCLE "+(1+i%5),
+  theme:["Population ecology","Behavioral ecology","Habitat use","Nutrition ecology","Movement ecology","Conservation education"][i%6],
+  sample:"OBS-"+String(12000+i*89),
+  status:["ACTIVE","REVIEW","ACTIVE","FIELD LINK"][i%4],
+  note:"Fictional project identifiers and mission state. Current conservation classifications and population estimates should be verified through live authoritative sources."
+ };
+}
+function researchDashboard(){
+ const el=$("#researchDash");if(!el)return;
+ let regions=new Set(zooAnimals.map(a=>a.origin)).size;
+ el.innerHTML='<div class="researchTile"><b>'+zooAnimals.length+'</b>SPECIES DOSSIERS</div><div class="researchTile"><b>'+regions+'</b>ORIGIN RECORDS</div><div class="researchTile"><b>6</b>NETWORK NODES</div><div class="researchTile"><b>ONLINE</b>PUBLIC WEB LINK</div>';
+ const n=$("#worldNet");if(n)n.innerHTML=[
+ ["AFRICA",10,46],["AMERICAS",23,16],["EURASIA",20,70],["OCEANIA",63,78],["MARINE",72,42],["POLAR",7,82]
+ ].map((x,j)=>'<div class="netNode" style="top:'+x[1]+'%;left:'+x[2]+'%"><span class="systemLamp"></span>'+x[0]+' NODE<br>LINK '+(j+1)+' // ACTIVE</div>').join("");
+}
+function renderResearch(i){
+ const a=zooAnimals[i];if(!a)return;const r=researchProfile(a,i),nh=naturalHistory(a),key="zg.field."+a.accession;
+ let logs=[];try{logs=JSON.parse(localStorage.getItem(key)||"[]")}catch(_){}
+ const projects=[
+  ["ECOLOGY",r.project,r.theme,"Study habitat relationships and ecological role."],
+  ["FIELD",r.field,r.region,"Connect the fictional resident record to its geographic research node."],
+  ["BEHAVIOR",r.dataset,"BEHAVIOR OBSERVATION","Compare managed observations with published species research."],
+  ["MOVEMENT",r.sample,"RANGE / MOVEMENT","Review range, seasonal movement and habitat connectivity."],
+  ["CONSERVATION","CONS-"+String(500+i*31),"CURRENT STATUS","Use live sources for current status, threats and population information."],
+  ["EDUCATION","EDU-"+String(700+i*19),"PUBLIC INTERPRETATION","Build an evidence-based species information brief."]
+ ];
+ const el=$("#researchRecord");if(!el)return;
+ el.innerHTML='<div class="residentHead"><div class="residentPortrait">'+a.ic+'</div><div><div class="big">'+a.sp+' // RESEARCH DOSSIER</div><i>'+a.scientific+'</i><div class="factchips"><span>'+r.project+'</span><span>'+r.region+'</span><span>'+r.status+'</span><span>'+r.lead+'</span></div></div></div>'+
+ opsSection("GEOGRAPHIC & ECOLOGICAL RECORD",[["Origin",a.origin],["Recorded range",a.range],["Biome",a.biome],["Activity",a.activity],["Social ecology",a.social],["Movement",nh.movement],["Ecological role",nh.ecology]])+
+ opsSection("CONSERVATION CONTEXT",[["General pressures",nh.threats],["Research caution",nh.current],["Project theme",r.theme],["Research cycle",r.cycle],["Dataset",r.dataset]])+
+ '<div class="projectGrid">'+projects.map(p=>'<div class="projectCard"><strong>'+p[0]+'</strong><br><span class="eqTag">'+p[1]+'</span><span class="eqTag">'+p[2]+'</span><p>'+p[3]+'</p></div>').join("")+'</div>'+
+ '<div class="dataSection"><h4>PUBLIC INTERNET RESEARCH GATEWAYS</h4><button class="action" data-rweb="IUCN conservation status">CURRENT CONSERVATION STATUS</button> <button class="action" data-rweb="population ecology research">POPULATION RESEARCH</button> <button class="action" data-rweb="habitat range research">RANGE & HABITAT</button> <button class="action" data-rweb="behavior ecology research">BEHAVIOR</button> <button class="action" data-rweb="conservation program zoo">CONSERVATION PROGRAMS</button></div>'+
+ '<div class="dataSection"><h4>FIELD / RESEARCH LOG</h4><div class="fieldlog">'+(logs.length?logs.map(x=>'<div>['+x.t+'] '+esc(x.m)+'</div>').join(""):"No field/research entries.")+'</div><div class="netbar"><input id="fieldEntry" placeholder="Add fictional research observation or project note..."><button class="action" id="addField">LOG</button></div></div>'+
+ '<p class="tiny">'+r.note+'</p>';
+ $$("[data-rweb]").forEach(b=>b.onclick=()=>search("web",'"'+a.scientific+'" '+b.dataset.rweb));
+ $("#addField").onclick=()=>{let x=$("#fieldEntry").value.trim();if(!x)return;logs.unshift({t:new Date().toLocaleString(),m:x.slice(0,300)});logs=logs.slice(0,14);try{localStorage.setItem(key,JSON.stringify(logs));toast("RESEARCH LOG SAVED")}catch(e){toast("STORAGE FULL // LOG NOT SAVED")}renderResearch(i)};
+ journal("research dossier opened: "+a.sp);
+}
+function initResearch(){
+ try{
+  researchDashboard();
+  const s=$("#researchAnimal");if(!s)return;
+  s.innerHTML=zooAnimals.map((a,i)=>'<option value="'+i+'">'+a.sp+' — '+a.scientific+' — '+a.origin+'</option>').join("");
+  $("#researchLoad").onclick=()=>renderResearch(Number(s.value));
+ }catch(e){console.warn("Research Network disabled:",e)}
+}
+setTimeout(initResearch,1050);
+function keeperTasks(a,i){
+ return [
+  ["ROUND","Resident visual check","Observe location, activity and general presentation."],
+  ["HEADCOUNT","Confirm resident location","Log simulated resident headcount for "+a.enclosure+"."],
+  ["FEED","Feed station "+a.feed,"Review scheduled food presentation through Nutrition Command."],
+  ["WATER","Water / aquatic system check","Confirm simulated access and system status."],
+  ["ENRICH","Enrichment rotation",a.enrichment],
+  ["HABITAT","Enclosure inspection","Review substrate, shelter, barriers and environmental console."],
+  ["CLEAN","Cleaning task","Record fictional habitat cleaning / sanitation completion."],
+  ["EQUIP","Equipment inspection","Check assigned transport, feeder and monitoring assets."],
+  ["CARE","Care observation","Review comfort, mobility, appetite and behavior through Care Center."],
+  ["HANDOFF","Shift handoff","Create a concise resident handoff for the next keeper team."]
+ ];
+}
+function keeperKey(a){return "zg.keeper."+a.accession}
+function loadKeeperState(a){try{return JSON.parse(localStorage.getItem(keeperKey(a))||'{"done":[],"log":[]}')}catch(_){return {done:[],log:[]}}}
+function saveKeeperState(a,s){try{localStorage.setItem(keeperKey(a),JSON.stringify({done:s.done.slice(-10),log:s.log.slice(0,18)}));return true}catch(e){toast("STORAGE FULL // KEEPER STATE NOT SAVED");return false}}
+function keeperDashboard(){
+ const el=$("#keepDash");if(!el)return;
+ let done=0;zooAnimals.forEach(a=>{try{done+=loadKeeperState(a).done.length}catch(_){}});
+ el.innerHTML='<div class="keepTile"><b>'+zooAnimals.length+'</b>RESIDENT BOARDS</div><div class="keepTile"><b>'+done+'</b>TASKS LOGGED</div><div class="keepTile"><b>4</b>SHIFT GROUPS</div><div class="keepTile"><b>ACTIVE</b>OPS BOARD</div>';
+ const sb=$("#shiftBoard");if(sb)sb.innerHTML=["ALPHA / DAWN","BRAVO / DAY","CHARLIE / SWING","DELTA / NIGHT"].map((x,j)=>'<div class="shiftBox"><b>'+x+'</b><br>TEAM '+String.fromCharCode(65+j)+'<br><span class="secGreen">ON BOARD</span></div>').join("");
+}
+function renderKeeper(i){
+ const a=zooAnimals[i];if(!a)return;let s=loadKeeperState(a),tasks=keeperTasks(a,i),p=residentProfile(a,i);
+ const el=$("#keeperRecord");if(!el)return;
+ el.innerHTML='<div class="residentHead"><div class="residentPortrait">'+a.ic+'</div><div><div class="big">'+a.n+' // DAILY KEEPER BOARD</div><b>'+a.sp+'</b><div class="factchips"><span>'+p.keeper+'</span><span>'+p.shift+'</span><span>'+a.enclosure+'</span><span>'+s.done.length+'/'+tasks.length+' COMPLETE</span></div></div></div>'+
+ '<div class="taskGrid">'+tasks.map((t,n)=>{let d=s.done.includes(n);return '<div class="taskCard '+(d?"done":"")+'"><span class="taskState">'+(d?"COMPLETE":"OPEN")+'</span><strong>'+t[0]+'</strong><h4>'+t[1]+'</h4><p>'+t[2]+'</p><button class="action" data-ktask="'+n+'">'+(d?"REOPEN":"COMPLETE")+'</button></div>'}).join("")+'</div>'+
+ '<div class="dataSection"><h4>DAILY OPERATIONS LOG</h4><div class="dailylog">'+(s.log.length?s.log.map(x=>'<div>['+x.t+'] '+esc(x.m)+'</div>').join(""):"No keeper activity logged today.")+'</div><div class="netbar"><input id="keeperEntry" placeholder="Add keeper shift note..."><button class="action" id="addKeeperNote">ADD NOTE</button></div></div>'+
+ '<div class="dataSection"><h4>CONNECTED CONSOLES</h4><button class="action" id="keepFood">NUTRITION</button> <button class="action" id="keepHab">HABITAT</button> <button class="action" id="keepCare">CARE</button> <button class="action" id="keepEq">EQUIPMENT</button> <button class="action" id="keepSec">SECURITY</button></div>';
+ $$("[data-ktask]").forEach(b=>b.onclick=()=>{let n=Number(b.dataset.ktask),pos=s.done.indexOf(n);if(pos>=0)s.done.splice(pos,1);else s.done.push(n);s.log.unshift({t:new Date().toLocaleTimeString(),m:(pos>=0?"REOPENED: ":"COMPLETED: ")+tasks[n][1]});saveKeeperState(a,s);renderKeeper(i);keeperDashboard()});
+ $("#addKeeperNote").onclick=()=>{let x=$("#keeperEntry").value.trim();if(!x)return;s.log.unshift({t:new Date().toLocaleTimeString(),m:x.slice(0,300)});saveKeeperState(a,s);renderKeeper(i)};
+ $("#keepFood").onclick=()=>{openApp("nutrition");$("#nutritionAnimal").value=String(i);renderNutrition(i)};
+ $("#keepHab").onclick=()=>{openApp("engineering");$("#engAnimal").value=String(i);renderEngineering(i)};
+ $("#keepCare").onclick=()=>{openApp("vetcare");$("#careAnimal").value=String(i);renderVetCare(i)};
+ $("#keepEq").onclick=()=>{openApp("equipment");$("#eqAnimal").value=String(i);renderEquipment(i)};
+ $("#keepSec").onclick=()=>{openApp("security");$("#secAnimal").value=String(i);renderSecurity(i)};
+ journal("keeper operations opened: "+a.n);
+}
+function dailyKeeperReport(){
+ let complete=0,open=0,lines=[];
+ zooAnimals.forEach((a,i)=>{let s=loadKeeperState(a),total=keeperTasks(a,i).length;complete+=s.done.length;open+=total-s.done.length;if(s.done.length)lines.push(a.n+": "+s.done.length+"/"+total+" tasks")});
+ const el=$("#keeperRecord");if(!el)return;
+ el.innerHTML='<div class="big">DAILY KEEPER OPERATIONS REPORT</div>'+opsSection("SYSTEM TOTALS",[["Residents",zooAnimals.length],["Completed tasks",complete],["Open tasks",open],["Shift groups","4"],["Report time",new Date().toLocaleString()]])+'<div class="dataSection"><h4>RESIDENT ACTIVITY</h4><div class="dailylog">'+(lines.length?lines.map(x=>"<div>"+x+"</div>").join(""):"No resident tasks completed yet.")+'</div></div>';
+ journal("daily keeper report generated");
+}
+function initKeepers(){
+ try{
+  keeperDashboard();
+  const s=$("#keeperAnimal");if(!s)return;
+  s.innerHTML=zooAnimals.map((a,i)=>'<option value="'+i+'">'+a.n+' — '+a.enclosure+' — '+residentProfile(a,i).keeper+'</option>').join("");
+  $("#keeperLoad").onclick=()=>renderKeeper(Number(s.value));
+  $("#keeperReport").onclick=dailyKeeperReport;
+ }catch(e){console.warn("Keeper Operations disabled:",e)}
+}
+setTimeout(initKeepers,950);
+function equipmentProfile(a,i){
+ const aquatic=/marine|aquatic|fish|dolphin|octopus|shark|jelly|turtle/i.test((a.biome||"")+" "+a.sp);
+ const arboreal=/owl|raven|eagle|sloth|koala|canopy|bird/i.test((a.sp||"")+" "+a.biome);
+ const large=/elephant|rhino|hippo|giraffe|bear|lion|tiger/i.test(a.sp||"");
+ return {
+  asset:"ASSET-"+String(42000+i*137), crate:"TR-"+String(8000+i*41),
+  feeder:"FD-"+String(3000+i*29), monitor:"MON-"+String(6100+i*31),
+  habitat:"HAB-EQ-"+String(7100+i*37), care:"CARE-EQ-"+String(5100+i*43),
+  transport:a.transport,
+  transportClass:aquatic?"AQUATIC LIFE-SUPPORT TRANSFER":large?"LARGE-ANIMAL SPECIALIST TRANSPORT":arboreal?"SECURE SPECIES-APPROPRIATE CARRIER":"SPECIES-APPROPRIATE SECURE TRANSPORT",
+  primary:aquatic?"Water-quality / life-support monitoring":arboreal?"Perches / climbing structures / secure barriers":large?"Heavy-duty habitat barriers / durable enrichment":"Habitat monitoring / enrichment equipment",
+  feed:"Feeder station "+a.feed,
+  inspect:["READY","READY","INSPECTION DUE","READY"][i%4],
+  storage:"EQUIPMENT BAY "+String.fromCharCode(65+i%6)+"-"+(i%8+1),
+  seal:"ZG-SEAL-"+String(90000+i*17)
+ };
+}
+function equipmentDashboard(){
+ const el=$("#eqDash");if(!el)return;
+ el.innerHTML='<div class="eqTile"><b>'+zooAnimals.length+'</b>RESIDENT ASSET SETS</div><div class="eqTile"><b>'+zooAnimals.filter(a=>/aquatic|marine/i.test(a.biome||"")).length+'</b>AQUATIC SETS</div><div class="eqTile"><b>'+zooAnimals.filter(a=>a.security==="RESTRICTED").length+'</b>SPECIALIST SETS</div><div class="eqTile"><b>ACTIVE</b>INVENTORY CORE</div>';
+}
+function renderEquipment(i){
+ const a=zooAnimals[i];if(!a)return;const e=equipmentProfile(a,i),key="zg.eql."+a.accession;
+ let logs=[];try{logs=JSON.parse(localStorage.getItem(key)||"[]")}catch(_){}
+ const cards=[
+  ["TRANSPORT",e.crate,e.transportClass,e.transport],
+  ["FEED SYSTEM",e.feeder,"FOOD / WATER EQUIPMENT",e.feed],
+  ["MONITORING",e.monitor,"OBSERVATION EQUIPMENT",e.primary],
+  ["HABITAT",e.habitat,"ENCLOSURE EQUIPMENT",a.enclosure+" / "+a.zone],
+  ["CARE",e.care,"CARE SUPPORT EQUIPMENT","Linked to "+careProfile(a,i).file],
+  ["STORAGE",e.asset,"ASSET CONTROL",e.storage]
+ ];
+ const el=$("#eqRecord");if(!el)return;
+ el.innerHTML='<div class="residentHead"><div class="residentPortrait">'+a.ic+'</div><div><div class="big">'+a.n+' // ASSET FILE</div><b>'+a.sp+'</b><div class="factchips"><span>'+e.asset+'</span><span>'+e.inspect+'</span><span>'+e.storage+'</span></div></div></div>'+
+ '<div class="eqGrid">'+cards.map(c=>'<div class="eqCard"><strong>'+c[0]+'</strong><br><span class="eqTag">'+c[1]+'</span><span class="eqTag">'+c[2]+'</span><p>'+c[3]+'</p></div>').join("")+'</div>'+
+ opsSection("ASSET CONTROL",[["Master asset",e.asset],["Inventory seal",e.seal],["Storage bay",e.storage],["Inspection state",e.inspect],["Resident accession",a.accession],["Security class",a.security]])+
+ '<div class="dataSection"><h4>SIMULATED EQUIPMENT CHECKS</h4><div class="switchRow"><button class="action" data-eqact="TRANSPORT VISUAL CHECK PASS">TRANSPORT CHECK</button><button class="action" data-eqact="FEED EQUIPMENT CHECK PASS">FEED EQUIPMENT</button><button class="action" data-eqact="MONITOR SELF-TEST PASS">MONITOR TEST</button><button class="action" data-eqact="HABITAT EQUIPMENT CHECK PASS">HABITAT CHECK</button><button class="action" data-eqact="INVENTORY VERIFIED">VERIFY INVENTORY</button></div><div id="eqFeedback" class="tiny"><span class="systemLamp"></span>ASSET SYSTEM READY</div></div>'+
+ '<div class="dataSection"><h4>INSPECTION / ASSET LOG</h4><div class="eqlog">'+(logs.length?logs.map(x=>'<div>['+x.t+'] '+esc(x.m)+'</div>').join(""):"No equipment log entries.")+'</div><div class="netbar"><input id="eqEntry" placeholder="Add fictional inspection / equipment note..."><button class="action" id="addEqLog">LOG</button></div></div>'+
+ '<div class="dataSection"><h4>PUBLIC PRODUCT / RESEARCH SEARCH</h4><button class="action" data-eqweb="animal transport carrier">TRANSPORT</button> <button class="action" data-eqweb="zoo animal enrichment equipment">ENRICHMENT</button> <button class="action" data-eqweb="animal feeding equipment">FEEDING</button> <button class="action" data-eqweb="animal habitat monitoring equipment">MONITORING</button></div>'+
+ '<p class="tiny">Equipment IDs, inspection states and assignments are fictional. Real transport and containment require species-specific professional planning and applicable regulations.</p>';
+ $$("[data-eqact]").forEach(b=>b.onclick=()=>{let f=$("#eqFeedback");if(f)f.innerHTML='<span class="systemLamp"></span>'+b.dataset.eqact+' // '+new Date().toLocaleTimeString();journal("equipment action: "+b.dataset.eqact+" / "+a.accession)});
+ $("#addEqLog").onclick=()=>{let x=$("#eqEntry").value.trim();if(!x)return;logs.unshift({t:new Date().toLocaleString(),m:x.slice(0,300)});logs=logs.slice(0,12);try{localStorage.setItem(key,JSON.stringify(logs));toast("EQUIPMENT LOG SAVED")}catch(e){toast("STORAGE FULL // LOG NOT SAVED")}renderEquipment(i)};
+ $$("[data-eqweb]").forEach(b=>b.onclick=()=>search("web",a.sp+" "+b.dataset.eqweb));
+ journal("equipment file opened: "+a.n);
+}
+function initEquipment(){
+ try{
+  equipmentDashboard();
+  const s=$("#eqAnimal");if(!s)return;
+  s.innerHTML=zooAnimals.map((a,i)=>'<option value="'+i+'">'+a.n+' — '+a.transport+'</option>').join("");
+  const b=$("#eqLoad");if(b)b.onclick=()=>renderEquipment(Number(s.value));
+ }catch(e){console.warn("Equipment Database disabled:",e)}
+}
+setTimeout(initEquipment,850);
+function careProfile(a,i){
+ const recovery=a.status==="Recovery", obs=a.status==="Observation";
+ return {
+  file:"MED-SIM-"+String(12000+i*97),
+  team:"VET TEAM "+String.fromCharCode(65+i%4),
+  room:recovery?"RECOVERY "+(i%4+1):obs?"OBSERVATION "+(i%5+1):"ROUTINE CARE "+(i%6+1),
+  triage:recovery?"RECOVERY WATCH":obs?"OBSERVATION":"ROUTINE",
+  comfort:76+(i*7)%22, hydration:80+(i*5)%19, mobility:78+(i*9)%21, appetite:75+(i*11)%24, stress:18+(i*7)%35,
+  oxygen:93+(i%6), pain:recovery?3+(i%3):1+(i%2),
+  exam:"SIMULATED GENERAL OBSERVATION",
+  quarantine:(i%8===0)?"SEPARATE HOLDING REVIEW":"NO ACTIVE QUARANTINE FLAG",
+  next:"CARE REVIEW "+String((i%5)+1)+" / SHIFT "+String((i%3)+1),
+  disclaimer:"All values are fictional gameplay indicators. They are not species reference ranges, medical measurements, diagnoses, or treatment instructions."
+ };
+}
+function careDashboard(){
+ const el=$("#careDash");if(!el)return;
+ const recovery=zooAnimals.filter(a=>a.status==="Recovery").length,obs=zooAnimals.filter(a=>a.status==="Observation").length;
+ el.innerHTML='<div class="careTile"><b>'+zooAnimals.length+'</b>RESIDENT FILES</div><div class="careTile"><b>'+recovery+'</b>RECOVERY</div><div class="careTile"><b>'+obs+'</b>OBSERVATION</div><div class="careTile"><b>ONLINE</b>CARE CORE</div>';
+}
+function vital(label,val,unit,invert=false){
+ let pct=invert?100-Math.min(100,val*10):Math.min(100,val);
+ return '<div class="vital"><span>'+label+'</span><br><strong>'+val+unit+'</strong><div class="engBar"><i style="width:'+pct+'%"></i></div></div>';
+}
+function renderVetCare(i){
+ const a=zooAnimals[i];if(!a)return;const c=careProfile(a,i),key="zg.carelog."+a.accession;
+ let logs=[];try{logs=JSON.parse(localStorage.getItem(key)||"[]")}catch(_){}
+ const el=$("#careRecord");if(!el)return;
+ el.innerHTML='<div class="residentHead"><div class="residentPortrait">'+a.ic+'</div><div><div class="big">'+a.n+' // CARE FILE</div><b>'+a.sp+'</b><div class="factchips"><span>'+c.file+'</span><span>'+c.triage+'</span><span>'+c.team+'</span><span>'+c.room+'</span></div></div></div>'+
+ '<div class="careStage"><span class="active">INTAKE</span><span>OBSERVE</span><span>CARE</span><span>RECOVERY</span><span>RETURN</span></div>'+
+ '<div class="vitalGrid">'+vital("COMFORT",c.comfort,"%")+vital("HYDRATION",c.hydration,"%")+vital("MOBILITY",c.mobility,"%")+vital("APPETITE",c.appetite,"%")+vital("STRESS",c.stress,"%",true)+vital("SIM O₂",c.oxygen,"%")+vital("SIM PAIN",c.pain," / 10",true)+'</div>'+
+ opsSection("CARE IDENTIFICATION",[["Simulated medical file",c.file],["Resident accession",a.accession],["Assigned team",c.team],["Care location",c.room],["Care status",c.triage],["Next review",c.next]])+
+ opsSection("OBSERVATION PROFILE",[["General exam",c.exam],["Body mass reference",a.weight],["Activity context",a.activity],["Social context",a.social],["Nutrition link",nutritionProfile(a,i).plan],["Quarantine status",c.quarantine]])+
+ '<div class="dataSection"><h4>SIMULATED CARE ACTIONS</h4><div class="switchRow"><button class="action" data-careact="GENERAL OBSERVATION COMPLETE">OBSERVE</button><button class="action" data-careact="WATER ACCESS CHECKED">WATER CHECK</button><button class="action" data-careact="FOOD ACCEPTANCE CHECKED">FOOD CHECK</button><button class="action" data-careact="MOBILITY OBSERVED">MOBILITY</button><button class="action" data-careact="COMFORT ENVIRONMENT REVIEWED">COMFORT</button><button class="action" data-careact="RECOVERY CHECK LOGGED">RECOVERY CHECK</button></div><div id="careFeedback" class="tiny"><span class="systemLamp"></span>CARE CONSOLE READY</div></div>'+
+ '<div class="dataSection"><h4>CARE / OBSERVATION LOG</h4><div class="carelog">'+(logs.length?logs.map(x=>'<div>['+x.t+'] '+esc(x.m)+'</div>').join(""):"No care entries.")+'</div><div class="netbar"><input id="careEntry" placeholder="Add fictional keeper/veterinary observation..."><button class="action" id="addCareLog">LOG</button></div></div>'+
+ '<div class="dataSection"><h4>CONNECTED RECORDS</h4><button class="action" id="careNutrition">NUTRITION</button> <button class="action" id="careHabitat">HABITAT</button> <button class="action" id="careResident">RESIDENT FILE</button> <button class="action" data-careweb="veterinary care">PUBLIC VETERINARY RESEARCH</button></div><p class="tiny">'+c.disclaimer+'</p>';
+ $$("[data-careact]").forEach(b=>b.onclick=()=>{let f=$("#careFeedback");if(f)f.innerHTML='<span class="systemLamp"></span>'+b.dataset.careact+' // '+new Date().toLocaleTimeString();journal("care action: "+b.dataset.careact+" / "+a.accession)});
+ $("#addCareLog").onclick=()=>{let x=$("#careEntry").value.trim();if(!x)return;logs.unshift({t:new Date().toLocaleString(),m:x.slice(0,300)});logs=logs.slice(0,12);try{localStorage.setItem(key,JSON.stringify(logs));toast("CARE LOG SAVED")}catch(e){toast("STORAGE FULL // LOG NOT SAVED")}renderVetCare(i)};
+ $("#careNutrition").onclick=()=>{openApp("nutrition");$("#nutritionAnimal").value=String(i);renderNutrition(i)};
+ $("#careHabitat").onclick=()=>{openApp("engineering");$("#engAnimal").value=String(i);renderEngineering(i)};
+ $("#careResident").onclick=()=>{openApp("residents");$("#residentSelect").value=String(i);renderResident(i)};
+ $$("[data-careweb]").forEach(b=>b.onclick=()=>search("web",a.sp+" zoo veterinary care research"));
+ journal("veterinary care file opened: "+a.n);
+}
+function initVetCare(){
+ try{
+  careDashboard();
+  const s=$("#careAnimal");if(!s)return;
+  s.innerHTML=zooAnimals.map((a,i)=>'<option value="'+i+'">'+a.n+' — '+a.status+' — '+a.sp+'</option>').join("");
+  const b=$("#careLoad");if(b)b.onclick=()=>renderVetCare(Number(s.value));
+ }catch(e){console.warn("Veterinary Care disabled:",e)}
+}
+setTimeout(initVetCare,750);
+function securityProfile(a,i){
+ const restricted=a.security==="RESTRICTED", controlled=a.security==="CONTROLLED";
+ return {
+  level:restricted?"LEVEL R / RESTRICTED":controlled?"LEVEL C / CONTROLLED":"LEVEL S / STANDARD",
+  tracker:"SIM-TRACK-"+String(700000+i*431),
+  keeperBadge:"KPR-"+String(3100+i*23),
+  supervisor:"SUP-"+String(900+i%19),
+  gateState:(i%11===0)?"INSPECTION DUE":"SECURE / SENSOR NOMINAL",
+  camState:(i%13===0)?"REVIEW QUEUED":"ONLINE",
+  headcount:"1 / 1 CONFIRMED",
+  perimeter:"ZONE-"+String.fromCharCode(65+i%6)+"-"+(i%4+1),
+  radio:"OPS-"+(i%8+1),
+  shift:["ALPHA","BRAVO","CHARLIE","DELTA"][i%4],
+  escort:restricted?"SPECIALIST TEAM REQUIRED":controlled?"AUTHORIZED KEEPER TEAM":"STANDARD STAFF ACCESS",
+  drill:["GATE FAULT DRILL","WEATHER SHELTER DRILL","ANIMAL LOCATION DRILL","PUBLIC SEPARATION DRILL"][i%4]
+ };
+}
+function securityDashboard(){
+ const el=$("#secDash");if(!el)return;
+ const restricted=zooAnimals.filter(a=>a.security==="RESTRICTED").length;
+ const controlled=zooAnimals.filter(a=>a.security==="CONTROLLED").length;
+ el.innerHTML='<div class="secTile"><b>'+zooAnimals.length+'</b>RESIDENTS TRACKED</div><div class="secTile"><b>'+restricted+'</b>RESTRICTED FILES</div><div class="secTile"><b>'+controlled+'</b>CONTROLLED FILES</div><div class="secTile"><b class="secGreen">NOMINAL</b>COMMAND STATE</div>';
+ const zones=[...new Set(zooAnimals.map(a=>a.zone))];
+ const map=$("#secMap");if(map)map.innerHTML=zones.slice(0,12).map((z,j)=>'<div class="secZone"><strong>'+z+'</strong>'+zooAnimals.filter(a=>a.zone===z).length+' residents<br><span class="'+(j%7===0?"secAmber":"secGreen")+'">'+(j%7===0?"REVIEW":"SECURE")+'</span></div>').join("");
+}
+function renderSecurity(i){
+ const a=zooAnimals[i];if(!a)return;const s=securityProfile(a,i),key="zg.incident."+a.accession;
+ let logs=[];try{logs=JSON.parse(localStorage.getItem(key)||"[]")}catch(_){}
+ const el=$("#secRecord");if(!el)return;
+ el.innerHTML='<div class="residentHead"><div class="residentPortrait">'+a.ic+'</div><div><div class="big">'+a.n+' // SECURITY FILE</div><b>'+a.sp+'</b><div class="badgeRow"><span class="badgeChip">'+a.accession+'</span><span class="badgeChip">'+a.badge+'</span><span class="badgeChip">'+s.level+'</span><span class="badgeChip">'+s.tracker+'</span></div></div></div>'+
+ opsSection("IDENTITY & ACCESS",[["Resident",a.n],["Accession",a.accession],["Security class",s.level],["Resident badge",a.badge],["Simulated tracker",s.tracker],["Keeper badge group",s.keeperBadge],["Supervisor group",s.supervisor],["Access rule",s.escort]])+
+ opsSection("ENCLOSURE SECURITY",[["Zone",a.zone],["Enclosure",a.enclosure],["Perimeter",s.perimeter],["Gate group",a.gate],["Gate state",s.gateState],["Camera group",a.camera],["Camera state",s.camState],["Headcount",s.headcount]])+
+ opsSection("SHIFT COMMAND",[["Security shift",s.shift],["Radio group",s.radio],["Assigned keeper team",residentProfile(a,i).keeper],["Current drill",s.drill]])+
+ '<div class="dataSection"><h4>SIMULATED COMMAND ACTIONS</h4><div class="switchRow"><button class="action" data-secact="HEADCOUNT CONFIRMED">HEADCOUNT</button><button class="action" data-secact="CAMERA GROUP DIAGNOSTIC PASS">CAMERA CHECK</button><button class="action" data-secact="GATE SENSOR DIAGNOSTIC PASS">GATE CHECK</button><button class="action" data-secact="TRACKER SIGNAL CONFIRMED">TRACKER CHECK</button><button class="action" data-secact="SHIFT RADIO CHECK PASS">RADIO CHECK</button><button class="action" data-secact="DRILL LOGGED">RUN DRILL</button></div><div id="secFeedback" class="tiny"><span class="systemLamp"></span>SECURITY COMMAND READY</div></div>'+
+ '<div class="dataSection"><h4>INCIDENT / OBSERVATION LOG</h4><div class="incidentLog">'+(logs.length?logs.map(x=>'<div>['+x.t+'] '+esc(x.m)+'</div>').join(""):"No incident records for this resident.")+'</div><div class="netbar"><input id="incidentEntry" placeholder="Add fictional security / observation record..."><button class="action" id="addIncident">LOG</button></div></div>'+
+ '<div class="tiny">Security identifiers and controls in ZOO GODS are fictional game systems, not real facility credentials or bypass instructions.</div>';
+ $$("[data-secact]").forEach(b=>b.onclick=()=>{let f=$("#secFeedback");if(f)f.innerHTML='<span class="systemLamp"></span>'+b.dataset.secact+' // '+new Date().toLocaleTimeString();journal("security action: "+b.dataset.secact+" / "+a.accession)});
+ $("#addIncident").onclick=()=>{let x=$("#incidentEntry").value.trim();if(!x)return;logs.unshift({t:new Date().toLocaleString(),m:x.slice(0,300)});logs=logs.slice(0,12);try{localStorage.setItem(key,JSON.stringify(logs));toast("INCIDENT RECORD SAVED")}catch(e){toast("STORAGE FULL // RECORD NOT SAVED")}renderSecurity(i)};
+ journal("security file opened: "+a.n);
+}
+function initSecurity(){
+ try{
+  securityDashboard();
+  const s=$("#secAnimal");if(!s)return;
+  s.innerHTML=zooAnimals.map((a,i)=>'<option value="'+i+'">'+a.n+' — '+a.security+' — '+a.enclosure+'</option>').join("");
+  const b=$("#secLoad");if(b)b.onclick=()=>renderSecurity(Number(s.value));
+ }catch(e){console.warn("Security Command disabled:",e)}
+}
+setTimeout(initSecurity,650);
+function habitatProfile(a,i){
+ const b=String(a.biome||"").toLowerCase(), aquatic=/marine|freshwater|wetland|aquatic/.test(b);
+ let temp=22,humidity=55,light=72,water=88;
+ if(/polar|tundra|arctic/.test(b)){temp=5;humidity=62;light=58}
+ if(/tropical|rainforest|humid/.test(b)){temp=27;humidity=82;light=68}
+ if(/desert|dry|savanna|grassland/.test(b)){temp=29;humidity=38;light=84}
+ if(aquatic){temp=/polar/.test(b)?6:20;humidity=88;water=94}
+ return {temp,humidity,light,water,air:91+(i%7),filter:aquatic?87+(i%9):0,
+ substrate: /marine/.test(b)?"Aquatic substrate / habitat structure":/forest|rainforest/.test(b)?"Naturalistic soil, leaf litter and planted zones":/desert|dry/.test(b)?"Dry mixed substrate and sheltered zones":"Species-appropriate mixed habitat substrate",
+ shelter:"Resting / retreat zones "+(i%4+1),
+ camera:a.camera, gate:a.gate, zone:a.zone, enclosure:a.enclosure,
+ climate:"CLIMATE LOOP "+(i%5+1), lighting:"LIGHT ARRAY "+(i%4+1), ventilation:"AIR HANDLER "+(i%6+1),
+ waterSys:aquatic?"AQUATIC LIFE-SUPPORT "+(i%4+1):"DRINK / MIST LOOP "+(i%5+1),
+ alarm:(i%9===0)?"INSPECTION DUE":"NOMINAL"
+ };
+}
+function gauge(label,val,unit,max=100){
+ let pct=unit==="°C"?Math.max(0,Math.min(100,val/40*100)):Math.max(0,Math.min(100,val));
+ return '<div class="engGauge"><span>'+label+'</span><br><strong>'+val+unit+'</strong><div class="engBar"><i style="width:'+pct+'%"></i></div></div>';
+}
+function renderEngineering(i){
+ const a=zooAnimals[i];if(!a)return;const p=habitatProfile(a,i), key="zg.maint."+a.accession;
+ let logs=[];try{logs=JSON.parse(localStorage.getItem(key)||"[]")}catch(_){}
+ const el=$("#engRecord");if(!el)return;
+ el.innerHTML='<div class="residentHead"><div class="residentPortrait">'+a.ic+'</div><div><div class="big">'+a.enclosure+' // '+a.zone+'</div><b>'+a.n+' — '+a.sp+'</b><div class="factchips"><span>'+p.climate+'</span><span>'+p.lighting+'</span><span>'+p.ventilation+'</span><span class="'+(p.alarm==="NOMINAL"?"alarmOk":"alarmWarn")+'">'+p.alarm+'</span></div></div></div>'+
+ '<div class="engGrid">'+gauge("AIR TEMP",p.temp,"°C")+gauge("HUMIDITY",p.humidity,"%")+gauge("LIGHT OUTPUT",p.light,"%")+gauge("AIR SYSTEM",p.air,"%")+(p.filter?gauge("FILTRATION",p.filter,"%"):"")+gauge("WATER SYSTEM",p.water,"%")+'</div>'+
+ opsSection("ENVIRONMENTAL SYSTEMS",[["Biome model",a.biome],["Climate controller",p.climate],["Lighting",p.lighting],["Ventilation",p.ventilation],["Water / mist system",p.waterSys],["Substrate",p.substrate],["Shelter zones",p.shelter]])+
+ opsSection("FACILITY CONTROL",[["Enclosure",p.enclosure],["Gate group",p.gate],["Camera group",p.camera],["Current system state",p.alarm],["Engineering note","All controls and telemetry shown here are fictional simulation values."]])+
+ '<div class="dataSection"><h4>SIMULATED SYSTEM CONTROLS</h4><div class="switchRow"><button class="action" data-eng="CLIMATE SELF-TEST">CLIMATE TEST</button><button class="action" data-eng="LIGHT ARRAY CYCLE">LIGHT TEST</button><button class="action" data-eng="WATER LOOP CHECK">WATER CHECK</button><button class="action" data-eng="VENTILATION CHECK">AIR CHECK</button><button class="action" data-eng="CAMERA DIAGNOSTIC">CAMERA TEST</button><button class="action" data-eng="GATE SENSOR TEST">GATE SENSOR</button></div><div id="engFeedback" class="tiny"><span class="systemLamp"></span>SYSTEMS READY</div></div>'+
+ '<div class="dataSection"><h4>MAINTENANCE LOG</h4><div class="maintlog">'+(logs.length?logs.map(x=>'<div>['+x.t+'] '+esc(x.m)+'</div>').join(""):"No maintenance entries.")+'</div><div class="netbar"><input id="maintEntry" placeholder="Add fictional engineering / keeper maintenance note..."><button class="action" id="addMaint">LOG</button></div></div>';
+ $$("[data-eng]").forEach(b=>b.onclick=()=>{let f=$("#engFeedback");f.innerHTML='<span class="systemLamp"></span>'+b.dataset.eng+' // PASS // '+new Date().toLocaleTimeString();journal("engineering test: "+b.dataset.eng+" / "+a.enclosure)});
+ $("#addMaint").onclick=()=>{let x=$("#maintEntry").value.trim();if(!x)return;logs.unshift({t:new Date().toLocaleString(),m:x.slice(0,300)});logs=logs.slice(0,12);try{localStorage.setItem(key,JSON.stringify(logs));toast("MAINTENANCE LOG SAVED")}catch(e){toast("STORAGE FULL // LOG NOT SAVED")}renderEngineering(i)};
+ journal("habitat engineering opened: "+a.enclosure);
+}
+function initEngineering(){
+ try{
+  const s=$("#engAnimal");if(!s)return;
+  s.innerHTML=zooAnimals.map((a,i)=>'<option value="'+i+'">'+a.enclosure+' — '+a.n+' — '+a.zone+'</option>').join("");
+  const b=$("#engLoad");if(b)b.onclick=()=>renderEngineering(Number(s.value));
+ }catch(e){console.warn("Habitat Engineering disabled:",e)}
+}
+setTimeout(initEngineering,550);
+const feedInventory=[
+ ["PROTEIN STORES",78],["FRESH PRODUCE",84],["BROWSE / FORAGE",69],["AQUATIC FEED",74],
+ ["INVERTEBRATE FEED",81],["DRY / STAPLE",92],["ENRICHMENT FOOD",63],["PREP SUPPLIES",88]
+];
+function nutritionProfile(a,i){
+ const d=String(a.diet||"").toLowerCase();
+ let group="OMNIVORE / MIXED", foods="Varied species-appropriate managed foods";
+ if(d.includes("herb")){group="HERBIVORE / PLANT-FOCUSED";foods="Browse, grasses, leaves, vegetables or other species-appropriate plant material";}
+ else if(d.includes("pisc")){group="PISCIVORE";foods="Species-appropriate fish and aquatic prey items under managed-care planning";}
+ else if(d.includes("carn")){group="CARNIVORE";foods="Species-appropriate animal-protein foods under managed-care planning";}
+ else if(d.includes("insect")){group="INSECTIVORE";foods="Appropriately selected feeder invertebrates and species-specific supplements where professionally indicated";}
+ else if(d.includes("nectar")){group="NECTAR / PLANT";foods="Nectar resources and species-specific plant foods";}
+ const cycles=["EARLY / LATE","AM / PM","DISTRIBUTED","KEEPER-SCHEDULED"][i%4];
+ return {
+  group,foods,cycle:cycles,
+  kitchen:"PREP BAY "+String.fromCharCode(65+(i%5)),
+  cooler:"COLD STORE "+(1+i%4),
+  lot:"LOT-ZG-"+String(5000+i*19),
+  plan:"DIET-"+String(100+i),
+  acceptance:82+(i*7)%17,
+  hydration:84+(i*5)%15,
+  condition:["MONITOR","STABLE","STABLE","REVIEW"][i%4],
+  method:["Scatter / forage presentation","Puzzle feeder","Keeper presentation","Habitat-distributed feeding"][i%4],
+  storage:"Store and prepare according to food type, facility sanitation rules and professional animal-care plan.",
+  safety:"Fictional gameplay record only. Exact quantities, supplements and therapeutic diets must be set by qualified zoo/veterinary nutrition professionals."
+ };
+}
+function foodDashboard(){
+ const el=$("#foodDash");if(!el)return;
+ el.innerHTML=feedInventory.map(x=>'<div class="foodTile"><b>'+x[1]+'%</b>'+x[0]+'<div class="stockbar"><i style="width:'+x[1]+'%"></i></div></div>').join("");
+}
+function renderNutrition(i){
+ const a=zooAnimals[i];if(!a)return;const n=nutritionProfile(a,i), key="zg.feedlog."+a.accession;
+ let logs=[];try{logs=JSON.parse(localStorage.getItem(key)||"[]")}catch(_){}
+ const el=$("#nutritionRecord");if(!el)return;
+ el.innerHTML='<div class="residentHead"><div class="residentPortrait">'+a.ic+'</div><div><div class="big">'+a.n+' // NUTRITION FILE</div><b>'+a.sp+'</b><div class="factchips"><span>'+a.feed+'</span><span>'+n.plan+'</span><span>'+n.group+'</span><span>'+n.condition+'</span></div></div></div>'+
+ opsSection("DIET PROFILE",[["Diet classification",a.diet],["Nutrition group",n.group],["Managed-food concept",n.foods],["Feed cycle",n.cycle],["Presentation method",n.method],["Feed station",a.feed],["Diet plan",n.plan]])+
+ opsSection("FOOD OPERATIONS",[["Preparation kitchen",n.kitchen],["Storage assignment",n.cooler],["Current simulated lot",n.lot],["Storage / sanitation",n.storage],["Water provision","Continuous clean-water access or species-appropriate aquatic provision"],["Enrichment feeding",a.enrichment]])+
+ '<div class="dataSection"><h4>SIMULATED OBSERVATION METRICS</h4><div class="meterline"><span>Diet acceptance</span><div class="bar"><i style="width:'+n.acceptance+'%"></i></div><b>'+n.acceptance+'%</b></div><div class="meterline"><span>Hydration access</span><div class="bar"><i style="width:'+n.hydration+'%"></i></div><b>'+n.hydration+'%</b></div><p class="tiny">These are game-state indicators, not veterinary measurements.</p></div>'+
+ opsSection("NUTRITION CONTROL NOTES",[["Body mass reference",a.weight],["Status",n.condition],["Activity context",a.activity],["Operational safety",n.safety]])+
+ '<div class="dataSection"><h4>FEED PREPARATION LOG</h4><div class="prepLog">'+(logs.length?logs.map(x=>'<div>['+x.t+'] '+esc(x.m)+'</div>').join(""):'No preparation entries for this resident.')+'</div><div class="netbar"><input id="feedEntry" placeholder="Add simulated keeper feed/preparation note..."><button class="action" id="addFeedEntry">LOG</button></div></div>'+
+ '<div class="dataSection"><h4>RESEARCH & SUPPLY GATEWAYS</h4><button class="action" data-foodweb="diet">SPECIES DIET RESEARCH</button> <button class="action" data-foodweb="nutrition">NUTRITION RESEARCH</button> <button class="action" data-foodweb="food enrichment">FEED ENRICHMENT</button> <button class="action" data-foodweb="zoo food supplies">SUPPLIES</button></div>';
+ $("#addFeedEntry").onclick=()=>{let inp=$("#feedEntry"),m=inp.value.trim();if(!m)return;logs.unshift({t:new Date().toLocaleString(),m:m.slice(0,300)});logs=logs.slice(0,12);try{localStorage.setItem(key,JSON.stringify(logs));toast("FEED LOG SAVED")}catch(e){toast("STORAGE FULL // LOG NOT SAVED")}renderNutrition(i)};
+ $$("[data-foodweb]").forEach(b=>b.onclick=()=>search("web",a.sp+" "+b.dataset.foodweb));
+ journal("nutrition file opened: "+a.n);
+}
+function initNutrition(){
+ try{
+  foodDashboard();
+  const s=$("#nutritionAnimal");if(!s)return;
+  s.innerHTML=zooAnimals.map((a,i)=>'<option value="'+i+'">'+a.n+' — '+a.sp+' — '+a.feed+'</option>').join("");
+  const b=$("#nutritionLoad");if(b)b.onclick=()=>renderNutrition(Number(s.value));
+ }catch(e){console.warn("Nutrition Command disabled:",e)}
+}
+setTimeout(initNutrition,450);
+function residentProfile(a,i){
+ const year=2021+(i%5), month=String((i%12)+1).padStart(2,"0"), day=String(((i*3)%27)+1).padStart(2,"0");
+ return {
+  arrival:year+"-"+month+"-"+day,
+  source:["Managed-care transfer","Rescue / rehabilitation transfer","Institutional birth record","Conservation-program transfer"][i%4],
+  house:"HOUSE-"+String.fromCharCode(65+(i%6)),
+  keeper:"KEEPER TEAM "+String.fromCharCode(65+(i%5)),
+  vet:"CARE UNIT "+(1+i%4),
+  shift:["DAWN","DAY","SWING","NIGHT"][i%4],
+  transponder:"SIM-RFID-"+String(200000+i*791),
+  file:"RES-"+String(10000+i*113),
+  photo:"PORTRAIT-"+String(i+1).padStart(3,"0"),
+  status:a.status==="Recovery"?"CARE WATCH":"ACTIVE RESIDENT",
+  review:"REVIEW-"+(i%4+1)+" / 2026",
+  temperament:["OBSERVANT","SOCIAL","CAUTIOUS","CURIOUS","INDEPENDENT","HIGH-ENERGY"][i%6],
+  favorite:["scent enrichment","foraging challenge","quiet observation","water feature","climbing structure","novel objects"][i%6]
+ };
+}
+function residentEvents(a,i,p){
+ return [
+  [p.arrival,"Resident file activated — "+p.source],
+  ["2025-"+String((i%9)+1).padStart(2,"0")+"-14","Annual identity and habitat record reviewed"],
+  ["2026-03-"+String((i%20)+1).padStart(2,"0"),"Enrichment plan updated: "+p.favorite],
+  ["2026-07-"+String((i%20)+1).padStart(2,"0"),"Keeper-team assignment confirmed: "+p.keeper],
+  ["CURRENT","Record status: "+p.status]
+ ];
+}
+function renderResident(i){
+ const a=zooAnimals[i]; if(!a)return;
+ const p=residentProfile(a,i), events=residentEvents(a,i,p), key="zg.resnote."+a.accession;
+ let note="";try{note=localStorage.getItem(key)||""}catch(_){}
+ const el=$("#residentRecord");if(!el)return;
+ el.innerHTML='<div class="residentHead"><div class="residentPortrait">'+a.ic+'</div><div><div class="big">'+a.n+'</div><b>'+a.sp+'</b><br><i>'+a.scientific+'</i><div class="factchips"><span>'+a.accession+'</span><span>'+p.file+'</span><span>'+a.badge+'</span><span>'+p.status+'</span></div></div></div>'+
+ opsSection("PERMANENT IDENTITY",[["Resident name",a.n],["Species",a.sp],["Scientific name",a.scientific],["Sex",a.sex],["Age record",a.age],["Resident file",p.file],["Accession",a.accession],["Simulated RFID",p.transponder],["Portrait reference",p.photo]])+
+ opsSection("INSTITUTIONAL HISTORY",[["Arrival / file date",p.arrival],["Record source",p.source],["House assignment",p.house],["Current habitat",a.zone],["Enclosure",a.enclosure],["Record review",p.review]])+
+ '<div class="dataSection"><h4>ASSIGNMENTS</h4><div class="shiftgrid"><div class="shiftcard"><b>'+p.keeper+'</b><br>Primary keeper group</div><div class="shiftcard"><b>'+p.vet+'</b><br>Care unit</div><div class="shiftcard"><b>'+p.shift+'</b><br>Observation shift</div><div class="shiftcard"><b>'+a.feed+'</b><br>Feed station</div></div></div>'+
+ opsSection("INDIVIDUAL PROFILE",[["Temperament tag",p.temperament],["Observed interests",p.favorite],["Activity",a.activity],["Social pattern",a.social],["Resident traits",a.traits],["Current status",a.status]])+
+ '<div class="dataSection"><h4>RESIDENT TIMELINE</h4><div class="timeline">'+events.map(e=>'<div><b>'+e[0]+'</b><br>'+e[1]+'</div>').join("")+'</div></div>'+
+ '<div class="dataSection"><h4>OPERATOR NOTES</h4><textarea class="residentNote" id="residentNote">'+esc(note)+'</textarea><br><button class="action" id="saveResidentNote">SAVE RESIDENT NOTE</button> <button class="action" id="residentOps">OPEN OPERATIONS DOSSIER</button> <button class="action" id="residentNutrition">OPEN NUTRITION</button> <button class="action" id="residentHabitat">OPEN HABITAT ENGINEERING</button> <button class="action" id="residentSecurity">OPEN SECURITY</button> <button class="action" id="residentVetCare">OPEN VET CARE</button> <button class="action" id="residentEquipment">OPEN EQUIPMENT</button> <button class="action" id="residentKeeper">KEEPER BOARD</button> <button class="action" id="residentResearch">RESEARCH</button> <button class="action" id="residentCommand">COMMAND CENTER</button></div>';
+ $("#saveResidentNote").onclick=()=>{try{localStorage.setItem(key,$("#residentNote").value.slice(0,3000));toast("RESIDENT NOTE SAVED")}catch(e){toast("STORAGE FULL // NOTE NOT SAVED")}};
+ $("#residentOps").onclick=()=>{openApp("records");$("#opsAnimal").value=String(i);renderOps(i)};
+ $("#residentNutrition").onclick=()=>{openApp("nutrition");$("#nutritionAnimal").value=String(i);renderNutrition(i)};
+ $("#residentHabitat").onclick=()=>{openApp("engineering");$("#engAnimal").value=String(i);renderEngineering(i)};
+ $("#residentSecurity").onclick=()=>{openApp("security");$("#secAnimal").value=String(i);renderSecurity(i)};
+ $("#residentVetCare").onclick=()=>{openApp("vetcare");$("#careAnimal").value=String(i);renderVetCare(i)};
+ $("#residentEquipment").onclick=()=>{openApp("equipment");$("#eqAnimal").value=String(i);renderEquipment(i)};
+ $("#residentKeeper").onclick=()=>{openApp("keepers");$("#keeperAnimal").value=String(i);renderKeeper(i)};
+ $("#residentResearch").onclick=()=>{openApp("research");$("#researchAnimal").value=String(i);renderResearch(i)};
+ $("#residentCommand").onclick=()=>{openApp("command");renderCommand()};
+ journal("individual resident file opened: "+a.n);
+}
+function initResidents(){
+ try{
+  const s=$("#residentSelect");if(!s)return;
+  s.innerHTML=zooAnimals.map((a,i)=>'<option value="'+i+'">'+a.n+' — '+a.sp+' — '+a.accession+'</option>').join("");
+  const b=$("#residentLoad");if(b)b.onclick=()=>renderResident(Number(s.value));
+ }catch(e){console.warn("Resident Command disabled:",e)}
+}
+setTimeout(initResidents,350);
+function opProfile(a,i){
+ a=a||{}; i=Number.isFinite(i)?i:0;
+ const seed=(i+3)*17;
+ const risk=a.security==="RESTRICTED"?"HIGH":a.security==="CONTROLLED"?"MODERATE":"STANDARD";
+ const diet=String(a.diet||"").toLowerCase();
+ const food=diet.includes("herb")?"browse, leafy vegetation, species-appropriate plant foods":diet.includes("carn")||diet.includes("pisc")?"species-appropriate animal-protein diet under managed-care plan":"varied species-appropriate managed diet";
+ return {
+  keeper:"TEAM-"+String.fromCharCode(65+(i%5))+" / SHIFT "+(1+i%3),
+  badgeid:"ZG-BDG-"+String(4100+i*37),
+  transponder:"SIM-"+String(a.class||"UNK").substring(0,3).toUpperCase()+"-"+String(88000+seed),
+  security:risk,
+  doors:"GATE "+a.gate+" / DOUBLE-CHECK LOG ACTIVE",
+  perimeter:"CAM "+a.camera+" / SENSOR GROUP "+(i%6+1),
+  count:"HEADCOUNT "+(100+i)+" / DAILY VISUAL CONFIRMATION",
+  dietplan:food,
+  feedcycle:(i%2?"AM / PM managed feeding":"distributed feeding / enrichment rotation"),
+  water:"Continuous clean-water access or species-appropriate aquatic provision",
+  prep:"Prepare and present according to species, individual plan, food-safety policy and keeper instructions",
+  carrier:a.transport,
+  transfer:"Pre-transfer checklist, identity confirmation, destination confirmation and trained-team authorization",
+  equipment:"Barrier tools appropriate to species; enrichment kit; cleaning kit; record tablet; transport equipment",
+  ppe:"Facility PPE selected by task, species and institutional protocol",
+  quarantine:"Separate holding record available; biosecurity status logged in simulation",
+  emergency:"Notify zoo operations; secure public/staff separation; follow facility species-response plan",
+  welfare:"Daily observation, appetite, hydration access, locomotion, behavior, habitat use and enrichment response",
+  nutrition:"Body condition and diet acceptance tracked as managed-care observations",
+  notes:"Record is fictional operational game data. Real animal husbandry, nutrition, transport and veterinary decisions require qualified zoo/veterinary professionals."
+ };
+}
+function opsSection(title,rows){return '<div class="dataSection"><h4>'+title+'</h4><div class="dataTable">'+rows.map(r=>'<div>'+r[0]+'</div><div>'+r[1]+'</div>').join("")+'</div></div>'}
+function renderOps(i){
+ let a=zooAnimals[i],o=opProfile(a,i),el=$("#opsRecord");
+ el.innerHTML='<div class="big">'+a.ic+' '+a.n+' // '+a.sp+'</div><div class="tagcloud"><span>'+a.accession+'</span><span>'+a.badge+'</span><span>'+a.security+'</span><span>'+a.zone+'</span><span>'+a.enclosure+'</span></div>'+
+ opsSection("SECURITY & IDENTIFICATION",[["Accession",a.accession],["Badge designation",a.badge],["Keeper badge record",o.badgeid],["Simulated transponder",o.transponder],["Security level",o.security],["Assigned team",o.keeper],["Gate controls",o.doors],["Perimeter monitoring",o.perimeter],["Headcount record",o.count]])+
+ opsSection("FOOD & NUTRITION OPERATIONS",[["Diet class",a.diet],["Managed diet concept",o.dietplan],["Feed station",a.feed],["Feeding cycle",o.feedcycle],["Water provision",o.water],["Food preparation",o.prep],["Nutrition monitoring",o.nutrition]])+
+ opsSection("TRANSPORT & EQUIPMENT",[["Transport category",o.carrier],["Transfer workflow",o.transfer],["Routine equipment",o.equipment],["PPE category",o.ppe],["Quarantine",o.quarantine]])+
+ opsSection("HABITAT & WELFARE",[["Habitat",a.zone],["Enclosure",a.enclosure],["Biome reference",a.biome],["Activity cycle",a.activity],["Social structure",a.social],["Welfare observations",o.welfare],["Enrichment",a.enrichment]])+
+ opsSection("EMERGENCY / DOCUMENT CONTROL",[["Emergency response",o.emergency],["Record status",a.status],["Operational note",o.notes]])+
+ '<div class="dataSection"><h4>PUBLIC RESEARCH LINKS</h4><button class="action" data-opweb="food">FOOD</button> <button class="action" data-opweb="nutrition">NUTRITION</button> <button class="action" data-opweb="transport">TRANSPORT</button> <button class="action" data-opweb="enrichment">ENRICHMENT</button> <button class="action" data-opweb="conservation">CONSERVATION</button></div>';
+ $$("[data-opweb]").forEach(b=>b.onclick=()=>search("web",a.sp+" zoo "+b.dataset.opweb+" research"));
+ journal("operations dossier opened: "+a.n);
+}
+function initOps(){
+ try{
+  let s=$("#opsAnimal");if(!s)return;
+  s.innerHTML=zooAnimals.map((a,i)=>'<option value="'+i+'">'+a.n+' — '+a.sp+' — '+a.accession+'</option>').join("");
+  let load=$("#opsLoad");if(load)load.onclick=()=>renderOps(Number(s.value));
+ }catch(err){console.warn("Animal Ops module disabled:",err)}
+}
+setTimeout(initOps,250);
+
+function naturalHistory(a){
+ const sp=String(a.sp||"");
+ return {
+  anatomy:"Body form and anatomy reflect life in "+String(a.biome||"its habitat")+". Feeding structures, limbs or fins, skin/covering and body proportions support its ecological niche.",
+  senses:/dolphin/i.test(sp)?"Hearing and echolocation are major sensory systems.":/owl|eagle|raven/i.test(sp)?"Vision is especially important, with hearing and other cues also contributing.":/shark/i.test(sp)?"Smell, mechanoreception and electroreception complement vision.":"Multiple sensory systems—vision, hearing, smell, touch and species-specific specializations—guide behavior.",
+  communication:"Communication can involve posture, movement, scent, touch, vocalization, visual display or other signals depending on the species.",
+  development:"Development proceeds through species-specific life stages, with parental care ranging from minimal to prolonged.",
+  reproduction:"Breeding biology varies with season, habitat, social organization, age and resource availability.",
+  ecology:"Diet and habitat connect this species to predators, prey or food plants, competitors, scavengers, pollinators and other parts of its ecosystem.",
+  movement:/reindeer|monarch|sea turtle/i.test(sp)?"Long-distance or strongly seasonal movement is a notable part of this species' natural history.":"Movement patterns vary with feeding, shelter, breeding, climate and habitat.",
+  threats:"Population pressures can include habitat loss, conflict, pollution, climate change, invasive species, disease and exploitation; importance differs by population.",
+  current:"Conservation status and population estimates change. Use the live research buttons for current authoritative sources."
+ };
+}
 function renderAnimals(q=""){
- const g=$("#animalgrid"); if(!g)return; q=q.toLowerCase();
- const arr=zooAnimals.filter(a=>(a.n+" "+a.sp+" "+a.zone).toLowerCase().includes(q));
- g.innerHTML=arr.map((a,i)=>'<div class="animalcard" data-animal="'+zooAnimals.indexOf(a)+'"><div class="animalicon">'+a.ic+'</div><b>'+a.n+'</b><br>'+a.sp+'<br><span class="badge">'+a.zone+'</span><span class="badge">'+a.status+'</span></div>').join("");
+ const g=$("#animalgrid"); if(!g)return; q=(q||"").toLowerCase().trim();
+ const counts={};zooAnimals.forEach(a=>counts[a.class]=(counts[a.class]||0)+1);
+ const st=$("#registryStats");if(st)st.innerHTML="<div><b>"+zooAnimals.length+"</b>RECORDS</div><div><b>"+(counts.Mammal||0)+"</b>MAMMALS</div><div><b>"+(counts.Bird||0)+"</b>BIRDS</div><div><b>"+(zooAnimals.length-(counts.Mammal||0)-(counts.Bird||0))+"</b>OTHER TAXA</div>";
+ const arr=zooAnimals.filter(a=>Object.values(a).join(" ").toLowerCase().includes(q));
+ let rc=$("#registryCount");if(rc)rc.textContent=arr.length+" / "+zooAnimals.length+" RECORDS";
+ g.innerHTML=arr.map(a=>{let i=zooAnimals.indexOf(a);return '<div class="animalcard" data-animal="'+i+'"><div class="animalicon">'+a.ic+'</div><b>'+a.n+'</b><br>'+a.sp+'<br><span class="badge">'+a.class+'</span><span class="badge">'+a.badge+'</span><span class="badge">'+a.security+'</span></div>'}).join("");
  $$("[data-animal]").forEach(c=>c.onclick=()=>showAnimal(Number(c.dataset.animal)));
 }
+function section(title,rows){return '<div class="dataSection"><h4>'+title+'</h4><div class="dataTable">'+rows.map(r=>'<div>'+r[0]+'</div><div>'+r[1]+'</div>').join("")+'</div></div>'}
 function showAnimal(i){
  markMission("animal");
- const a=zooAnimals[i],d=$("#animalDetail");d.style.display="block";
- d.innerHTML='<div class="big">'+a.ic+' '+a.n+' // '+a.sp+'</div>'+
- '<div class="statline"><span>Habitat</span><b>'+a.zone+'</b></div><div class="statline"><span>Sex</span><b>'+a.sex+'</b></div>'+
- '<div class="statline"><span>Age</span><b>'+a.age+'</b></div><div class="statline"><span>Diet</span><b>'+a.diet+'</b></div>'+
- '<div class="statline"><span>Status</span><b>'+a.status+'</b></div><p>'+a.note+'</p>'+
- '<button class="action" id="webSpecies">WEB SEARCH: '+a.sp.toUpperCase()+'</button>';
- $("#webSpecies").onclick=()=>search("web",a.sp+" animal species information");
- journal("species record opened: "+a.n+" / "+a.sp);
+ const a=zooAnimals[i],d=$("#animalDetail");d.style.display="grid";
+ d.innerHTML='<div class="identityPlate"><div class="portrait">'+a.ic+'</div><div class="big">'+a.n+'</div><b>'+a.sp+'</b><p><i>'+a.scientific+'</i></p><span class="badge">'+a.badge+'</span><span class="badge">'+a.security+'</span><hr style="border-color:#183f47"><b>ACCESSION</b><br>'+a.accession+'<br><br><button class="action" id="webSpecies">WEB RESEARCH</button></div><div class="dataSections">'+
+ section("IDENTITY & TAXONOMY",[["Common name",a.sp],["Scientific name",a.scientific],["Class",a.class],["Order",a.order],["Family",a.family],["Sex",a.sex],["Age",a.age],["Resident status",a.status]])+
+ section("INSTITUTIONAL IDENTIFIERS",[["Zoo Gods ID",a.accession],["Badge",a.badge],["Security class",a.security],["Habitat",a.zone],["Enclosure",a.enclosure],["Gate group",a.gate],["Camera group",a.camera],["Feed station",a.feed]])+
+ section("BIOLOGICAL PROFILE",[["Origin",a.origin],["Geographic range",a.range],["Biome",a.biome],["Activity cycle",a.activity],["Social structure",a.social],["Typical lifespan",a.lifespan],["Body mass",a.weight],["Diet class",a.diet]])+
+ section("BEHAVIOR & ENRICHMENT",[["Capabilities / traits",a.traits],["Enrichment concepts",a.enrichment],["Transport category",a.transport],["Record note",a.note]])+
+ section("ANATOMY, SENSES & MOVEMENT",[["Anatomy",naturalHistory(a).anatomy],["Sensory biology",naturalHistory(a).senses],["Movement ecology",naturalHistory(a).movement]])+
+ section("COMMUNICATION & LIFE HISTORY",[["Communication",naturalHistory(a).communication],["Development",naturalHistory(a).development],["Reproduction",naturalHistory(a).reproduction],["Ecological role",naturalHistory(a).ecology]])+
+ section("THREATS & CURRENT RESEARCH",[["General pressures",naturalHistory(a).threats],["Current information",naturalHistory(a).current]])+
+ section("OPERATIONS SNAPSHOT",[["Keeper assignment",opProfile(a,i).keeper],["Keeper badge",opProfile(a,i).badgeid],["Simulated transponder",opProfile(a,i).transponder],["Security risk",opProfile(a,i).security],["Gate controls",opProfile(a,i).doors],["Food operations",opProfile(a,i).dietplan],["Transport",opProfile(a,i).carrier]])+
+ '<div class="dataSection"><h4>RESEARCH GATEWAYS</h4><button class="action" data-zweb="species">SPECIES</button> <button class="action" data-zweb="diet">DIET</button> <button class="action" data-zweb="conservation">CONSERVATION</button> <button class="action" data-zweb="enrichment">ENRICHMENT</button> <button class="action" data-zweb="carrier">CARRIER / TRANSPORT</button></div></div>';
+ $("#webSpecies").onclick=()=>search("web",a.sp+" species information");
+ $$("[data-zweb]").forEach(b=>b.onclick=()=>{let x=b.dataset.zweb,query=x==="species"?a.sp+" species information":x==="carrier"?a.sp+" animal transport carrier":a.sp+" "+x+" zoo";search("web",query)});
+ journal("species dossier opened: "+a.n+" / "+a.sp);
 }
-$("#animalSearchBtn").onclick=()=>renderAnimals($("#animalSearch").value);
-$("#animalSearch").addEventListener("input",()=>renderAnimals($("#animalSearch").value));
+$("#animalSearchBtn")?.addEventListener("click",()=>renderAnimals($("#animalSearch").value));
+if($("#animalSearch"))$("#animalSearch").addEventListener("input",()=>renderAnimals($("#animalSearch").value));
+$$("[data-filter]").forEach(b=>b.onclick=()=>{$("#animalSearch").value=b.dataset.filter;renderAnimals(b.dataset.filter)});
+renderAnimals();
 $$("[data-zone]").forEach(z=>z.onclick=()=>{
  let name=z.dataset.zone,count=zooAnimals.filter(a=>a.zone===name).length;
  $("#zoneReadout").innerHTML="<b>"+name+"</b><br>Resident records: "+count+"<br>Environmental telemetry: SIMULATED<br>Life-support model: NOMINAL<br>Enrichment scheduler: ACTIVE";
@@ -763,8 +1912,12 @@ function drawNetMap(){
 $("#pingNodes").onclick=()=>{$("#netMapLog").textContent="SIMULATED PING: NX LOCAL 1ms // STORAGE 2ms // HOST GATEWAY ready";pulse();toast("LOCAL SIMULATION PING COMPLETE")};
 $("#passiveSweep").onclick=()=>{$("#netMapLog").textContent="PASSIVE SWEEP: 4 modeled routes. Device 07 has no driver and remains isolated.";toast("PASSIVE TOPOLOGY UPDATED")};
 $("#inspect07").onclick=()=>{$("#device07result").innerHTML="<br>Signature: <b>07-AF-19-??</b><br>Header fragments: NX / AUX / RECOVERY<br>Result: unknown local simulated subsystem. No mount attempted.";localStorage.setItem("nx.device07seen","1");toast("PASSIVE INSPECTION COMPLETE")};
-setTimeout(drawNetMap,500);
-boot();
+setTimeout(()=>{try{drawNetMap()}catch(e){console.warn("Network map disabled:",e)}},500);
+setTimeout(()=>{let b=$("#boot");if(b){b.style.display="none";}},6200);
+
+function initArtifactPhase(){try{let bc=$("#bootClock");setInterval(()=>{if(bc)bc.textContent="RTC "+new Date().toLocaleTimeString()},1000);$("#bootSkip").onclick=finishBoot;$("#bootSound").onclick=()=>{bootSoundEnabled=!bootSoundEnabled;$("#bootSound").textContent="SOUND: "+(bootSoundEnabled?"ARMED":"MUTED");if(bootSoundEnabled)tone(520,.05,.02)};$("#bootSafe").onclick=()=>{document.body.classList.add("safeMode");$("#desktop").classList.remove("artifactFlicker");toast("SAFE DISPLAY ENABLED")};$("#artifactSound").onclick=()=>{bootSoundEnabled=!bootSoundEnabled;$("#artifactSound").textContent="SOUND "+(bootSoundEnabled?"ON":"OFF");if(bootSoundEnabled)tone(620,.05,.02)};$("#artifactFx").onclick=()=>{let on=$("#desktop").classList.toggle("artifactFlicker");document.body.classList.toggle("safeMode",!on);$("#artifactFx").textContent="CRT FX "+(on?"ON":"OFF")};$("#artifactBootAgain").onclick=()=>{$("#boot").style.display="flex";$("#desktop").style.display="none";boot()}}catch(e){console.warn("Artifact controls disabled:",e)}}
+initArtifactPhase();
+try{boot()}catch(e){console.error("Boot module error:",e);let b=$("#boot");if(b)b.style.display="none";document.body.classList.add("safeMode");}
 })();
 </script>
 </body>
